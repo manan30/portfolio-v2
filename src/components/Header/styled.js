@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
+  display: flex;
+  align-items: center;
+
   position: fixed;
+  top: 0;
 
   height: 2rem;
   width: calc(100% - 2rem);
@@ -13,8 +17,18 @@ const HeaderContainer = styled.header`
   transition: all 0.3s ease-in-out;
 `;
 
+const HeaderText = styled.span`
+  margin-left: 3rem;
+
+  color: #404e7c;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  font-family: Nunito;
+`;
+
 const NavigationContainer = styled.nav`
   height: 100%;
+  width: 100%;
 `;
 
 const NavigationItemContainer = styled.ul`
@@ -36,6 +50,7 @@ const NavItem = styled.li`
 
 export {
   HeaderContainer,
+  HeaderText,
   NavigationContainer,
   NavigationItemContainer,
   NavItem,

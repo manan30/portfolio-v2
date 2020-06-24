@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
+import React, { useEffect, useState } from 'react';
 import {
   HeaderContainer,
+  HeaderText,
   NavigationContainer,
   NavigationItemContainer,
   NavItem,
@@ -25,6 +26,7 @@ function Header() {
 
   return (
     <HeaderContainer shadow={scrolled}>
+      <HeaderText>Manan</HeaderText>
       <NavigationContainer>
         <NavigationItemContainer>
           <Link to="/experience">
