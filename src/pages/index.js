@@ -8,8 +8,13 @@ function IndexPage() {
     <Layout>
       <SEO title="Home" />
       <MainContainer>
-        <PageText fontSize="4rem" fontWeight="bolder" color="#404e7c">
-          Hello, I&apos;m Manan Joshi
+        <PageText
+          fontSize="4rem"
+          fontWeight="bolder"
+          color="#404e7c"
+          animation="title"
+        >
+          Hello, I&apos;m Manan
         </PageText>
         <PageText fontSize="1rem">
           Enthusiastic Full-Stack&nbsp;
@@ -18,10 +23,10 @@ function IndexPage() {
           </span>
         </PageText>
         <PageText fontSize="1rem">
+          JavaScript is&nbsp;
           <span role="img" aria-label="heart_emoji">
             ❤️
           </span>
-          &nbsp;all things JavaScript
         </PageText>
         <PageText fontSize="1rem">
           Pragmatist&nbsp;
