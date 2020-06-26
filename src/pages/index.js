@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import { MainContainer, PageText } from './styled';
+import { IntroContainer, PageText } from './styled';
 
 function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-      <MainContainer>
+      <IntroContainer>
         <PageText
           fontSize="4rem"
           fontWeight="bolder"
@@ -47,7 +47,7 @@ function IndexPage() {
           </span>
           &nbsp;are we alone in the universe?
         </PageText>
-      </MainContainer>
+      </IntroContainer>
     </Layout>
   );
 }

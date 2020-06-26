@@ -10,13 +10,6 @@ const TextTranslateAnimation = (percent) => keyframes`
   }
 `;
 
-const MainContainer = styled.div`
-  height: calc(100vh - 4rem);
-  width: calc(100vw - 10rem);
-  margin-top: 4rem;
-  padding: 0 5rem;
-`;
-
 const PageText = styled.div`
   color: ${(props) => props.color || 'inherit'};
   font-size: ${(props) => props.fontSize || '1rem'};
@@ -30,8 +23,7 @@ const PageText = styled.div`
 `;
 
 const IntroContainer = styled.div`
-  margin-top: 15rem;
-  margin-left: 8rem;
+  padding: 10rem 0 10rem 4rem;
 `;
 
-export { MainContainer, PageText, IntroContainer };
+export { IntroContainer, PageText };
