@@ -15,10 +15,20 @@ function Experience() {
             const idx = i;
             return (
               <Card key={idx}>
-                <div>{exp.position}</div>
-                <div>{exp.company}</div>
-                <div>{exp.location}</div>
-                <div>{exp.timeline}</div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 'bolder' }}>
+                    {exp.position}
+                  </div>
+                  <div style={{ fontSize: '0.6rem', marginLeft: 'auto' }}>
+                    {exp.timeline}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div style={{ fontSize: '0.8rem' }}>{exp.company}</div>
+                  <div style={{ fontSize: '0.6rem', marginLeft: 'auto' }}>
+                    {exp.location}
+                  </div>
+                </div>
               </Card>
             );
           })}
