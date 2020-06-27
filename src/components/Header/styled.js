@@ -18,7 +18,7 @@ const HeaderContainer = styled.header`
 `;
 
 const HeaderText = styled.span`
-  margin-left: 3rem;
+  margin-left: 2rem;
 
   color: #404e7c;
   font-size: 1.6rem;

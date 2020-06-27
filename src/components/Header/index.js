@@ -26,7 +26,9 @@ function Header() {
 
   return (
     <HeaderContainer shadow={scrolled}>
-      <HeaderText>Manan</HeaderText>
+      <Link to="/">
+        <HeaderText>Manan</HeaderText>
+      </Link>
       <NavigationContainer>
         <NavigationItemContainer>
           <Link to="/experience">
