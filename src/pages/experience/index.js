@@ -8,22 +8,24 @@ function Experience() {
   return (
     <Layout>
       <SEO title="Experience" />
-      <Grid>
-        {ExperienceData.map((exp, i) => {
-          const idx = i;
-          return (
-            <div
-              key={idx}
-              style={{ border: '1px solid black', padding: '1rem' }}
-            >
-              <div>{exp.position}</div>
-              <div>{exp.company}</div>
-              <div>{exp.location}</div>
-              <div>{exp.timeline}</div>
-            </div>
-          );
-        })}
-      </Grid>
+      <div style={{ marginTop: '10rem' }}>
+        <Grid>
+          {ExperienceData.map((exp, i) => {
+            const idx = i;
+            return (
+              <div
+                key={idx}
+                style={{ border: '1px solid black', padding: '1rem' }}
+              >
+                <div>{exp.position}</div>
+                <div>{exp.company}</div>
+                <div>{exp.location}</div>
+                <div>{exp.timeline}</div>
+              </div>
+            );
+          })}
+        </Grid>
+      </div>
     </Layout>
   );
 }
