@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const GridContainer = styled.div`
@@ -19,5 +20,12 @@ function Grid({ children }) {
     </>
   );
 }
+
+Grid.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
+};
 
 export default Grid;

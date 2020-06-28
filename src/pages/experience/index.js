@@ -1,9 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import SEO from '../../components/SEO';
 import Grid from '../../components/Grid';
 import Card from '../../components/Card';
+
+const PageText = styled.div`
+  margin-left: ${(props) => props.marginLeft && props.marginLeft};
+
+  font-size: ${(props) => props.fontSize || '1rem'};
+  font-weight: ${(props) => props.fontWeight && props.fontWeight};
+`;
 
 function Experience() {
   const {
@@ -35,18 +43,18 @@ function Experience() {
             return (
               <Card key={idx}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 'bolder' }}>
+                  <PageText fontSize="1.2rem" fontWeight="bolder">
                     {exp.position}
-                  </div>
-                  <div style={{ fontSize: '0.6rem', marginLeft: 'auto' }}>
+                  </PageText>
+                  <PageText fontSize="0.6rem" marginLeft="auto">
                     {exp.timeline}
-                  </div>
+                  </PageText>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ fontSize: '0.8rem' }}>{exp.company}</div>
-                  <div style={{ fontSize: '0.6rem', marginLeft: 'auto' }}>
+                  <PageText fontSize="0.8rem">{exp.company}</PageText>
+                  <PageText fontSize="0.6rem" marginLeft="auto">
                     {exp.location}
-                  </div>
+                  </PageText>
                 </div>
               </Card>
             );

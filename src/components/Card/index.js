@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
@@ -18,5 +19,12 @@ const CardContainer = styled.div`
 function Card({ children }) {
   return <CardContainer>{children}</CardContainer>;
 }
+
+Card.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
+};
 
 export default Card;
