@@ -9,7 +9,7 @@ function Experience() {
   return (
     <Layout>
       <SEO title="Experience" />
-      <div style={{ marginTop: '10rem', paddingBottom: '1rem' }}>
+      <div style={{ marginTop: '10rem' }}>
         <Grid>
           {ExperienceData.map((exp, i) => {
             const idx = i;

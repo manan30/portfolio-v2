@@ -12,7 +12,12 @@ const GridContainer = styled.div`
 `;
 
 function Grid({ children }) {
-  return <GridContainer>{children}</GridContainer>;
+  return (
+    <>
+      <GridContainer>{children}</GridContainer>
+      <div style={{ paddingBottom: '1.5rem' }} />
+    </>
+  );
 }
 
 export default Grid;
