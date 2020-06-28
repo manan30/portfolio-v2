@@ -1,17 +1,36 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../../components/layout';
 import SEO from '../../components/SEO';
 import Grid from '../../components/Grid';
-import { data as ExperienceData } from '../../data/experiences.json';
 import Card from '../../components/Card';
 
 function Experience() {
+  const {
+    allExperiencesJson: { edges: ExperienceData },
+  } = useStaticQuery(
+    graphql`
+      query {
+        allExperiencesJson {
+          edges {
+            node {
+              position
+              company
+              location
+              timeline
+            }
+          }
+        }
+      }
+    `
+  );
+
   return (
     <Layout>
       <SEO title="Experience" />
       <div style={{ marginTop: '10rem' }}>
         <Grid>
-          {ExperienceData.map((exp, i) => {
+          {ExperienceData.map(({ node: exp }, i) => {
             const idx = i;
             return (
               <Card key={idx}>
