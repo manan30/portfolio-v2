@@ -5,6 +5,7 @@ import Card from '../../components/Card';
 import Grid from '../../components/Grid';
 import Layout from '../../components/layout';
 import SEO from '../../components/SEO';
+import { slideInAnimation } from '../../styles/animations';
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
@@ -13,47 +14,57 @@ const PageText = styled.div`
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
 `;
 
-function Experience() {
+function Education() {
   const {
-    allExperiencesJson: { edges: ExperienceData }
-  } = useStaticQuery(
-    graphql`
-      query {
-        allExperiencesJson {
-          edges {
-            node {
-              position
-              company
-              location
-              timeline
-            }
+    allEducationJson: { edges: education }
+  } = useStaticQuery(graphql`
+    query {
+      allEducationJson {
+        edges {
+          node {
+            degree
+            fieldOfStudy
+            location
+            school
+            years
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <Layout>
-      <SEO title="Experience" />
-      <div style={{ marginTop: '10rem' }}>
+      <SEO title="Education" />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
         <Grid>
-          {ExperienceData.map(({ node: exp }, i) => {
+          {education.map(({ node: ed }, i) => {
             const idx = i;
             return (
-              <Card key={idx}>
+              <Card
+                key={idx}
+                animation={
+                  i === 0 ? slideInAnimation('left') : slideInAnimation('right')
+                }
+              >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <PageText fontSize="1.2rem" fontWeight="bolder">
-                    {exp.position}
+                    {`${ed.degree} in ${ed.fieldOfStudy}`}
                   </PageText>
                   <PageText fontSize="0.6rem" marginLeft="auto">
-                    {exp.timeline}
+                    {ed.years}
                   </PageText>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <PageText fontSize="0.8rem">{exp.company}</PageText>
+                  <PageText>{ed.school}</PageText>
                   <PageText fontSize="0.6rem" marginLeft="auto">
-                    {exp.location}
+                    {ed.location}
                   </PageText>
                 </div>
               </Card>
@@ -65,4 +76,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default Education;

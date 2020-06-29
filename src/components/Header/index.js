@@ -5,7 +5,7 @@ import {
   HeaderText,
   NavigationContainer,
   NavigationItemContainer,
-  NavItem,
+  NavItem
 } from './styled';
 
 function Header() {
@@ -37,7 +37,7 @@ function Header() {
           <Link to="/education">
             <NavItem>Education</NavItem>
           </Link>
-          <Link to="/experience">
+          <Link to="/projects">
             <NavItem>Projects</NavItem>
           </Link>
           <Link to="/blogs">

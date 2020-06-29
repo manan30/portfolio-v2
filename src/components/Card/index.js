@@ -9,6 +9,7 @@ const CardContainer = styled.div`
   background-color: #fafffd;
   box-shadow: 0 0 0.6rem #dce1de;
 
+  ${(props) => props.animation && props.animation};
   /* transition: transform 0.3s ease-in-out;
 
   :hover {
@@ -16,15 +17,20 @@ const CardContainer = styled.div`
   } */
 `;
 
-function Card({ children }) {
-  return <CardContainer>{children}</CardContainer>;
+function Card({ children, animation }) {
+  return <CardContainer animation={animation}>{children}</CardContainer>;
 }
 
 Card.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element,
+    PropTypes.element
   ]).isRequired,
+  animation: PropTypes.string
+};
+
+Card.defaultProps = {
+  animation: ''
 };
 
 export default Card;

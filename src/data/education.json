@@ -1,0 +1,18 @@
+[
+  {
+    "school": "Rochester Institute of Technology",
+    "location": "Rochester, New York, USA",
+    "degree": "Masters",
+    "fieldOfStudy": "Computer Science",
+    "years": "August 2017 - August 2020",
+    "achievements": []
+  },
+  {
+    "school": "Ganpat University",
+    "location": "Mehsana, Gujarat, India",
+    "degree": "Bachelors",
+    "fieldOfStudy": "Computer Engineering",
+    "years": "July 2012 - May 2016",
+    "achievements": []
+  }
+]
