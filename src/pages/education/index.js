@@ -18,7 +18,7 @@ function Education() {
   const {
     allEducationJson: { edges: education }
   } = useStaticQuery(graphql`
-    query {
+    query EducationQuery {
       allEducationJson {
         edges {
           node {
@@ -40,7 +40,8 @@ function Education() {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          marginTop: '15%'
         }}
       >
         <Grid>

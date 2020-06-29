@@ -18,7 +18,7 @@ function Experience() {
     allExperiencesJson: { edges: ExperienceData }
   } = useStaticQuery(
     graphql`
-      query {
+      query ExperiencesQuery {
         allExperiencesJson {
           edges {
             node {

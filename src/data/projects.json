@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Svelte Trivia",
+    "image": "svelte-trivia.png",
+    "imageAltText": "svelte-trivia-thumbnail",
+    "description": "A trivia app completely made using Svelte JS",
+    "links": [
+      { "type": "github", "to": "https://github.com/manan30/svelte-trivia" },
+      { "type": "demo", "to": "https://manan30.github.io/svelte-trivia/" },
+      {
+        "type": "blog",
+        "to": "https://medium.com/javascript-in-plain-english/i-created-a-quiz-app-using-svelte-and-now-i-cannot-go-back-to-any-other-framework-3308fc87e7d"
+      }
+    ],
+    "technologies": ["Svelte"]
+  },
+  {
+    "name": "Box Office",
+    "image": "",
+    "imageAltText": "box-office-thumbnail",
+    "description": "",
+    "links": [],
+    "technologies": []
+  }
+]
