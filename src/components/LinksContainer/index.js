@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import blog from '../../images/blog.svg';
-import github from '../../images/github.svg';
-import demo from '../../images/demo.svg';
+import BlogIcon from '../../images/icons/blog.svg';
+import GithubIcon from '../../images/icons/github.svg';
+import DemoIcon from '../../images/icons/demo.svg';
 
 function LinksContainer({ links }) {
   return (
@@ -17,10 +17,11 @@ function LinksContainer({ links }) {
       {links.map((link, i) => {
         const idx = i;
 
-        let src;
-        if (link.type === 'demo') src = demo;
+        {
+          /* if (link.type === 'demo') src = demo;
         else if (link.type === 'github') src = github;
-        else if (link.type === 'blog') src = blog;
+        else if (link.type === 'blog') src = blog; */
+        }
 
         return (
           <a
@@ -30,11 +31,14 @@ function LinksContainer({ links }) {
             rel="noreferrer"
             style={{ height: '1.5rem', width: '1.5rem' }}
           >
-            <img
+            {link.type === 'github' && <GithubIcon />}
+            {link.type === 'demo' && <DemoIcon />}
+            {link.type === 'blog' && <BlogIcon />}
+            {/* <img
               src={src}
               style={{ height: '100%', width: '100%' }}
               alt={`${link.type}-icon`}
-            />
+            /> */}
           </a>
         );
       })}
