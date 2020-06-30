@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../../components/Card';
-import Grid from '../../components/Grid';
-import Layout from '../../components/layout';
-import SEO from '../../components/SEO';
+import Card from '../components/Card';
+import Grid from '../components/Grid';
+import Layout from '../components/layout';
+import SEO from '../components/SEO';
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};

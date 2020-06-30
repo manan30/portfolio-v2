@@ -2,11 +2,11 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import Layout from '../../components/layout';
-import SEO from '../../components/SEO';
-import Grid from '../../components/Grid';
-import Card from '../../components/Card';
-import LinksContainer from '../../components/LinksContainer';
+import Layout from '../components/layout';
+import SEO from '../components/SEO';
+import Grid from '../components/Grid';
+import Card from '../components/Card';
+import LinksContainer from '../components/LinksContainer';
 
 const PageText = styled.div`
   margin-top: ${(props) => props.marginTop && props.marginTop};
