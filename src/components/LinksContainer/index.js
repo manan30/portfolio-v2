@@ -17,12 +17,6 @@ function LinksContainer({ links }) {
       {links.map((link, i) => {
         const idx = i;
 
-        {
-          /* if (link.type === 'demo') src = demo;
-        else if (link.type === 'github') src = github;
-        else if (link.type === 'blog') src = blog; */
-        }
-
         return (
           <a
             key={idx}
@@ -31,14 +25,11 @@ function LinksContainer({ links }) {
             rel="noreferrer"
             style={{ height: '1.5rem', width: '1.5rem' }}
           >
-            {link.type === 'github' && <GithubIcon />}
-            {link.type === 'demo' && <DemoIcon />}
-            {link.type === 'blog' && <BlogIcon />}
-            {/* <img
-              src={src}
-              style={{ height: '100%', width: '100%' }}
-              alt={`${link.type}-icon`}
-            /> */}
+            {link.type === 'github' && (
+              <GithubIcon style={{ fill: '#203943' }} />
+            )}
+            {link.type === 'demo' && <DemoIcon style={{ fill: '#203943' }} />}
+            {link.type === 'blog' && <BlogIcon style={{ fill: '#203943' }} />}
           </a>
         );
       })}
