@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import BlogIcon from '../../images/icons/blog.svg';
-import GithubIcon from '../../images/icons/github.svg';
-import DemoIcon from '../../images/icons/demo.svg';
+import BlogIcon from '../../images/svg/blog.svg';
+import GithubIcon from '../../images/svg/github.svg';
+import DemoIcon from '../../images/svg/demo.svg';
 
 function LinksContainer({ links }) {
   return (
