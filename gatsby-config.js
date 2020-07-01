@@ -31,13 +31,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
+        name: `data`,
         path: `${__dirname}/src/data`
       }
     },
     {
       resolve: 'gatsby-plugin-react-svg',
-      options: { rule: { include: /images/ } }
+      options: { rule: { include: /\.inline\.svg$/ } }
     },
     `gatsby-plugin-styled-components`
     // this (optional) plugin enables Progressive Web App + Offline functionality

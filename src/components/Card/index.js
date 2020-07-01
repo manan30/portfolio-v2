@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
+  height: ${(props) => props.height || 'auto'};
+  width: ${(props) => props.width || 'auto'};
   padding: 1rem;
 
   border-radius: 0.5rem;
@@ -17,8 +19,12 @@ const CardContainer = styled.div`
   } */
 `;
 
-function Card({ children, animation }) {
-  return <CardContainer animation={animation}>{children}</CardContainer>;
+function Card({ children, animation, ...styles }) {
+  return (
+    <CardContainer animation={animation} {...styles}>
+      {children}
+    </CardContainer>
+  );
 }
 
 Card.propTypes = {

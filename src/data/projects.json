@@ -12,7 +12,7 @@
         "to": "https://medium.com/javascript-in-plain-english/i-created-a-quiz-app-using-svelte-and-now-i-cannot-go-back-to-any-other-framework-3308fc87e7d"
       }
     ],
-    "technologies": ["Svelte"]
+    "technologies": ["Svelte", "JavaScript", "HTML5", "CSS3", "REST API", "Git"]
   },
   {
     "name": "Box Office",
@@ -27,7 +27,7 @@
         "to": "https://medium.com/javascript-in-plain-english/creating-a-searchable-movie-app-using-react-styled-components-and-react-hooks-8d149611d05c"
       }
     ],
-    "technologies": []
+    "technologies": ["Svelte", "JavaScript", "HTML5", "CSS3", "REST API", "Git"]
   },
   {
     "name": "Covid-19 Tracker",
@@ -38,7 +38,7 @@
       { "type": "github", "to": "https://github.com/manan30/covid19-tracker" },
       { "type": "demo", "to": "https://bit.ly/COVID19-tracker" }
     ],
-    "technologies": []
+    "technologies": ["Svelte", "JavaScript", "HTML5", "CSS3", "REST API", "Git"]
   },
   {
     "name": "Chandrayaan-2",
@@ -49,7 +49,7 @@
       { "type": "github", "to": "https://github.com/manan30/chandrayaan-2" },
       { "type": "demo", "to": "https://manan30.github.io/chandrayaan-2/" }
     ],
-    "technologies": []
+    "technologies": ["Svelte", "JavaScript", "HTML5", "CSS3", "REST API", "Git"]
   },
   {
     "name": "Billiards",
@@ -67,6 +67,6 @@
         "to": "https://medium.com/javascript-in-plain-english/creating-a-rudimentary-pool-table-game-using-react-three-js-and-react-three-fiber-part-1-cbb1214bed82"
       }
     ],
-    "technologies": []
+    "technologies": ["Svelte", "JavaScript", "HTML5", "CSS3", "REST API", "Git"]
   }
 ]
