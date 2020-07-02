@@ -6,6 +6,7 @@ import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import LinksContainer from '../components/LinksContainer';
 import SEO from '../components/SEO';
+import SVGIcon from '../components/SVGIcon';
 
 const PageText = styled.div`
   height: ${(props) => props.height && props.height};
@@ -16,6 +17,18 @@ const PageText = styled.div`
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
 
   overflow: hidden;
+`;
+
+const SVGIconsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  height: 2rem;
+
+  svg {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
 `;
 
 function Projects() {
@@ -73,30 +86,16 @@ function Projects() {
                 >
                   {project.description}
                 </PageText>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginTop: '0.5rem',
-                    height: '2rem'
-                  }}
-                >
+                <SVGIconsContainer>
                   {project.technologies.map((tech, index) => {
                     const key = index;
                     return (
-                      <div
-                        key={key}
-                        style={{
-                          height: '1.5rem',
-                          width: '1.5rem',
-                          marginRight: '0.5rem',
-                          backgroundImage: `url(./images/icons/${tech.toLowerCase()}.svg)`,
-                          backgroundColor: 'red'
-                        }}
-                      />
+                      <div key={key} style={{ marginRight: '0.8rem' }}>
+                        <SVGIcon type={tech} />
+                      </div>
                     );
                   })}
-                </div>
+                </SVGIconsContainer>
                 <hr
                   style={{
                     color: '#e5ecf4',

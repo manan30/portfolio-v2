@@ -32,7 +32,10 @@ Card.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element
   ]).isRequired,
-  animation: PropTypes.string
+  animation: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.any),
+    PropTypes.string
+  ])
 };
 
 Card.defaultProps = {

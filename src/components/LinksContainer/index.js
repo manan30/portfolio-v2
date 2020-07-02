@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import BlogIcon from '../../images/svg/blog.inline.svg';
-import GithubIcon from '../../images/svg/github.inline.svg';
-import DemoIcon from '../../images/svg/demo.inline.svg';
+import BlogIcon from '../../images/svg/blog.svg';
+import GithubIcon from '../../images/svg/github.svg';
+import DemoIcon from '../../images/svg/demo.svg';
 
 function LinksContainer({ links }) {
   return (
@@ -11,7 +11,8 @@ function LinksContainer({ links }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        marginTop: '0.8rem'
+        // marginTop: '0.8rem',
+        height: '4rem'
       }}
     >
       {links.map((link, i) => {

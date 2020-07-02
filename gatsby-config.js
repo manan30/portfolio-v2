@@ -37,7 +37,7 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-react-svg',
-      options: { rule: { include: /\.inline\.svg$/ } }
+      options: { rule: { include: /images/ } }
     },
     `gatsby-plugin-styled-components`
     // this (optional) plugin enables Progressive Web App + Offline functionality
