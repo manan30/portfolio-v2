@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
@@ -14,9 +14,14 @@ const TextTranslateAnimation = (percent) => keyframes`
 `;
 
 const PageText = styled.div`
-  color: ${(props) => props.color || 'inherit'};
+  color: ${(props) => {
+    console.log({ props });
+    return props.color || 'inherit';
+  }};
   font-size: ${(props) => props.fontSize || '1rem'};
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
+
+  transition: all 0.3s ease-in-out;
 
   animation: ${(props) =>
       props.animation === 'title'
@@ -30,14 +35,16 @@ const IntroContainer = styled.div`
 `;
 
 function IndexPage() {
+  const [theme, setTheme] = useState();
+
   return (
-    <Layout>
+    <Layout setTheme={setTheme}>
       <SEO title="Home" />
       <IntroContainer>
         <PageText
           fontSize="4rem"
           fontWeight="bolder"
-          color="#404e7c"
+          color={theme && theme.theme === 'dark' ? '#f8f7ff' : '#404e7c'}
           animation="title"
         >
           Hello, I&apos;m Manan

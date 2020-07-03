@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '../../providers/ThemeProvider';
 import {
   HeaderContainer,
   HeaderText,
@@ -10,6 +11,7 @@ import {
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { themeState, themeDispatch } = useTheme();
 
   useEffect(() => {
     if (typeof window === 'undefined') return () => {};
@@ -25,9 +27,9 @@ function Header() {
   }, []);
 
   return (
-    <HeaderContainer shadow={scrolled}>
+    <HeaderContainer shadow={scrolled} theme={themeState.theme}>
       <Link to="/">
-        <HeaderText>Manan</HeaderText>
+        <HeaderText theme={themeState.theme}>Manan</HeaderText>
       </Link>
       <NavigationContainer>
         <NavigationItemContainer>
@@ -51,6 +53,17 @@ function Header() {
           </Link>
         </NavigationItemContainer>
       </NavigationContainer>
+      <button
+        type="button"
+        style={{ height: '100%', marginLeft: '1rem' }}
+        onClick={() => {
+          if (themeState.theme === 'light')
+            themeDispatch({ type: 'toggle-dark-theme' });
+          else themeDispatch({ type: 'toggle-light-theme' });
+        }}
+      >
+        Dark Mode
+      </button>
     </HeaderContainer>
   );
 }

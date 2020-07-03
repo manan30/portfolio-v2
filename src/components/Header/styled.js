@@ -11,19 +11,21 @@ const HeaderContainer = styled.header`
   width: calc(100% - 2rem);
   padding: 1rem;
 
-  background-color: #ffffff;
+  background-color: ${(props) =>
+    props.theme === 'dark' ? '#313e50' : '#ffffff'};
 
   box-shadow: ${(props) => (props.shadow ? '0 0 0.6rem #dce1de' : 'none')};
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 `;
 
 const HeaderText = styled.span`
   margin-left: 2rem;
 
-  color: #404e7c;
+  color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#404e7c')};
   font-size: 1.6rem;
   font-weight: bolder;
   font-family: Nunito;
+  transition: all 0.4s ease-in-out;
 `;
 
 const NavigationContainer = styled.nav`
@@ -53,5 +55,5 @@ export {
   HeaderText,
   NavigationContainer,
   NavigationItemContainer,
-  NavItem,
+  NavItem
 };
