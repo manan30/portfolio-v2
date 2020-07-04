@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import styled, { keyframes, useTheme } from 'styled-components';
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
+import { useTheme } from '../providers/ThemeProvider';
 
 const TextTranslateAnimation = (percent) => keyframes`
   0% {
@@ -34,17 +35,19 @@ const IntroContainer = styled.div`
 `;
 
 function IndexPage() {
-  const [theme, setTheme] = useState();
+  const { themeState } = useTheme();
 
   return (
-    <Layout setTheme={setTheme}>
+    <Layout>
       <SEO title="Home" />
       <IntroContainer>
         <PageText
           fontSize="4rem"
           fontWeight="bolder"
           color={
-            theme && theme.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
+            themeState.themePreference && themeState.themePreference === 'dark'
+              ? '#f8f7ff'
+              : '#404e7c'
           }
           animation="title"
         >
