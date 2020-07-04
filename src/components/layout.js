@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import ThemeProvider, { useTheme } from '../providers/ThemeProvider';
-import Header from './Header';
 import GlobalStyles from '../styles/GlobalStyles';
+import Header from './Header';
 
 function ThemedLayout({ children, setTheme }) {
+  console.log('ThemedLayout', { children });
   return (
     <ThemeProvider>
       <Layout setTheme={setTheme}>{children}</Layout>
@@ -16,12 +17,14 @@ const Layout = ({ children, setTheme }) => {
   const { themeState } = useTheme();
 
   useEffect(() => {
-    setTheme(themeState);
+    if (setTheme) setTheme(themeState);
   }, [themeState]);
+
+  console.log('Layout', { children });
 
   return (
     <>
-      <GlobalStyles theme={themeState.theme} />
+      <GlobalStyles theme={themeState.themePreference} />
       <Header />
       <main>{children}</main>
     </>

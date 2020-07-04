@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, useTheme } from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 
@@ -43,7 +43,9 @@ function IndexPage() {
         <PageText
           fontSize="4rem"
           fontWeight="bolder"
-          color={theme && theme.theme === 'dark' ? '#f8f7ff' : '#404e7c'}
+          color={
+            theme && theme.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
+          }
           animation="title"
         >
           Hello, I&apos;m Manan

@@ -28,9 +28,9 @@ function Header() {
   }, []);
 
   return (
-    <HeaderContainer shadow={scrolled} theme={themeState.theme}>
+    <HeaderContainer shadow={scrolled} theme={themeState.themePreference}>
       <Link to="/">
-        <HeaderText theme={themeState.theme}>Manan</HeaderText>
+        <HeaderText theme={themeState.themePreference}>Manan</HeaderText>
       </Link>
       <NavigationContainer>
         <NavigationItemContainer>
@@ -56,11 +56,11 @@ function Header() {
       </NavigationContainer>
       <ToggleSwitch
         onClickHandler={() => {
-          if (themeState.theme === 'light')
+          if (themeState.themePreference === 'light')
             themeDispatch({ type: 'toggle-dark-theme' });
           else themeDispatch({ type: 'toggle-light-theme' });
         }}
-        themePreference={themeState.theme}
+        themePreference={themeState.themePreference}
       >
         Dark Mode
       </ToggleSwitch>
