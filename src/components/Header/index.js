@@ -8,6 +8,7 @@ import {
   NavigationItemContainer,
   NavItem
 } from './styled';
+import ToggleSwitch from '../ToggleSwitch';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,17 +54,16 @@ function Header() {
           </Link>
         </NavigationItemContainer>
       </NavigationContainer>
-      <button
-        type="button"
-        style={{ height: '100%', marginLeft: '1rem' }}
-        onClick={() => {
+      <ToggleSwitch
+        onClickHandler={() => {
           if (themeState.theme === 'light')
             themeDispatch({ type: 'toggle-dark-theme' });
           else themeDispatch({ type: 'toggle-light-theme' });
         }}
+        themePreference={themeState.theme}
       >
         Dark Mode
-      </button>
+      </ToggleSwitch>
     </HeaderContainer>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
@@ -15,7 +15,6 @@ const TextTranslateAnimation = (percent) => keyframes`
 
 const PageText = styled.div`
   color: ${(props) => {
-    console.log({ props });
     return props.color || 'inherit';
   }};
   font-size: ${(props) => props.fontSize || '1rem'};
