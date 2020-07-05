@@ -18,7 +18,8 @@ export default createGlobalStyle`
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 
     will-change: background-color;
-    transition: background-color 0.4s ease-in-out;
+    transition: ${(props) =>
+      props.mounted && 'background-color 0.4s ease-in-out'};
 
     overflow: hidden;
     overflow-y: auto;
