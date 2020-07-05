@@ -9,7 +9,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <GlobalStyles theme={themeState.themePreference} />
+      <GlobalStyles
+        theme={themeState.themePreference}
+        mounted={themeState.mounted}
+      />
       <Header />
       <main>{children}</main>
     </>

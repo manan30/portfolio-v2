@@ -1,42 +1,57 @@
 import PropTypes from 'prop-types';
-import React, { createContext, useContext, useReducer } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState
+} from 'react';
 
 const ThemeContext = createContext();
-
-// if (window !== undefined && !localStorage.getItem('theme'))
-//   localStorage.setItem('theme', JSON.stringify({ themePreference: 'light' }));
 
 const ThemeReducer = (state, action) => {
   switch (action.type) {
     case 'toggle-dark-theme':
-      // localStorage.setItem(
-      //   'theme',
-      //   JSON.stringify({ themePreference: 'dark' })
-      // );
+      localStorage.setItem(
+        'theme',
+        JSON.stringify({ themePreference: 'dark' })
+      );
       return { ...state, themePreference: 'dark' };
     case 'toggle-light-theme':
-      // localStorage.setItem(
-      //   'theme',
-      //   JSON.stringify({ themePreference: 'light' })
-      // );
+      localStorage.setItem(
+        'theme',
+        JSON.stringify({ themePreference: 'light' })
+      );
       return { ...state, themePreference: 'light' };
     default:
-      throw new Error('Action not implemented yet');
+      throw new Error('Bad Action');
   }
 };
 
-// const initialState = window ? JSON.parse(localStorage.getItem('theme')) : {};
-const initialState = {
-  themePreference: 'light'
-};
-
 function ThemeProvider({ children }) {
-  const [themeState, themeDispatch] = useReducer(ThemeReducer, initialState);
+  const [themeState, themeDispatch] = useReducer(ThemeReducer, {});
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setTimeout(() => {
+      const root = window.document.documentElement;
+      const initialColorValue = root.style.getPropertyValue(
+        '--initial-color-mode'
+      );
+
+      if (initialColorValue === 'light')
+        themeDispatch({ type: 'toggle-light-theme' });
+      else themeDispatch({ type: 'toggle-dark-theme' });
+    });
+    setMounted(true);
+  }, []);
+
+  return mounted ? (
     <ThemeContext.Provider value={{ themeState, themeDispatch }}>
       {children}
     </ThemeContext.Provider>
+  ) : (
+    <div />
   );
 }
 

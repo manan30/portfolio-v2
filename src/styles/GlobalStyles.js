@@ -9,15 +9,16 @@ export default createGlobalStyle`
 
     background-color: ${(props) =>
       props.theme === 'dark' ? '#313e50' : '#fafffd'};
-
     color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#2e4057')};
+
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: normal;
     word-wrap: break-word;
     font-kerning: normal;
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 
-    transition: all 0.4s ease-in-out;
+    will-change: background-color;
+    transition: background-color 0.4s ease-in-out;
 
     overflow: hidden;
     overflow-y: auto;
