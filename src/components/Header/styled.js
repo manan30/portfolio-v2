@@ -12,9 +12,12 @@ const HeaderContainer = styled.header`
   padding: 1rem;
 
   background-color: ${(props) =>
-    props.theme === 'dark' ? '#313e50' : '#ffffff'};
+    props.theme === 'dark' ? '#25282f' : '#ffffff'};
 
-  box-shadow: ${(props) => (props.shadow ? '0 0 0.6rem #dce1de' : 'none')};
+  box-shadow: ${(props) =>
+    props.shadow
+      ? `0 0 0.6rem ${props.theme === 'dark' ? '#0d1321' : '#dce1de'}`
+      : 'none'};
   transition: all 0.4s ease-in-out;
 `;
 

@@ -16,7 +16,7 @@ const ToggleSwitchContainer = styled.div`
 
   /* background: ${(props) => props.background && props.background}; */
   background-color: #fafffd;
-  border: 0.5px solid #313e50;
+  border: 0.5px solid #25282f;
   border-radius: 5rem;
 
   svg {
@@ -51,7 +51,7 @@ const ToggleSwitchButton = styled.button`
 
   /* border: 1px solid #dce1de; */
   border: 0.5px solid
-    ${(props) => (props.switch === 'dark' ? '#dce1de' : '#313e50')};
+    ${(props) => (props.switch === 'dark' ? '#dce1de' : '#25282f')};
   background-color: ${(props) => props.background && props.background};
   border-radius: 50%;
   transform: translateX(${(props) => (props.switch === 'dark' ? '2rem' : '0')});
@@ -62,13 +62,13 @@ const ToggleSwitchButton = styled.button`
 function ToggleSwitch({ onClickHandler, themePreference }) {
   return (
     <ToggleSwitchContainer
-      background={themePreference === 'dark' ? '#fafffd' : '#313e50'}
+      background={themePreference === 'dark' ? '#fafffd' : '#25282f'}
       type={themePreference}
     >
       {themePreference === 'dark' && <SunIcon />}
       <ToggleSwitchButton
         onClick={onClickHandler}
-        background={themePreference === 'dark' ? '#313e50' : '#fafffd'}
+        background={themePreference === 'dark' ? '#25282f' : '#fafffd'}
         switch={themePreference}
         type="button"
       />

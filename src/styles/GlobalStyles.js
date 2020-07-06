@@ -8,7 +8,7 @@ export default createGlobalStyle`
     padding: 0%;
 
     background-color: ${(props) =>
-      props.theme === 'dark' ? '#313e50' : '#fafffd'};
+      props.theme === 'dark' ? '#25282f' : '#fafffd'};
     color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#2e4057')};
 
     font-family: 'Montserrat', 'Nunito', sans-serif;

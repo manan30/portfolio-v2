@@ -6,6 +6,7 @@ import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { slideInAnimation } from '../styles/animations';
+import { useTheme } from '../providers/ThemeProvider';
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
@@ -33,6 +34,8 @@ function Education() {
     }
   `);
 
+  const { themeState } = useTheme();
+
   return (
     <Layout>
       <SEO title="Education" />
@@ -53,6 +56,7 @@ function Education() {
                 animation={
                   i === 0 ? slideInAnimation('left') : slideInAnimation('right')
                 }
+                theme={themeState.themePreference}
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <PageText fontSize="1.2rem" fontWeight="bolder">

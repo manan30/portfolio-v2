@@ -8,8 +8,10 @@ const CardContainer = styled.div`
   padding: 1rem;
 
   border-radius: 0.5rem;
-  background-color: #fafffd;
-  box-shadow: 0 0 0.6rem #dce1de;
+  background-color: ${(props) =>
+    props.theme === 'dark' ? '#121212' : '#fafffd'};
+  box-shadow: 0 0 0.6rem
+    ${(props) => (props.theme === 'dark' ? '#0d1321' : '#dce1de')};
 
   ${(props) => props.animation && props.animation};
   /* transition: transform 0.3s ease-in-out;

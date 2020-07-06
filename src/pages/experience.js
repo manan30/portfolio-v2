@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
+import { useTheme } from '../providers/ThemeProvider';
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
@@ -33,6 +34,8 @@ function Experience() {
     `
   );
 
+  const { themeState } = useTheme();
+
   return (
     <Layout>
       <SEO title="Experience" />
@@ -41,7 +44,7 @@ function Experience() {
           {ExperienceData.map(({ node: exp }, i) => {
             const idx = i;
             return (
-              <Card key={idx}>
+              <Card key={idx} theme={themeState.themePreference}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <PageText fontSize="1.2rem" fontWeight="bolder">
                     {exp.position}

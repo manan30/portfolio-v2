@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import LinksContainer from '../components/LinksContainer';
 import SEO from '../components/SEO';
 import SVGIcon from '../components/SVGIcon';
+import { useTheme } from '../providers/ThemeProvider';
 
 const PageText = styled.div`
   height: ${(props) => props.height && props.height};
@@ -54,6 +55,8 @@ function Projects() {
     }
   `);
 
+  const { themeState } = useTheme();
+
   return (
     <Layout>
       <SEO title="Projects" />
@@ -62,7 +65,7 @@ function Projects() {
           {projects.map(({ node: project }, i) => {
             const idx = i;
             return (
-              <Card key={idx} height="24rem">
+              <Card key={idx} height="24rem" theme={themeState.themePreference}>
                 <div
                   style={{
                     height: '12rem',
