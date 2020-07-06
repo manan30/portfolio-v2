@@ -4,8 +4,21 @@
     "company": "Department of Public Safety RIT",
     "location": "Rochester, New York, USA",
     "timeline": "March 2018 - June 2020",
-    "work": [],
-    "tech": [],
+    "work": [
+      "Developed a Event Management System for keeping track of all events hosted on the RIT campus.",
+      "RIT Public Safety department in now able to target 40% more events with the help of this app."
+    ],
+    "tech": [
+      "React",
+      "Redux",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "React-Router",
+      "Node",
+      "MongoDB"
+    ],
     "links": []
   },
   {
@@ -13,8 +26,28 @@
     "company": "Solstice Power Technologies Inc.",
     "location": "Cambridge, Massachusetts, USA",
     "timeline": "May 2019 - August 2019",
-    "work": [],
-    "tech": [],
+    "work": [
+      "Created a dashboard for the in-house platform used to bill, enroll and manage customers and solar developer partners.",
+      "Responsible for creating a rudimentary CI/CD infrastructure.",
+      "Migrated entire platform codebase from Bootstrap v3 to Bootstrap v4."
+    ],
+    "tech": [
+      "React",
+      "Redux",
+      "React-Router",
+      "Node",
+      "PostgreSQL",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "TypeScript",
+      "Drone",
+      "Docker",
+      "AWS",
+      "Jira",
+      "Trello",
+      "Salesforce"
+    ],
     "links": []
   },
   {
@@ -22,8 +55,22 @@
     "company": "Retail Business Services LLC - Ahold Delhaize USA",
     "location": "Mooresville, North Carolina, USA",
     "timeline": "January 2019 - May 2019",
-    "work": [],
-    "tech": [],
+    "work": [
+      "Created a product locator web app that is being used by Stop and Shop stores across the NorthEastern United States.",
+      "Part of the Rapid Application Development Team tasked with creating proof of concepts as quickly as possible."
+    ],
+    "tech": [
+      "React",
+      "React-Router",
+      "Node",
+      "MongoDB",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "Jira",
+      "Trello"
+    ],
     "links": []
   },
   {
@@ -31,7 +78,12 @@
     "company": "Computer Science Department - RIT",
     "location": "Rochester, New York, USA",
     "timeline": "May 2018 - August 2018",
-    "work": [],
+    "work": [
+      "Worked on MLton which is an open-source, whole program, optimizing Standard ML compiler funded by the National Science Foundation.",
+      "Wrote a parser for one of the intermediate representation of the MLton compiler.",
+      "Worked on optimizing certain parts of the compiler as well.",
+      "Written in StandardML"
+    ],
     "tech": [],
     "links": []
   },
@@ -40,8 +92,12 @@
     "company": "Freelancer",
     "location": "Ahmedabad, Gujarat, India",
     "timeline": "May 2016 - July 2017",
-    "work": [],
-    "tech": [],
+    "work": [
+      "Created an Android Application for a dental clinic that wanted to digitize their client management and dental fixtures ordering process.",
+      "The clinic saw almost 60% jump in their dental fixtures orders.",
+      "The doctors saw about 40% increase in their productivity because of digitization of the client management process."
+    ],
+    "tech": ["Android", "Java", "Apache"],
     "links": []
   },
   {
@@ -49,8 +105,11 @@
     "company": "Tata Consultancy Services Ltd.",
     "location": "Gandhinagar, Gujarat, India",
     "timeline": "January 2016 - April 2016",
-    "work": [],
-    "tech": [],
+    "work": [
+      "Created an Android Application for the local government to help citizens pay their taxes as part of the engineering team.",
+      "Implemented a billing module that allowed users to pay their taxes almost 80% faster than the traditional approach."
+    ],
+    "tech": ["Android", "Java", "Git"],
     "links": []
   }
 ]

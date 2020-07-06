@@ -11,7 +11,19 @@ import KubernetesIcon from '../../images/svg/kubernetes.svg';
 import Icon from '../../images/svg/react-js.svg';
 import ReactRouterIcon from '../../images/svg/reactrouter.svg';
 import StyledComponentsIcon from '../../images/svg/styled-components.svg';
+import AWSIcon from '../../images/svg/amazonaws.svg';
+import DroneIcon from '../../images/svg/drone.svg';
+import JiraIcon from '../../images/svg/jirasoftware.svg';
+import MongoDBIcon from '../../images/svg/mongodb.svg';
+import NodeIcon from '../../images/svg/node-dot-js.svg';
+import PostgreSQLIcon from '../../images/svg/postgresql.svg';
+import ReduxIcon from '../../images/svg/redux.svg';
+import SalesforceIcon from '../../images/svg/salesforce.svg';
+import TrelloIcon from '../../images/svg/trello.svg';
 import SvelteIcon from '../../images/svg/svelte.svg';
+import TypeScriptIcon from '../../images/svg/typescript.svg';
+import JavaIcon from '../../images/svg/java.svg';
+import AndroidIcon from '../../images/svg/android.svg';
 
 function SVGIcon({ type }) {
   switch (type) {
@@ -39,6 +51,30 @@ function SVGIcon({ type }) {
       return <StyledComponentsIcon fill="#db7093" />;
     case 'Svelte':
       return <SvelteIcon fill="#ea3e04" />;
+    case 'AWS':
+      return <AWSIcon fill="##232e40" />;
+    case 'Drone':
+      return <DroneIcon fill="#212121" />;
+    case 'Jira':
+      return <JiraIcon fill="#2152cc" />;
+    case 'Trello':
+      return <TrelloIcon fill="#3579c0" />;
+    case 'Redux':
+      return <ReduxIcon fill="#764bbc" />;
+    case 'Node':
+      return <NodeIcon fill="#459931" />;
+    case 'MongoDB':
+      return <MongoDBIcon fill="#4aa149" />;
+    case 'PostgreSQL':
+      return <PostgreSQLIcon fill="#336790" />;
+    case 'Salesforce':
+      return <SalesforceIcon fill="#49a1e0" />;
+    case 'TypeScript':
+      return <TypeScriptIcon fill="#357bcc" />;
+    case 'Android':
+      return <AndroidIcon fill="#67dc85" />;
+    case 'Java':
+      return <JavaIcon fill="#337496" />;
     default:
       return <div />;
   }
