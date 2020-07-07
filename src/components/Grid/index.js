@@ -13,11 +13,22 @@ const GridContainer = styled.div`
   }
 `;
 
-function Grid({ children }) {
+const MasonaryGridContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+function Grid({ children, type }) {
   return (
     <div style={{ width: '100%' }}>
-      <GridContainer>{children}</GridContainer>
-      <div style={{ paddingBottom: '1.5rem' }} />
+      {type === 'masonary' ? (
+        <MasonaryGridContainer>{children}</MasonaryGridContainer>
+      ) : (
+        <>
+          <GridContainer>{children}</GridContainer>
+          <div style={{ paddingBottom: '1.5rem' }} />
+        </>
+      )}
     </div>
   );
 }
