@@ -20,9 +20,9 @@ const backgroundAnimationReverse = (themePreference) => keyframes`
   }
 `;
 
-const translateAnimation = keyframes`
+const translateAnimation = (type) => keyframes`
   from {
-    transform: translateX(-1rem);
+    transform: ${type ? 'translateY(80rem)' : 'translateX(-1rem)'};
     opacity: 0;
   }
 
@@ -69,6 +69,10 @@ const ProjectCardContainer = styled(CardContainer)`
   min-width: 15rem;
   margin: 0 1rem 1rem 0;
   padding: 0;
+
+  animation: ${translateAnimation('card')}
+    ${(props) => props.animationTime && props.animationTime}s
+    cubic-bezier(0.86, 0, 0.07, 1);
 `;
 
 const ProjectCardHovered = styled.div`
@@ -88,7 +92,7 @@ const ProjectCardHovered = styled.div`
 
   * {
     animation: ${(props) =>
-        props.animating ? translateAnimation : translateAnimationReverse}
+        props.animating ? translateAnimation() : translateAnimationReverse}
       1s cubic-bezier(0.39, 0.575, 0.565, 1);
   }
 `;
