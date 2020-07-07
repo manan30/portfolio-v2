@@ -19,7 +19,7 @@ function Projects() {
             image {
               childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid
+                  src
                 }
               }
             }

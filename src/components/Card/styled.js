@@ -1,18 +1,18 @@
 import styled, { keyframes } from 'styled-components';
 
-const backgroundAnimation = keyframes`
+const backgroundAnimation = (themePreference) => keyframes`
   from {
     background-color: transparent;
   }
 
   to {
-    background-color: #364156;
+    background-color: ${themePreference === 'dark' ? '#364156' : '#fbfbff'};
   }
 `;
 
-const backgroundAnimationReverse = keyframes`
+const backgroundAnimationReverse = (themePreference) => keyframes`
   from {
-    background-color: #364156;
+    background-color: ${themePreference === 'dark' ? '#364156' : '#fbfbff'};
   }
 
   to {
@@ -77,10 +77,13 @@ const ProjectCardHovered = styled.div`
   padding: 1rem;
 
   border-radius: 0.5rem;
-  background-color: #364156;
+  background-color: ${(props) =>
+    props.themePreference === 'dark' ? '#364156' : '#fbfbff'};
 
   animation: ${(props) =>
-      props.animating ? backgroundAnimation : backgroundAnimationReverse}
+      props.animating
+        ? backgroundAnimation(props.themePreference)
+        : backgroundAnimationReverse(props.themePreference)}
     1s cubic-bezier(0.39, 0.575, 0.565, 1);
 
   * {

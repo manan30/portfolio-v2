@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import BlogIcon from '../../images/svg/blog.svg';
 import GithubIcon from '../../images/svg/github.svg';
 import DemoIcon from '../../images/svg/demo.svg';
 
-function LinksContainer({ links }) {
+function LinksContainer({ links, themePreference }) {
+  const fillColor = themePreference === 'dark' ? '#121212' : '#627c85';
+
   return (
     <div
       style={{
@@ -26,10 +28,10 @@ function LinksContainer({ links }) {
             style={{ height: '1.5rem', width: '1.5rem' }}
           >
             {link.type === 'github' && (
-              <GithubIcon style={{ fill: '#203943' }} />
+              <GithubIcon style={{ fill: fillColor }} />
             )}
-            {link.type === 'demo' && <DemoIcon style={{ fill: '#203943' }} />}
-            {link.type === 'blog' && <BlogIcon style={{ fill: '#203943' }} />}
+            {link.type === 'demo' && <DemoIcon style={{ fill: fillColor }} />}
+            {link.type === 'blog' && <BlogIcon style={{ fill: fillColor }} />}
           </a>
         );
       })}
@@ -38,11 +40,13 @@ function LinksContainer({ links }) {
 }
 
 LinksContainer.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  themePreference: PropTypes.string
 };
 
 LinksContainer.defaultProps = {
-  links: []
+  links: [],
+  themePreference: ''
 };
 
 export default LinksContainer;
