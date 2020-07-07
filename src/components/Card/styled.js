@@ -1,4 +1,48 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const backgroundAnimation = keyframes`
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: #25283d;
+  }
+`;
+
+const backgroundAnimationReverse = keyframes`
+  from {
+    background-color: #25283d;
+  }
+
+  to {
+    background-color: transparent;
+  }
+`;
+
+const translateAnimation = keyframes`
+  from {
+    ${'' /* transform: translateX(-1rem); */}
+    opacity: 0;
+  }
+
+  to {
+    ${'' /* transform: translateX(0); */}
+    opacity: 1;
+  }
+`;
+
+const translateAnimationReverse = keyframes`
+  from {
+    ${'' /* transform: translateX(0); */}
+    opacity: 1;
+  }
+
+  to {
+    ${'' /* transform: translateX(-1rem); */}
+    opacity: 0;
+  }
+`;
 
 const CardContainer = styled.div`
   height: ${(props) => props.height || 'auto'};
@@ -29,15 +73,23 @@ const ProjectCardContainer = styled(CardContainer)`
 const ProjectCardHovered = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
 
   height: calc(100% - 2rem);
   width: calc(100% - 2rem);
   padding: 1rem;
 
   background-color: #25283d;
-  opacity: ${(props) => (props.hovered ? '0.8' : '0')};
 
-  transition: all 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: ${(props) =>
+      props.animating ? backgroundAnimation : backgroundAnimationReverse}
+    1s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  * {
+    animation: ${(props) =>
+        props.animating ? translateAnimation : translateAnimationReverse}
+      1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
 `;
 
 export { CardContainer, ProjectCardContainer, ProjectCardHovered };
