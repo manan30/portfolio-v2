@@ -1,29 +1,42 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import JavaScriptIcon from '../../images/svg/javascript.svg';
-import HTML5Icon from '../../images/svg/html5.svg';
+import React from 'react';
+import styled from 'styled-components';
+import AWSIcon from '../../images/svg/amazonaws.svg';
+import AndroidIcon from '../../images/svg/android.svg';
 import CSS3Icon from '../../images/svg/css3.svg';
 import DockerIcon from '../../images/svg/docker.svg';
+import DroneIcon from '../../images/svg/drone.svg';
 import FirebaseIcon from '../../images/svg/firebase.svg';
 import GitIcon from '../../images/svg/git.svg';
 import GraphQLIcon from '../../images/svg/graphql.svg';
-import KubernetesIcon from '../../images/svg/kubernetes.svg';
-import Icon from '../../images/svg/react-js.svg';
-import ReactRouterIcon from '../../images/svg/reactrouter.svg';
-import StyledComponentsIcon from '../../images/svg/styled-components.svg';
-import AWSIcon from '../../images/svg/amazonaws.svg';
-import DroneIcon from '../../images/svg/drone.svg';
+import HTML5Icon from '../../images/svg/html5.svg';
+import JavaIcon from '../../images/svg/java.svg';
+import JavaScriptIcon from '../../images/svg/javascript.svg';
 import JiraIcon from '../../images/svg/jirasoftware.svg';
+import KubernetesIcon from '../../images/svg/kubernetes.svg';
 import MongoDBIcon from '../../images/svg/mongodb.svg';
 import NodeIcon from '../../images/svg/node-dot-js.svg';
 import PostgreSQLIcon from '../../images/svg/postgresql.svg';
+import Icon from '../../images/svg/react-js.svg';
+import ReactRouterIcon from '../../images/svg/reactrouter.svg';
 import ReduxIcon from '../../images/svg/redux.svg';
 import SalesforceIcon from '../../images/svg/salesforce.svg';
-import TrelloIcon from '../../images/svg/trello.svg';
+import StyledComponentsIcon from '../../images/svg/styled-components.svg';
 import SvelteIcon from '../../images/svg/svelte.svg';
+import TrelloIcon from '../../images/svg/trello.svg';
 import TypeScriptIcon from '../../images/svg/typescript.svg';
-import JavaIcon from '../../images/svg/java.svg';
-import AndroidIcon from '../../images/svg/android.svg';
+
+const SVGIconsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  height: 2rem;
+
+  svg {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+`;
 
 function SVGIcon({ type }) {
   switch (type) {
@@ -89,3 +102,5 @@ SVGIcon.defaultProps = {
 };
 
 export default SVGIcon;
+
+export { SVGIconsContainer };

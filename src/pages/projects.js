@@ -48,16 +48,7 @@ function Projects() {
                 margin="0 1rem 1.5rem 0"
                 theme={themeState.themePreference}
                 options={{ type: 'project', project }}
-              >
-                <div
-                  style={{
-                    height: 'inherit',
-                    width: '100%',
-                    padding: '0',
-                    backgroundColor: 'black'
-                  }}
-                />
-              </Card>
+              />
             );
           })}
         </Grid>
