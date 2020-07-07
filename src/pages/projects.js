@@ -43,7 +43,6 @@ function Projects() {
       <div style={{ marginTop: '8rem' }}>
         <Grid type="masonary">
           {projects.map(({ node: project }, i) => {
-            console.log({ ...project });
             const idx = i;
             return (
               <ProjectCard
