@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
+import Img from 'gatsby-image';
 import { ProjectCardContainer, ProjectCardHovered } from './styled';
 import LinksContainer from '../LinksContainer';
 import SVGIcon, { SVGIconsContainer } from '../SVGIcon';
@@ -28,13 +29,16 @@ function ProjectCard({ options, ...styles }) {
       {...styles}
     >
       <>
-        <div
+        <Img
           style={{
             height: 'inherit',
             width: '100%',
             padding: '0',
             backgroundColor: 'black'
           }}
+          fluid={options.project.image.childImageSharp.fluid}
+          alt={options.project.imageAltText}
+          // imgStyle={{ objectFit: 'contain' }}
         />
         {hovered && (
           <ProjectCardHovered animating={animating}>

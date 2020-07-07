@@ -16,7 +16,13 @@ function Projects() {
           node {
             name
             description
-            image
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             imageAltText
             links {
               type
