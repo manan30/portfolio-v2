@@ -47,10 +47,10 @@ export default createGlobalStyle`
     margin-top: 4rem;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 815px) {
     main {
-      width: calc(100% - 6rem);
-      padding: 3rem;
+      width: calc(100% - 3rem);
+      padding: 1.5rem;
       margin: 0;
     }
   }

@@ -15,6 +15,17 @@ const PageText = styled.div`
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
 `;
 
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+
+  @media screen and (max-width: 815px) {
+    margin-top: 6rem;
+  }
+`;
+
 function Education() {
   const {
     allEducationJson: { edges: education }
@@ -39,14 +50,7 @@ function Education() {
   return (
     <Layout>
       <SEO title="Education" />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '8rem'
-        }}
-      >
+      <MainContainer>
         <Grid>
           {education.map(({ node: ed }, i) => {
             const idx = i;
@@ -76,7 +80,7 @@ function Education() {
             );
           })}
         </Grid>
-      </div>
+      </MainContainer>
     </Layout>
   );
 }

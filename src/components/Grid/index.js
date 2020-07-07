@@ -8,7 +8,7 @@ const GridContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   width: 100%;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 815px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -25,8 +25,8 @@ function Grid({ children }) {
 Grid.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element,
-  ]).isRequired,
+    PropTypes.element
+  ]).isRequired
 };
 
 export default Grid;
