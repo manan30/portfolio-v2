@@ -6,13 +6,13 @@ const backgroundAnimation = keyframes`
   }
 
   to {
-    background-color: #25283d;
+    background-color: #364156;
   }
 `;
 
 const backgroundAnimationReverse = keyframes`
   from {
-    background-color: #25283d;
+    background-color: #364156;
   }
 
   to {
@@ -22,24 +22,24 @@ const backgroundAnimationReverse = keyframes`
 
 const translateAnimation = keyframes`
   from {
-    ${'' /* transform: translateX(-1rem); */}
+    transform: translateX(-1rem);
     opacity: 0;
   }
 
   to {
-    ${'' /* transform: translateX(0); */}
+    transform: translateX(0);
     opacity: 1;
   }
 `;
 
 const translateAnimationReverse = keyframes`
   from {
-    ${'' /* transform: translateX(0); */}
+    transform: translateX(0);
     opacity: 1;
   }
 
   to {
-    ${'' /* transform: translateX(-1rem); */}
+    transform: translateX(-1rem);
     opacity: 0;
   }
 `;
@@ -60,9 +60,10 @@ const CardContainer = styled.div`
 `;
 
 const ProjectCardContainer = styled(CardContainer)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex: 1 0 auto;
-
-  position: relative;
 
   height: 20rem;
   min-width: 15rem;
@@ -71,15 +72,12 @@ const ProjectCardContainer = styled(CardContainer)`
 `;
 
 const ProjectCardHovered = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-
   height: calc(100% - 2rem);
   width: calc(100% - 2rem);
   padding: 1rem;
 
-  background-color: #25283d;
+  border-radius: 0.5rem;
+  background-color: #364156;
 
   animation: ${(props) =>
       props.animating ? backgroundAnimation : backgroundAnimationReverse}

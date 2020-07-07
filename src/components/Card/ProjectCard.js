@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { ProjectCardContainer, ProjectCardHovered } from './styled';
 import LinksContainer from '../LinksContainer';
@@ -15,7 +15,7 @@ function ProjectCard({ options, ...styles }) {
       setAnimating(false);
       setTimeout(() => {
         setHovered(false);
-      }, 1000);
+      }, 800);
     } else {
       setAnimating(true);
       setHovered(true);
@@ -29,16 +29,17 @@ function ProjectCard({ options, ...styles }) {
       {...styles}
     >
       <>
-        <div
+        <Img
           style={{
             height: 'inherit',
             width: '100%',
             padding: '0',
-            backgroundColor: 'black'
+            backgroundColor: 'black',
+            borderRadius: '0.5rem'
           }}
-          // fluid={options.project.image.childImageSharp.fluid}
-          // alt={options.project.imageAltText}
-          // imgStyle={{ objectFit: 'contain' }}
+          fluid={options.project.image.childImageSharp.fluid}
+          alt={options.project.imageAltText}
+          imgStyle={{ borderRadius: '0.5rem' }}
         />
         {hovered && (
           <ProjectCardHovered animating={animating}>
