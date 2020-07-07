@@ -44,7 +44,7 @@ function Education() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '15%'
+          marginTop: '8rem'
         }}
       >
         <Grid>

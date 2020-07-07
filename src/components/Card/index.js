@@ -14,11 +14,7 @@ const CardContainer = styled.div`
     ${(props) => (props.theme === 'dark' ? '#0d1321' : '#dce1de')};
 
   ${(props) => props.animation && props.animation};
-  /* transition: transform 0.3s ease-in-out;
-
-  :hover {
-    transform: scaleX(1.1);
-  } */
+  transition: all 0.5s ease-in-out;
 `;
 
 function Card({ children, animation, ...styles }) {

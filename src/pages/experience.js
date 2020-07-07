@@ -54,7 +54,7 @@ function Experience() {
   return (
     <Layout>
       <SEO title="Experience" />
-      <div style={{ marginTop: '10rem' }}>
+      <div style={{ marginTop: '8rem' }}>
         <Grid>
           {experienceData.map(({ node: exp }, i) => {
             const idx = i;
@@ -74,9 +74,13 @@ function Experience() {
                     {exp.location}
                   </PageText>
                 </div>
-                <ul style={{ margin: '0', padding: 'inherit' }}>
+                <ul
+                  style={{ height: '4.5rem', margin: '0', padding: 'inherit' }}
+                >
                   {exp.work.map((w) => (
-                    <li>{w}</li>
+                    <li>
+                      <PageText fontSize="0.85rem">{w}</PageText>
+                    </li>
                   ))}
                 </ul>
                 <SVGIconsContainer>

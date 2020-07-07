@@ -60,7 +60,7 @@ function Projects() {
   return (
     <Layout>
       <SEO title="Projects" />
-      <div style={{ marginTop: '6rem' }}>
+      <div style={{ marginTop: '8rem' }}>
         <Grid>
           {projects.map(({ node: project }, i) => {
             const idx = i;
