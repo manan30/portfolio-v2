@@ -11,7 +11,6 @@ function LinksContainer({ links }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        // marginTop: '0.8rem',
         height: '4rem'
       }}
     >

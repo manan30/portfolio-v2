@@ -29,6 +29,8 @@ import TypeScriptIcon from '../../images/svg/typescript.svg';
 const SVGIconsContainer = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+
   margin-top: 0.5rem;
   height: 2rem;
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ProjectCardContainer, ProjectCardHovered } from './styled';
 import LinksContainer from '../LinksContainer';
 import SVGIcon, { SVGIconsContainer } from '../SVGIcon';
@@ -32,7 +33,7 @@ function ProjectCard({ options, ...styles }) {
             {options.project.name}
           </PageText>
           <PageText
-            height="3rem"
+            height="9rem"
             fontSize="0.8rem"
             marginTop="0.5rem"
             marginLeft="0.2rem"
@@ -55,7 +56,8 @@ function ProjectCard({ options, ...styles }) {
               backgroundColor: '#e5ecf4',
               height: '0.1rem',
               border: 'none',
-              margin: '0.5rem 0 0 0'
+              margin: '0.5rem 0 0 0',
+              width: '100%'
             }}
           />
           <LinksContainer links={options.project.links} />
@@ -64,5 +66,13 @@ function ProjectCard({ options, ...styles }) {
     </ProjectCardContainer>
   );
 }
+
+ProjectCard.propTypes = {
+  options: PropTypes.objectOf(PropTypes.any)
+};
+
+ProjectCard.defaultProps = {
+  options: {}
+};
 
 export default ProjectCard;
