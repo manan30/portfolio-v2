@@ -13,7 +13,7 @@ const PageText = styled.div`
 `;
 
 function Text({ children, ...styles }) {
-  return <PageText>{children}</PageText>;
+  return <PageText {...styles}>{children}</PageText>;
 }
 
 export default Text;

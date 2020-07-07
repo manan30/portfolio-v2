@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import Card from '../components/Card';
+import ProjectCard from '../components/Card/ProjectCard';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
@@ -39,13 +39,9 @@ function Projects() {
           {projects.map(({ node: project }, i) => {
             const idx = i;
             return (
-              <Card
+              <ProjectCard
                 key={idx}
-                flex="1 0 auto"
-                height="20rem"
                 width={`${Math.floor(Math.random() * 50)}rem`}
-                minWidth="15rem"
-                margin="0 1rem 1.5rem 0"
                 theme={themeState.themePreference}
                 options={{ type: 'project', project }}
               />
