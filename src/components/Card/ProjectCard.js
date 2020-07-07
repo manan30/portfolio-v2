@@ -29,15 +29,15 @@ function ProjectCard({ options, ...styles }) {
       {...styles}
     >
       <>
-        <Img
+        <div
           style={{
             height: 'inherit',
             width: '100%',
             padding: '0',
             backgroundColor: 'black'
           }}
-          fluid={options.project.image.childImageSharp.fluid}
-          alt={options.project.imageAltText}
+          // fluid={options.project.image.childImageSharp.fluid}
+          // alt={options.project.imageAltText}
           // imgStyle={{ objectFit: 'contain' }}
         />
         {hovered && (

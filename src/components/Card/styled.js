@@ -66,7 +66,7 @@ const ProjectCardContainer = styled(CardContainer)`
 
   height: 20rem;
   min-width: 15rem;
-  margin: 0 1rem 1.5rem 0;
+  margin: 0 1rem 1rem 0;
   padding: 0;
 `;
 
