@@ -8,25 +8,37 @@ const GridContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   width: 100%;
 
-  @media screen and (max-width: 767px) {
-    grid-template-columns: 1fr;
+  @media screen and (max-width: 815px) {
+    grid-template-columns: 100%;
   }
 `;
 
-function Grid({ children }) {
-  return (
-    <div style={{ width: '100%' }}>
+const MasonaryGridContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+function Grid({ children, type }) {
+  return type === 'masonary' ? (
+    <MasonaryGridContainer>{children}</MasonaryGridContainer>
+  ) : (
+    <>
       <GridContainer>{children}</GridContainer>
       <div style={{ paddingBottom: '1.5rem' }} />
-    </div>
+    </>
   );
 }
 
 Grid.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element,
+    PropTypes.element
   ]).isRequired,
+  type: PropTypes.string
+};
+
+Grid.defaultProps = {
+  type: ''
 };
 
 export default Grid;

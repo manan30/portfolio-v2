@@ -6,12 +6,24 @@ import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { slideInAnimation } from '../styles/animations';
+import { useTheme } from '../providers/ThemeProvider';
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
 
   font-size: ${(props) => props.fontSize || '1rem'};
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+
+  @media screen and (max-width: 815px) {
+    margin-top: 6rem;
+  }
 `;
 
 function Education() {
@@ -33,17 +45,12 @@ function Education() {
     }
   `);
 
+  const { themeState } = useTheme();
+
   return (
     <Layout>
       <SEO title="Education" />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '15%'
-        }}
-      >
+      <MainContainer>
         <Grid>
           {education.map(({ node: ed }, i) => {
             const idx = i;
@@ -53,6 +60,7 @@ function Education() {
                 animation={
                   i === 0 ? slideInAnimation('left') : slideInAnimation('right')
                 }
+                theme={themeState.themePreference}
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <PageText fontSize="1.2rem" fontWeight="bolder">
@@ -72,7 +80,7 @@ function Education() {
             );
           })}
         </Grid>
-      </div>
+      </MainContainer>
     </Layout>
   );
 }
