@@ -34,7 +34,7 @@ const SVGIconsContainer = styled.div`
   flex-wrap: wrap;
 
   margin-top: 0.5rem;
-  height: 2rem;
+  height: auto;
 
   svg {
     height: 1.3rem;

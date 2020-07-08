@@ -5,21 +5,25 @@ import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
 
 const TextTranslateAnimation = (percent) => keyframes`
-  0% {
+  from {
+    opacity: 0;
     transform: translateY(${percent})
   }
 
-  100% {
+  to {
+    opacity: 1;
     transform: translateY(0)
   }
 `;
 
 const TitleTranslateAnimation = keyframes`
-  0% {
+  from {
+    opacity: 0;
     transform: translateX(-150%)
   }
 
-  100% {
+  to {
+    opacity: 1;
     transform: translateX(0)
   }
 `;

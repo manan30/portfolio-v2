@@ -1,28 +1,41 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import Card from '../components/Card';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
 import SVGIcon, { SVGIconsContainer } from '../components/SVGIcon';
+import PageText from '../components/Text';
 
 const MainContainer = styled.div`
   margin-top: 8rem;
 
   @media screen and (max-width: 815px) {
-    margin-top: 6rem;
+    margin-top: 4rem;
     padding: 0;
   }
 `;
 
-const PageText = styled.div`
-  margin-left: ${(props) => props.marginLeft && props.marginLeft};
+const translateAnimation = keyframes`
+  from {
+    transform: translateY(80rem);
+    opacity: 0;
+  }
 
-  font-size: ${(props) => props.fontSize || '1rem'};
-  font-weight: ${(props) => props.fontWeight && props.fontWeight};
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 `;
+
+const generateAnimation = (animationTime) => {
+  return css`
+    animation: ${translateAnimation} ${animationTime}s
+      cubic-bezier(0.86, 0, 0.07, 1);
+  `;
+};
 
 function Experience() {
   const {
@@ -56,7 +69,11 @@ function Experience() {
           {experienceData.map(({ node: exp }, i) => {
             const idx = i;
             return (
-              <Card key={idx} theme={themeState.themePreference}>
+              <Card
+                key={idx}
+                theme={themeState.themePreference}
+                animation={generateAnimation(2 + idx * 0.2)}
+              >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <PageText fontSize="1.2rem" fontWeight="bolder">
                     {exp.position}
@@ -72,7 +89,12 @@ function Experience() {
                   </PageText>
                 </div>
                 <ul
-                  style={{ height: '4.5rem', margin: '0', padding: 'inherit' }}
+                  style={{
+                    height: 'auto',
+                    margin: '0',
+                    padding: 'inherit',
+                    minHeight: '6rem'
+                  }}
                 >
                   {exp.work.map((w) => (
                     <li>
@@ -84,7 +106,13 @@ function Experience() {
                   {exp.tech.map((tech, index) => {
                     const key = index;
                     return (
-                      <div key={key} style={{ marginRight: '0.8rem' }}>
+                      <div
+                        key={key}
+                        style={{
+                          marginRight: '0.8rem',
+                          marginBottom: '0.5rem'
+                        }}
+                      >
                         <SVGIcon type={tech} />
                       </div>
                     );
