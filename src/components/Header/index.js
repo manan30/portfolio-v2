@@ -122,38 +122,40 @@ function Header() {
           </div>
         )}
       </HeaderContainer>
+
       {sidebarVisibility && (
         <NavigationContainerMobile
           theme={themeState.themePreference}
           isAnimating={animating}
         >
-          <ToggleSwitch
-            onClickHandler={() => {
-              if (themeState.themePreference === 'light')
-                themeDispatch({ type: 'toggle-dark-theme' });
-              else themeDispatch({ type: 'toggle-light-theme' });
-            }}
-            themePreference={themeState.themePreference}
-          >
-            Dark Mode
-          </ToggleSwitch>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              width: '100%'
-            }}
-            role="button"
-            tabIndex="-1"
-            onClick={() => handleAnimations('close')}
-            onKeyDown={() => {}}
-          >
-            <SVGIcon
-              type="Close"
-              fill={
-                themeState.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
-              }
-            />
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <ToggleSwitch
+              onClickHandler={() => {
+                if (themeState.themePreference === 'light')
+                  themeDispatch({ type: 'toggle-dark-theme' });
+                else themeDispatch({ type: 'toggle-light-theme' });
+              }}
+              themePreference={themeState.themePreference}
+            >
+              Dark Mode
+            </ToggleSwitch>
+            <div
+              style={{
+                display: 'flex',
+                marginLeft: 'auto'
+              }}
+              role="button"
+              tabIndex="-1"
+              onClick={() => handleAnimations('close')}
+              onKeyDown={() => {}}
+            >
+              <SVGIcon
+                type="Close"
+                fill={
+                  themeState.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
+                }
+              />
+            </div>
           </div>
           <NavigationItemContainer>
             {pagesData.map(({ node: page }, i) => {
