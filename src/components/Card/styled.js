@@ -73,6 +73,11 @@ const ProjectCardContainer = styled(CardContainer)`
   animation: ${translateAnimation('card')}
     ${(props) => props.animationTime && props.animationTime}s
     cubic-bezier(0.86, 0, 0.07, 1);
+
+  @media screen and (max-width: 815px) {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
 `;
 
 const ProjectCardHovered = styled.div`
