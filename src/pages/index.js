@@ -14,7 +14,19 @@ const TextTranslateAnimation = (percent) => keyframes`
   }
 `;
 
+const TitleTranslateAnimation = keyframes`
+  0% {
+    transform: translateX(-150%)
+  }
+
+  100% {
+    transform: translateX(0)
+  }
+`;
+
 const PageText = styled.div`
+  margin-bottom: 1rem;
+
   color: ${(props) => {
     return props.color || 'inherit';
   }};
@@ -23,15 +35,17 @@ const PageText = styled.div`
 
   transition: all 0.3s ease-in-out;
 
-  animation: ${(props) =>
-      props.animation === 'title'
-        ? TextTranslateAnimation('40%')
-        : TextTranslateAnimation('150%')}
-    0.8s ease-in-out;
+  animation: ${TextTranslateAnimation('200%')}
+    ${(props) => props.timing && props.timing} ease-in-out;
+`;
+
+const TitleText = styled(PageText)`
+  font-size: 4rem;
+
+  animation: ${TitleTranslateAnimation} 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   @media screen and (max-width: 815px) {
-    margin-top: 6rem;
-    padding: 0;
+    font-size: 2.5rem;
   }
 `;
 
@@ -51,43 +65,41 @@ function IndexPage() {
     <Layout>
       <SEO title="Home" />
       <IntroContainer>
-        <PageText
-          fontSize="4rem"
+        <TitleText
           fontWeight="bolder"
           color={
             themeState.themePreference && themeState.themePreference === 'dark'
               ? '#f8f7ff'
               : '#404e7c'
           }
-          animation="title"
         >
           Hello, I&apos;m Manan
-        </PageText>
-        <PageText fontSize="1rem">
+        </TitleText>
+        <PageText fontSize="1rem" timing="1s">
           Enthusiastic Full-Stack&nbsp;
           <span role="img" aria-label="programmer empji">
             👨‍💻
           </span>
         </PageText>
-        <PageText fontSize="1rem">
+        <PageText fontSize="1rem" timing="1.2s">
           JavaScript is&nbsp;
           <span role="img" aria-label="heart_emoji">
             ❤️
           </span>
         </PageText>
-        <PageText fontSize="1rem">
+        <PageText fontSize="1rem" timing="1.4s">
           Pragmatist&nbsp;
           <span role="img" aria-label="emoji">
             👂
           </span>
         </PageText>
-        <PageText fontSize="1rem">
+        <PageText fontSize="1rem" timing="1.6s">
           Aspiring&nbsp;
           <span role="img" aria-label="man_cook emoji">
             👨‍🍳
           </span>
         </PageText>
-        <PageText fontSize="1rem">
+        <PageText fontSize="1rem" timing="1.8s">
           Sometimes&nbsp;
           <span role="img" aria-label="thinking-emoji">
             🤔
