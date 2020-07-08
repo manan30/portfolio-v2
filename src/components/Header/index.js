@@ -1,6 +1,7 @@
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '../../providers/ThemeProvider';
+import useIsMobile from '../../hooks/useIsMobile';
 import {
   HeaderContainer,
   HeaderText,
@@ -32,7 +33,7 @@ function Header() {
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
   const [animating, setAnimating] = useState(false);
   const { themeState, themeDispatch } = useTheme();
-  const [isMobile, setIsMobile] = useState();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (typeof window === 'undefined') return () => {};
@@ -45,15 +46,6 @@ function Header() {
     window.addEventListener('scroll', scrollHandler);
 
     return () => window.removeEventListener('scroll', scrollHandler);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return () => {};
-
-    if (window.innerWidth < 815) setIsMobile(true);
-    else setIsMobile(false);
-
-    return () => {};
   }, []);
 
   const handleAnimations = (action) => {

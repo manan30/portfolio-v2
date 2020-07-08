@@ -80,8 +80,7 @@ const NavigationItemContainer = styled.ul`
     align-items: flex-start;
     justify-content: unset;
 
-    margin: 0;
-    padding: inherit;
+    margin: 2rem 0 0 0;
   }
 `;
 

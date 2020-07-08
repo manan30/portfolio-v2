@@ -28,10 +28,20 @@ const PageText = styled.div`
         ? TextTranslateAnimation('40%')
         : TextTranslateAnimation('150%')}
     0.8s ease-in-out;
+
+  @media screen and (max-width: 815px) {
+    margin-top: 6rem;
+    padding: 0;
+  }
 `;
 
 const IntroContainer = styled.div`
   padding: 10rem 0 10rem 4rem;
+
+  @media screen and (max-width: 815px) {
+    margin-top: 6rem;
+    padding: 0;
+  }
 `;
 
 function IndexPage() {
