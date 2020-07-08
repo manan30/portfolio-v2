@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const translateAnimation = keyframes`
+  from {
+    transform: translateX(200%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+`;
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -29,11 +39,19 @@ const HeaderText = styled.span`
   font-weight: bolder;
   font-family: Nunito;
   transition: all 0.4s ease-in-out;
+
+  @media screen and (max-width: 815px) {
+    margin-left: 0.5rem;
+  }
 `;
 
 const NavigationContainer = styled.nav`
   height: 100%;
   width: 100%;
+
+  @media screen and (max-width: 815px) {
+    display: none;
+  }
 `;
 
 const NavigationItemContainer = styled.ul`
@@ -46,6 +64,10 @@ const NavigationItemContainer = styled.ul`
   padding: 0;
 
   list-style-type: none;
+
+  @media screen and (max-width: 815px) {
+    display: none;
+  }
 `;
 
 const NavItem = styled.li`
@@ -53,10 +75,28 @@ const NavItem = styled.li`
   padding: 0;
 `;
 
+const NavigationContainerMobile = styled.div`
+  @media screen and (max-width: 815px) {
+    position: fixed;
+    right: 0;
+
+    height: 100vh;
+    width: 50%;
+    background-color: ${(props) =>
+      props.theme === 'dark' ? '#25282f' : '#ffffff'};
+
+    box-shadow: 0 0 0.6rem
+      ${(props) => (props.theme === 'dark' ? '#0d1321' : '#dce1de')};
+
+    animation: ${translateAnimation} 1s ease-in;
+  }
+`;
+
 export {
   HeaderContainer,
   HeaderText,
   NavigationContainer,
+  NavigationContainerMobile,
   NavigationItemContainer,
   NavItem
 };

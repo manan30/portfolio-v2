@@ -39,6 +39,10 @@ const ToggleSwitchContainer = styled.div`
             stroke: #003844;
           `}
   }
+
+  @media screen and (max-width: 815px) {
+    display: none;
+  }
 `;
 
 const ToggleSwitchButton = styled.button`

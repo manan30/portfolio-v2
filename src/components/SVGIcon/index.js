@@ -25,6 +25,7 @@ import StyledComponentsIcon from '../../images/svg/styled-components.svg';
 import SvelteIcon from '../../images/svg/svelte.svg';
 import TrelloIcon from '../../images/svg/trello.svg';
 import TypeScriptIcon from '../../images/svg/typescript.svg';
+import MenuIcon from '../../images/svg/menu.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -40,7 +41,7 @@ const SVGIconsContainer = styled.div`
   }
 `;
 
-function SVGIcon({ type }) {
+function SVGIcon({ type, fill }) {
   switch (type) {
     case 'JavaScript':
       return <JavaScriptIcon fill="#f7df1e" />;
@@ -90,6 +91,8 @@ function SVGIcon({ type }) {
       return <AndroidIcon fill="#67dc85" />;
     case 'Java':
       return <JavaIcon fill="#337496" />;
+    case 'Menu':
+      return <MenuIcon fill={fill} />;
     default:
       return <div />;
   }
