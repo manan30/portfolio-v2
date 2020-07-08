@@ -41,7 +41,8 @@ const ToggleSwitchContainer = styled.div`
   }
 
   @media screen and (max-width: 815px) {
-    display: none;
+    height: 0.8rem;
+    width: 3rem;
   }
 `;
 
@@ -61,6 +62,15 @@ const ToggleSwitchButton = styled.button`
   transform: translateX(${(props) => (props.switch === 'dark' ? '2rem' : '0')});
 
   transition: all 0.5s ease-in-out;
+
+  @media screen and (max-width: 815px) {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    transform: translateX(
+      ${(props) => (props.switch === 'dark' ? '2.2rem' : '0')}
+    );
+  }
 `;
 
 function ToggleSwitch({ onClickHandler, themePreference }) {

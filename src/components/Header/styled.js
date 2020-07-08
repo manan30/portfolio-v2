@@ -92,6 +92,8 @@ const NavItem = styled.li`
   @media screen and (max-width: 815px) {
     margin-bottom: 1rem;
 
+    font-size: 1.5rem;
+
     animation: ${(props) =>
         props.isAnimating
           ? sidebarTranslateAnimationEnter

@@ -127,6 +127,16 @@ function Header() {
           theme={themeState.themePreference}
           isAnimating={animating}
         >
+          <ToggleSwitch
+            onClickHandler={() => {
+              if (themeState.themePreference === 'light')
+                themeDispatch({ type: 'toggle-dark-theme' });
+              else themeDispatch({ type: 'toggle-light-theme' });
+            }}
+            themePreference={themeState.themePreference}
+          >
+            Dark Mode
+          </ToggleSwitch>
           <div
             style={{
               display: 'flex',
