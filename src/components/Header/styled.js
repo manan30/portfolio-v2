@@ -80,8 +80,9 @@ const NavigationContainerMobile = styled.div`
     position: fixed;
     right: 0;
 
-    height: 100vh;
-    width: 50%;
+    height: calc(100vh - 2rem);
+    width: calc(50% - 2rem);
+    padding: 1rem;
     background-color: ${(props) =>
       props.theme === 'dark' ? '#25282f' : '#ffffff'};
 

@@ -100,7 +100,26 @@ function Header() {
         )}
       </HeaderContainer>
       {sidebarVisibility && (
-        <NavigationContainerMobile theme={themeState.themePreference} />
+        <NavigationContainerMobile theme={themeState.themePreference}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              width: '100%'
+            }}
+            onClick={() => setSidebarVisibility(false)}
+            onKeyDown={() => {}}
+            role="button"
+            tabIndex="-1"
+          >
+            <SVGIcon
+              type="Close"
+              fill={
+                themeState.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
+              }
+            />
+          </div>
+        </NavigationContainerMobile>
       )}
     </>
   );

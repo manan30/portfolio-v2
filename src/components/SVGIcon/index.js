@@ -26,6 +26,7 @@ import SvelteIcon from '../../images/svg/svelte.svg';
 import TrelloIcon from '../../images/svg/trello.svg';
 import TypeScriptIcon from '../../images/svg/typescript.svg';
 import MenuIcon from '../../images/svg/menu.svg';
+import CloseIcon from '../../images/svg/close.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -93,6 +94,8 @@ function SVGIcon({ type, fill }) {
       return <JavaIcon fill="#337496" />;
     case 'Menu':
       return <MenuIcon fill={fill} />;
+    case 'Close':
+      return <CloseIcon fill={fill} />;
     default:
       return <div />;
   }
