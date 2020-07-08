@@ -6,25 +6,22 @@ import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
-import SVGIcon from '../components/SVGIcon';
+import SVGIcon, { SVGIconsContainer } from '../components/SVGIcon';
+
+const MainContainer = styled.div`
+  margin-top: 8rem;
+
+  @media screen and (max-width: 815px) {
+    margin-top: 6rem;
+    padding: 0;
+  }
+`;
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
 
   font-size: ${(props) => props.fontSize || '1rem'};
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
-`;
-
-const SVGIconsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 0.5rem;
-  height: 2rem;
-
-  svg {
-    height: 1.3rem;
-    width: 1.3rem;
-  }
 `;
 
 function Experience() {
@@ -54,7 +51,7 @@ function Experience() {
   return (
     <Layout>
       <SEO title="Experience" />
-      <div style={{ marginTop: '8rem' }}>
+      <MainContainer>
         <Grid>
           {experienceData.map(({ node: exp }, i) => {
             const idx = i;
@@ -97,7 +94,7 @@ function Experience() {
             );
           })}
         </Grid>
-      </div>
+      </MainContainer>
     </Layout>
   );
 }
