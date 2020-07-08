@@ -1,12 +1,22 @@
 import styled, { keyframes } from 'styled-components';
 
-const translateAnimation = keyframes`
+const sidebarTranslateAnimationEnter = keyframes`
   from {
-    transform: translateX(200%);
+    transform: translateX(150%);
   }
 
   to {
     transform: translateX(0);
+  }
+`;
+
+const sidebarTranslateAnimationExit = keyframes`
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(200%);
   }
 `;
 
@@ -63,16 +73,33 @@ const NavigationItemContainer = styled.ul`
   margin: 0 0 0 40%;
   padding: 0;
 
-  list-style-type: none;
+  list-style: none;
 
   @media screen and (max-width: 815px) {
-    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: unset;
+
+    margin: 0;
+    padding: inherit;
   }
 `;
 
 const NavItem = styled.li`
   margin: 0;
   padding: 0;
+
+  @media screen and (max-width: 815px) {
+    margin-bottom: 1rem;
+
+    animation: ${(props) =>
+        props.isAnimating
+          ? sidebarTranslateAnimationEnter
+          : sidebarTranslateAnimationExit}
+      ${(props) => props.timing && props.timing}s
+      cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* animation-delay: 1s; */
+  }
 `;
 
 const NavigationContainerMobile = styled.div`
@@ -89,7 +116,12 @@ const NavigationContainerMobile = styled.div`
     box-shadow: 0 0 0.6rem
       ${(props) => (props.theme === 'dark' ? '#0d1321' : '#dce1de')};
 
-    animation: ${translateAnimation} 1s ease-in;
+    animation: ${(props) => {
+        return props.isAnimating
+          ? sidebarTranslateAnimationEnter
+          : sidebarTranslateAnimationExit;
+      }}
+      1s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 `;
 

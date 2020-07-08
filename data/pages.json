@@ -1,0 +1,5 @@
+[
+  { "linkTo": "experience", "linkText": "Experience" },
+  { "linkTo": "education", "linkText": "Education" },
+  { "linkTo": "projects", "linkText": "Projects" }
+]

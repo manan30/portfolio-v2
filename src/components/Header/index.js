@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '../../providers/ThemeProvider';
 import {
@@ -13,8 +13,24 @@ import ToggleSwitch from '../ToggleSwitch';
 import SVGIcon from '../SVGIcon';
 
 function Header() {
+  const {
+    allPagesJson: { edges: pagesData }
+  } = useStaticQuery(graphql`
+    query {
+      allPagesJson {
+        edges {
+          node {
+            linkTo
+            linkText
+          }
+        }
+      }
+    }
+  `);
+
   const [scrolled, setScrolled] = useState(false);
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
+  const [animating, setAnimating] = useState(false);
   const { themeState, themeDispatch } = useTheme();
   const [isMobile, setIsMobile] = useState();
 
@@ -40,44 +56,51 @@ function Header() {
     return () => {};
   }, []);
 
+  const handleAnimations = (action) => {
+    if (action === 'close') {
+      setAnimating(false);
+      setTimeout(() => {
+        setSidebarVisibility(false);
+      }, 800);
+    } else {
+      setSidebarVisibility(true);
+      setAnimating(true);
+    }
+  };
+
   return (
     <>
       <HeaderContainer shadow={scrolled} theme={themeState.themePreference}>
         <Link to="/">
           <HeaderText theme={themeState.themePreference}>Manan</HeaderText>
         </Link>
-        <NavigationContainer>
-          <NavigationItemContainer>
-            <Link to="/experience">
-              <NavItem>Experience</NavItem>
-            </Link>
-            <Link to="/education">
-              <NavItem>Education</NavItem>
-            </Link>
-            <Link to="/projects">
-              <NavItem>Projects</NavItem>
-            </Link>
-            <Link to="/blogs">
-              <NavItem>Blogs</NavItem>
-            </Link>
-            <Link to="/skills">
-              <NavItem>Skills</NavItem>
-            </Link>
-            <Link to="/interests">
-              <NavItem>Interests</NavItem>
-            </Link>
-          </NavigationItemContainer>
-        </NavigationContainer>
-        <ToggleSwitch
-          onClickHandler={() => {
-            if (themeState.themePreference === 'light')
-              themeDispatch({ type: 'toggle-dark-theme' });
-            else themeDispatch({ type: 'toggle-light-theme' });
-          }}
-          themePreference={themeState.themePreference}
-        >
-          Dark Mode
-        </ToggleSwitch>
+        {!isMobile && (
+          <>
+            <NavigationContainer>
+              <NavigationItemContainer>
+                {pagesData.map(({ node: page }, i) => {
+                  const idx = i;
+                  return (
+                    <Link to={`/${page.linkTo}`} key={idx}>
+                      <NavItem>{page.linkText}</NavItem>
+                    </Link>
+                  );
+                })}
+              </NavigationItemContainer>
+            </NavigationContainer>
+            <ToggleSwitch
+              onClickHandler={() => {
+                if (themeState.themePreference === 'light')
+                  themeDispatch({ type: 'toggle-dark-theme' });
+                else themeDispatch({ type: 'toggle-light-theme' });
+              }}
+              themePreference={themeState.themePreference}
+            >
+              Dark Mode
+            </ToggleSwitch>
+          </>
+        )}
+
         {isMobile && (
           <div
             style={{
@@ -85,10 +108,10 @@ function Header() {
               justifyContent: 'center',
               marginLeft: 'auto'
             }}
-            onClick={() => setSidebarVisibility(true)}
-            onKeyDown={() => {}}
             role="button"
             tabIndex="-1"
+            onClick={handleAnimations}
+            onKeyDown={() => {}}
           >
             <SVGIcon
               type="Menu"
@@ -100,17 +123,20 @@ function Header() {
         )}
       </HeaderContainer>
       {sidebarVisibility && (
-        <NavigationContainerMobile theme={themeState.themePreference}>
+        <NavigationContainerMobile
+          theme={themeState.themePreference}
+          isAnimating={animating}
+        >
           <div
             style={{
               display: 'flex',
               justifyContent: 'flex-end',
               width: '100%'
             }}
-            onClick={() => setSidebarVisibility(false)}
-            onKeyDown={() => {}}
             role="button"
             tabIndex="-1"
+            onClick={() => handleAnimations('close')}
+            onKeyDown={() => {}}
           >
             <SVGIcon
               type="Close"
@@ -119,6 +145,18 @@ function Header() {
               }
             />
           </div>
+          <NavigationItemContainer>
+            {pagesData.map(({ node: page }, i) => {
+              const idx = i;
+              return (
+                <Link to={`/${page.linkTo}`} key={idx}>
+                  <NavItem timing={1.2 + i * 0.2} isAnimating={animating}>
+                    {page.linkText}
+                  </NavItem>
+                </Link>
+              );
+            })}
+          </NavigationItemContainer>
         </NavigationContainerMobile>
       )}
     </>
