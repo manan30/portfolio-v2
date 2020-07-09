@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import MoonIcon from '../../images/svg/moon.svg';
-import SunIcon from '../../images/svg/sun.svg';
+import MoonIcon from '../../../data/svg/moon.svg';
+import SunIcon from '../../../data/svg/sun.svg';
 
 const ToggleSwitchContainer = styled.div`
   display: flex;
