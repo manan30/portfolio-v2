@@ -8,6 +8,7 @@ import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
 import SVGIcon, { SVGIconsContainer } from '../components/SVGIcon';
 import PageText from '../components/Text';
+import useIsMobile from '../hooks/useIsMobile';
 
 const MainContainer = styled.div`
   margin-top: 8rem;
@@ -60,6 +61,7 @@ function Experience() {
   );
 
   const { themeState } = useTheme();
+  const isMobile = useIsMobile();
 
   return (
     <Layout>
@@ -74,17 +76,39 @@ function Experience() {
                 theme={themeState.themePreference}
                 animation={generateAnimation(2 + idx * 0.2)}
               >
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <PageText fontSize="1.2rem" fontWeight="bolder">
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '0.5rem'
+                  }}
+                >
+                  <PageText
+                    fontSize={isMobile ? '1rem' : '1.2rem'}
+                    fontWeight="bolder"
+                  >
                     {exp.position}
                   </PageText>
-                  <PageText fontSize="0.6rem" marginLeft="auto">
+                  <PageText
+                    fontSize={isMobile ? '0.4rem' : '0.6rem'}
+                    marginLeft="auto"
+                  >
                     {exp.timeline}
                   </PageText>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <PageText fontSize="0.8rem">{exp.company}</PageText>
-                  <PageText fontSize="0.6rem" marginLeft="auto">
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}
+                >
+                  <PageText fontSize={isMobile ? '0.6rem' : '0.8rem'}>
+                    {exp.company}
+                  </PageText>
+                  <PageText
+                    fontSize={isMobile ? '0.4rem' : '0.6rem'}
+                    marginLeft="auto"
+                  >
                     {exp.location}
                   </PageText>
                 </div>

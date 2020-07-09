@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { slideInAnimation } from '../styles/animations';
 import { useTheme } from '../providers/ThemeProvider';
+import useIsMobile from '../hooks/useIsMobile';
 
 const PageText = styled.div`
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
@@ -46,6 +47,7 @@ function Education() {
   `);
 
   const { themeState } = useTheme();
+  const isMobile = useIsMobile();
 
   return (
     <Layout>
@@ -62,17 +64,34 @@ function Education() {
                 }
                 theme={themeState.themePreference}
               >
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <PageText fontSize="1.2rem" fontWeight="bolder">
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '0.5rem'
+                  }}
+                >
+                  <PageText
+                    fontSize={isMobile ? '1rem' : '1.2rem'}
+                    fontWeight="bolder"
+                  >
                     {`${ed.degree} in ${ed.fieldOfStudy}`}
                   </PageText>
-                  <PageText fontSize="0.6rem" marginLeft="auto">
+                  <PageText
+                    fontSize={isMobile ? '0.4rem' : '0.6rem'}
+                    marginLeft="auto"
+                  >
                     {ed.years}
                   </PageText>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <PageText>{ed.school}</PageText>
-                  <PageText fontSize="0.6rem" marginLeft="auto">
+                  <PageText fontSize={isMobile ? '0.8rem' : '1rem'}>
+                    {ed.school}
+                  </PageText>
+                  <PageText
+                    fontSize={isMobile ? '0.4rem' : '0.6rem'}
+                    marginLeft="auto"
+                  >
                     {ed.location}
                   </PageText>
                 </div>
