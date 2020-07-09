@@ -1,8 +1,9 @@
+import Img from 'gatsby-image';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import Image from '../components/image';
 import { useTheme } from '../providers/ThemeProvider';
 
 const TextTranslateAnimation = (percent) => keyframes`
@@ -66,6 +67,8 @@ const IntroContainer = styled.div`
 function IndexPage() {
   const { themeState } = useTheme();
 
+  // console.log(data);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -80,7 +83,6 @@ function IndexPage() {
         >
           Hello, I&apos;m Manan
         </TitleText>
-        {/* <Image /> */}
         <PageText fontSize="1rem" timing="1s">
           Enthusiastic Full-Stack&nbsp;
           <span role="img" aria-label="programmer empji">
