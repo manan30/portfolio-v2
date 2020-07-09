@@ -2,13 +2,13 @@ module.exports = {
   siteMetadata: {
     title: `Manan Joshi`,
     description: `Get to know me`,
-    author: `@mananjoshi`
+    author: `@manan30`
   },
   plugins: [
-    `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,

@@ -45,12 +45,10 @@ function ThemeProvider({ children }) {
     });
   }, []);
 
-  return mounted ? (
+  return (
     <ThemeContext.Provider value={{ themeState, themeDispatch }}>
       {children}
     </ThemeContext.Provider>
-  ) : (
-    <div />
   );
 }
 

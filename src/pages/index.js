@@ -67,8 +67,6 @@ const IntroContainer = styled.div`
 function IndexPage() {
   const { themeState } = useTheme();
 
-  // console.log(data);
-
   return (
     <Layout>
       <SEO title="Home" />
