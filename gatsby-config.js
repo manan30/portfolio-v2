@@ -17,7 +17,7 @@ module.exports = {
         short_name: `portfolio`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/images/profile-image.jpg` // This path is relative to the root of the site.
+        icon: `data/images/profile-image.jpg` // This path is relative to the root of the site.
       }
     },
     {
@@ -29,7 +29,14 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-react-svg',
-      options: { rule: { include: /images/ } }
+      options: { rule: { include: /data/ } }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: 'UA-168037223-1'
+      }
     }
   ]
 };

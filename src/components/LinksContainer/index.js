@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import BlogIcon from '../../images/svg/blog.svg';
-import GithubIcon from '../../images/svg/github.svg';
-import DemoIcon from '../../images/svg/demo.svg';
+import React from 'react';
+import BlogIcon from '../../../data/svg/blog.svg';
+import DemoIcon from '../../../data/svg/demo.svg';
+import GithubIcon from '../../../data/svg/github.svg';
 
 function LinksContainer({ links, themePreference }) {
   const fillColor = themePreference === 'dark' ? '#121212' : '#627c85';

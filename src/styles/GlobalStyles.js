@@ -29,6 +29,8 @@ export default createGlobalStyle`
     -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    scroll-behavior: smooth;
   }
 
   a {
