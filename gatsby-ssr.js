@@ -34,7 +34,7 @@ const InjectScript = () => {
 
     root.style.setProperty('--card-background', themePreference === "dark" ? '#121212':'#fafffd');
 
-    root.style.setProperty('--card-bg-shadow', themePreference === "dark" ? '#0d1321':'#dce1de');
+    root.style.setProperty('--bg-shadow', themePreference === "dark" ? '#0d1321':'#dce1de');
   })()`;
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;

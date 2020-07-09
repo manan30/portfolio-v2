@@ -31,13 +31,22 @@ const HeaderContainer = styled.header`
   width: calc(100% - 2rem);
   padding: 1rem;
 
-  /* background-color: ${(props) =>
-    props.theme === 'dark' ? '#25282f' : '#ffffff'}; */
-  background-color: var(--color-background);
+  background-color: ${(props) =>
+    props.mounted
+      ? props.theme === 'dark'
+        ? '#25282f'
+        : '#ffffff'
+      : 'var(--color-background)'};
 
   box-shadow: ${(props) =>
     props.shadow
-      ? `0 0 0.6rem ${props.theme === 'dark' ? '#0d1321' : '#dce1de'}`
+      ? `0 0 0.6rem ${
+          props.mounted
+            ? props.theme === 'dark'
+              ? '#0d1321'
+              : '#dce1de'
+            : 'var(--bg-shadow)'
+        }`
       : 'none'};
   transition: all 0.4s ease-in-out;
 `;
@@ -45,8 +54,12 @@ const HeaderContainer = styled.header`
 const HeaderText = styled.span`
   margin-left: 2rem;
 
-  /* color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#404e7c')}; */
-  color: var(--color-secondary);
+  color: ${(props) =>
+    props.mounted
+      ? props.theme === 'dark'
+        ? '#f8f7ff'
+        : '#404e7c'
+      : 'var(--color-secondary)'};
   font-size: 1.6rem;
   font-weight: bolder;
   font-family: Nunito;
@@ -112,11 +125,21 @@ const NavigationContainerMobile = styled.div`
     height: calc(100vh - 2rem);
     width: calc(50% - 2rem);
     padding: 1rem;
+
     background-color: ${(props) =>
-      props.theme === 'dark' ? '#25282f' : '#ffffff'};
+      props.mounted
+        ? props.theme === 'dark'
+          ? '#25282f'
+          : '#ffffff'
+        : 'var(--color-background)'};
 
     box-shadow: 0 0 0.6rem
-      ${(props) => (props.theme === 'dark' ? '#0d1321' : '#dce1de')};
+      ${(props) =>
+        props.mounted
+          ? props.theme === 'dark'
+            ? '#0d1321'
+            : '#dce1de'
+          : 'var(--bg-shadow)'};
 
     animation: ${(props) => {
         return props.isAnimating

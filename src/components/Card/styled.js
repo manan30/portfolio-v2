@@ -62,7 +62,7 @@ const CardContainer = styled.div`
         ? props.theme === 'dark'
           ? '#0d1321'
           : '#dce1de'
-        : 'var(--card-bg-shadow)'};
+        : 'var(--bg-shadow)'};
 
   ${(props) => props.animation && props.animation};
   transition: all 0.5s ease-in-out;
