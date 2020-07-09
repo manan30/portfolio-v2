@@ -31,6 +31,10 @@ const InjectScript = () => {
     root.style.setProperty('--color-primary', themePreference === "dark" ? '#f8f7ff':'#2e4057');
 
     root.style.setProperty('--color-secondary', themePreference === "dark" ? '#f8f7ff':'#404E7C');
+
+    root.style.setProperty('--card-background', themePreference === "dark" ? '#121212':'#fafffd');
+
+    root.style.setProperty('--card-bg-shadow', themePreference === "dark" ? '#0d1321':'#dce1de');
   })()`;
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;

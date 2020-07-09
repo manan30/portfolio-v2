@@ -72,6 +72,7 @@ function Experience() {
               <Card
                 key={idx}
                 theme={themeState.themePreference}
+                mounted={themeState.mounted}
                 animation={generateAnimation(2 + idx * 0.2)}
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
