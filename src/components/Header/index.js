@@ -62,9 +62,18 @@ function Header() {
 
   return (
     <>
-      <HeaderContainer shadow={scrolled} theme={themeState.themePreference}>
+      <HeaderContainer
+        shadow={scrolled}
+        theme={themeState.themePreference}
+        mounted={themeState.mounted}
+      >
         <Link to="/">
-          <HeaderText theme={themeState.themePreference}>Manan</HeaderText>
+          <HeaderText
+            theme={themeState.themePreference}
+            mounted={themeState.mounted}
+          >
+            Manan
+          </HeaderText>
         </Link>
         {!isMobile && (
           <>
@@ -87,6 +96,7 @@ function Header() {
                 else themeDispatch({ type: 'toggle-light-theme' });
               }}
               themePreference={themeState.themePreference}
+              mounted={themeState.mounted}
             >
               Dark Mode
             </ToggleSwitch>
@@ -108,7 +118,11 @@ function Header() {
             <SVGIcon
               type="Menu"
               fill={
-                themeState.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
+                themeState.mounted
+                  ? themeState.themePreference === 'dark'
+                    ? '#f8f7ff'
+                    : '#404e7c'
+                  : 'var(--color-secondary)'
               }
             />
           </div>
@@ -118,6 +132,7 @@ function Header() {
       {sidebarVisibility && (
         <NavigationContainerMobile
           theme={themeState.themePreference}
+          mounted={themeState.mounted}
           isAnimating={animating}
         >
           <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -128,6 +143,7 @@ function Header() {
                 else themeDispatch({ type: 'toggle-light-theme' });
               }}
               themePreference={themeState.themePreference}
+              mounted={themeState.mounted}
             >
               Dark Mode
             </ToggleSwitch>
@@ -144,7 +160,11 @@ function Header() {
               <SVGIcon
                 type="Close"
                 fill={
-                  themeState.themePreference === 'dark' ? '#f8f7ff' : '#404e7c'
+                  themeState.mounted
+                    ? themeState.themePreference === 'dark'
+                      ? '#f8f7ff'
+                      : '#404e7c'
+                    : 'var(--color-secondary)'
                 }
               />
             </div>

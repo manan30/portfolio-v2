@@ -73,7 +73,7 @@ const ToggleSwitchButton = styled.button`
 
 function ToggleSwitch({ onClickHandler, themePreference, mounted }) {
   return (
-    <ToggleSwitchContainer type={themePreference}>
+    <ToggleSwitchContainer theme={themePreference} mounted={mounted}>
       {themePreference === 'dark' && <SunIcon />}
       <ToggleSwitchButton
         onClick={onClickHandler}
