@@ -7,15 +7,21 @@ export default createGlobalStyle`
     margin: 0%;
     padding: 0%;
 
-    ${
-      '' /* background-color: ${(props) =>
-      props.theme === 'dark' ? '#25282f' : '#fafffd'}; */
-    }
-    background-color: var(--color-background);
-    ${
-      '' /* color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#2e4057')
-    }; */
-    }
+    background-color: ${(props) =>
+      props.mounted
+        ? props.theme === 'dark'
+          ? '#25282f'
+          : '#fafffd'
+        : 'var(--color-background)'};
+
+
+    color: ${(props) =>
+      props.mounted
+        ? props.theme === 'dark'
+          ? '#f8f7ff'
+          : '#2e4057'
+        : 'var(--color-primary)'};
+
     color: var(--color-primary);
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: normal;

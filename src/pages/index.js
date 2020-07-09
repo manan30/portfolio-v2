@@ -1,7 +1,5 @@
-import Img from 'gatsby-image';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
@@ -67,21 +65,11 @@ const IntroContainer = styled.div`
 `;
 
 function IndexPage() {
-  const { themeState } = useTheme();
-
   return (
     <Layout>
       <SEO title="Home" />
       <IntroContainer>
-        <TitleText
-          type="title"
-          fontWeight="bolder"
-          color={
-            themeState.themePreference && themeState.themePreference === 'dark'
-              ? '#f8f7ff'
-              : '#404e7c'
-          }
-        >
+        <TitleText type="title" fontWeight="bolder">
           Hello, I&apos;m Manan
         </TitleText>
         <PageText fontSize="1rem" timing="1s">
