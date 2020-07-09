@@ -9,7 +9,7 @@ const GridContainer = styled.div`
   width: 100%;
 
   @media screen and (max-width: 815px) {
-    grid-template-columns: 100%;
+    grid-template-columns: minmax(0, 1fr);
   }
 `;
 
