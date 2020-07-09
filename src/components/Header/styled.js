@@ -31,8 +31,9 @@ const HeaderContainer = styled.header`
   width: calc(100% - 2rem);
   padding: 1rem;
 
-  background-color: ${(props) =>
-    props.theme === 'dark' ? '#25282f' : '#ffffff'};
+  /* background-color: ${(props) =>
+    props.theme === 'dark' ? '#25282f' : '#ffffff'}; */
+  background-color: var(--color-background);
 
   box-shadow: ${(props) =>
     props.shadow
@@ -44,7 +45,8 @@ const HeaderContainer = styled.header`
 const HeaderText = styled.span`
   margin-left: 2rem;
 
-  color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#404e7c')};
+  /* color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#404e7c')}; */
+  color: var(--color-secondary);
   font-size: 1.6rem;
   font-weight: bolder;
   font-family: Nunito;

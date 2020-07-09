@@ -7,10 +7,16 @@ export default createGlobalStyle`
     margin: 0%;
     padding: 0%;
 
-    background-color: ${(props) =>
-      props.theme === 'dark' ? '#25282f' : '#fafffd'};
-    color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#2e4057')};
-
+    ${
+      '' /* background-color: ${(props) =>
+      props.theme === 'dark' ? '#25282f' : '#fafffd'}; */
+    }
+    background-color: var(--color-background);
+    ${
+      '' /* color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#2e4057')
+    }; */
+    }
+    color: var(--color-primary);
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: normal;
     word-wrap: break-word;

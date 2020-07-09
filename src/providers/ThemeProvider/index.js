@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useEffect,
-  useState
-} from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 const ThemeContext = createContext();
 
@@ -32,18 +26,6 @@ const ThemeReducer = (state, action) => {
 
 function ThemeProvider({ children }) {
   const [themeState, themeDispatch] = useReducer(ThemeReducer, {});
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      const root = window.document.documentElement;
-      const initialColorValue = root.style.getPropertyValue(
-        '--initial-color-mode'
-      );
-      themeDispatch({ type: 'initial-theme', payload: initialColorValue });
-      setMounted(true);
-    });
-  }, []);
 
   return (
     <ThemeContext.Provider value={{ themeState, themeDispatch }}>

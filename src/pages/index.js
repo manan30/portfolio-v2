@@ -33,9 +33,11 @@ const TitleTranslateAnimation = keyframes`
 const PageText = styled.div`
   margin-bottom: 1rem;
 
-  color: ${(props) => {
-    return props.color || 'inherit';
-  }};
+  color: var(
+    ${(props) =>
+      props.type === 'title' ? '--color-secondary' : 'color-primary'}
+  );
+
   font-size: ${(props) => props.fontSize || '1rem'};
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
 
@@ -72,6 +74,7 @@ function IndexPage() {
       <SEO title="Home" />
       <IntroContainer>
         <TitleText
+          type="title"
           fontWeight="bolder"
           color={
             themeState.themePreference && themeState.themePreference === 'dark'
