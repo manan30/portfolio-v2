@@ -7,13 +7,6 @@ export default createGlobalStyle`
     margin: 0%;
     padding: 0%;
 
-     /* background-color: ${(props) =>
-       props.mounted
-         ? props.theme === 'dark'
-           ? '#25282f'
-           : '#fafffd'
-         : 'var(--color-background)'}; */
-
     background-color: ${(props) =>
       props.toggled
         ? `var(--background-color-${props.themePreference})`
@@ -21,10 +14,9 @@ export default createGlobalStyle`
 
     color: ${(props) =>
       props.toggled
-        ? `var(--background-color-${props.themePreference})`
+        ? `var(--color-primary-${props.themePreference})`
         : 'var(--initial-color-primary)'};
 
-    ${'' /* color: var(--color-primary); */}
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: normal;
     word-wrap: break-word;

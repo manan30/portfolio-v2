@@ -84,34 +84,41 @@ const ToggleSwitchButton = styled.button`
 
 function ToggleSwitch() {
   const { themeState, themeDispatch } = useTheme();
-  const [svgIconToggle, setSvgIconToggle] = useState();
-
-  const clickHandler = () => {
-    if (themeState.themePreference === 'light')
-      themeDispatch({ type: 'toggle-dark-theme' });
-    else themeDispatch({ type: 'toggle-light-theme' });
-  };
+  const [colorMode, setColorMode] = useState();
 
   useEffect(() => {
-    if (!themeState.mounted) {
-      const colorMode = document.documentElement.style.getPropertyValue(
+    if (!themeState.toggled) {
+      const mode = document.documentElement.style.getPropertyValue(
         '--color-mode'
       );
-      setSvgIconToggle(colorMode);
+      setColorMode(mode);
     } else {
-      setSvgIconToggle(themeState.themePreference);
+      setColorMode(themeState.themePreference);
     }
   }, [themeState]);
 
+  const clickHandler = () => {
+    if (themeState.themePreference && themeState.themePreference === 'light')
+      themeDispatch({ type: 'toggle-dark-theme' });
+    else if (
+      themeState.themePreference &&
+      themeState.themePreference === 'dark'
+    )
+      themeDispatch({ type: 'toggle-light-theme' });
+    else if (colorMode === 'dark')
+      themeDispatch({ type: 'toggle-light-theme' });
+    else themeDispatch({ type: 'toggle-dark-theme' });
+  };
+
   return (
-    <ToggleSwitchContainer type={svgIconToggle}>
-      {svgIconToggle === 'dark' && <SunIcon />}
+    <ToggleSwitchContainer type={colorMode}>
+      {colorMode === 'dark' && <SunIcon />}
       <ToggleSwitchButton
         onClick={clickHandler}
         themePreference={themeState.themePreference}
         toggled={themeState.toggled}
       />
-      {svgIconToggle !== 'dark' && <MoonIcon />}
+      {colorMode !== 'dark' && <MoonIcon />}
     </ToggleSwitchContainer>
   );
 }
