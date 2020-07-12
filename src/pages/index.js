@@ -1,7 +1,5 @@
-import Img from 'gatsby-image';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
