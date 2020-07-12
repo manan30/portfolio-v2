@@ -46,6 +46,14 @@ const InjectScript = () => {
     root.style.setProperty('--shadow-dark', "#0d1321");
     root.style.setProperty('--shadow-light', "#dce1de");
 
+    root.style.setProperty('--initial-toggle-border-color', themePreference === "dark" ? '#dce1de':'#25282f');
+    root.style.setProperty('--toggle-border-color-dark', "#dce1de");
+    root.style.setProperty('--toggle-border-color-light', "#25282f");
+
+    root.style.setProperty('--initial-toggle-switch-transform', themePreference === "dark" ? '2rem':'0');
+    root.style.setProperty('--toggle-switch-transform-dark', "2rem");
+    root.style.setProperty('--toggle-switch-transform-light', "0");
+
     root.style.setProperty('--color-mode', themePreference);
   })()`;
   // eslint-disable-next-line react/no-danger

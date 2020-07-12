@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import MoonIcon from '../../../data/svg/moon.svg';
 import SunIcon from '../../../data/svg/sun.svg';
@@ -55,10 +54,21 @@ const ToggleSwitchButton = styled.button`
   padding: 0;
 
   border: 0.5px solid
-    ${(props) => (props.switch === 'dark' ? '#dce1de' : '#25282f')};
-  background-color: ${(props) => props.background && props.background};
+    ${(props) =>
+      props.toggled
+        ? `var(--toggle-border-color-${props.themePreference})`
+        : `var(--initial-toggle-border-color)`};
+  background-color: ${(props) =>
+    props.toggled
+      ? `var(--background-color-${props.themePreference})`
+      : `var(--initial-background-color)`};
   border-radius: 50%;
-  transform: translateX(${(props) => (props.switch === 'dark' ? '2rem' : '0')});
+  transform: translateX(
+    ${(props) =>
+      props.toggled
+        ? `var(--toggle-switch-transform-${props.themePreference})`
+        : `var(--initial-toggle-switch-transform)`}
+  );
 
   transition: all 0.5s ease-in-out;
 
@@ -72,8 +82,9 @@ const ToggleSwitchButton = styled.button`
   }
 `;
 
-function ToggleSwitch({ themePreference, toggled }) {
+function ToggleSwitch() {
   const { themeState, themeDispatch } = useTheme();
+  const [svgIconToggle, setSvgIconToggle] = useState();
 
   const clickHandler = () => {
     if (themeState.themePreference === 'light')
@@ -81,28 +92,28 @@ function ToggleSwitch({ themePreference, toggled }) {
     else themeDispatch({ type: 'toggle-light-theme' });
   };
 
+  useEffect(() => {
+    if (!themeState.mounted) {
+      const colorMode = document.documentElement.style.getPropertyValue(
+        '--color-mode'
+      );
+      setSvgIconToggle(colorMode);
+    } else {
+      setSvgIconToggle(themeState.themePreference);
+    }
+  }, [themeState]);
+
   return (
-    <ToggleSwitchContainer theme={themePreference} toggled={toggled}>
-      {themePreference === 'dark' && <SunIcon />}
+    <ToggleSwitchContainer type={svgIconToggle}>
+      {svgIconToggle === 'dark' && <SunIcon />}
       <ToggleSwitchButton
         onClick={clickHandler}
-        background={themePreference === 'dark' ? '#25282f' : '#fafffd'}
-        switch={themePreference}
-        type="button"
+        themePreference={themeState.themePreference}
+        toggled={themeState.toggled}
       />
-      {themePreference !== 'dark' && <MoonIcon />}
+      {svgIconToggle !== 'dark' && <MoonIcon />}
     </ToggleSwitchContainer>
   );
 }
-
-ToggleSwitch.propTypes = {
-  themePreference: PropTypes.string,
-  toggled: PropTypes.bool
-};
-
-ToggleSwitch.defaultProps = {
-  themePreference: '',
-  toggled: false
-};
 
 export default ToggleSwitch;
