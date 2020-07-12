@@ -10,13 +10,13 @@ const ThemeReducer = (state, action) => {
         'theme',
         JSON.stringify({ themePreference: 'dark' })
       );
-      return { ...state, themePreference: 'dark', mounted: true };
+      return { ...state, themePreference: 'dark', toggled: true };
     case 'toggle-light-theme':
       localStorage.setItem(
         'theme',
         JSON.stringify({ themePreference: 'light' })
       );
-      return { ...state, themePreference: 'light', mounted: true };
+      return { ...state, themePreference: 'light', toggled: true };
     case 'initial-theme':
       return { ...state, themePreference: action.payload };
     default:

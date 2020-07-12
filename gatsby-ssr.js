@@ -8,7 +8,7 @@ exports.wrapRootElement = ({ element }) => {
 const InjectScript = () => {
   const codeToRunOnClient = `
   (function() {
-    function getInitialColorMode() {
+    function getColorMode() {
       const persistedColorPreference = window.localStorage.getItem('theme');
 
       if (persistedColorPreference) {
@@ -23,23 +23,30 @@ const InjectScript = () => {
 
       return { themePreference: 'light' };
     }
-    const {themePreference} = getInitialColorMode();
+    const {themePreference} = getColorMode();
     const root = document.documentElement;
 
+    root.style.setProperty('--initial-background-color', themePreference === "dark" ? '#25282f':'#ffffff');
     root.style.setProperty('--background-color-dark', "#25282f");
     root.style.setProperty('--background-color-light', "#f4f4f8");
 
-    root.style.property('--color-primary-dark', "#f8f7ff");
-    root.style.property('--color-primary-light', "#2e4057");
+    root.style.setProperty('--initial-color-primary', themePreference === "dark" ? '#f8f7ff':'#2e4057');
+    root.style.setProperty('--color-primary-dark', "#f8f7ff");
+    root.style.setProperty('--color-primary-light', "#2e4057");
 
-    root.style.property('--color-secondary-dark', "#f8f7ff");
-    root.style.property('--color-secondary-light', "#404E7C");
+    root.style.setProperty('--initial-color-secondary', themePreference === "dark" ? '#f8f7ff':'#404E7C');
+    root.style.setProperty('--color-secondary-dark', "#f8f7ff");
+    root.style.setProperty('--color-secondary-light', "#404E7C");
 
+    root.style.setProperty('--initial-card-background', themePreference === "dark" ? '#121212':'#fafffd');
     root.style.setProperty('--card-background-dark', "#121212");
     root.style.setProperty('--card-background-light', "#fafffd");
 
+    root.style.setProperty('--initial-shadow', themePreference === "dark" ? '#0d1321':'#dce1de');
     root.style.setProperty('--shadow-dark', "#0d1321");
     root.style.setProperty('--shadow-light', "#dce1de");
+
+    root.style.setProperty('--color-mode', themePreference);
   })()`;
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;

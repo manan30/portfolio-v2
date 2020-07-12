@@ -7,13 +7,16 @@ export default createGlobalStyle`
     margin: 0%;
     padding: 0%;
 
-    background-color: ${(props) =>
-      props.mounted
-        ? props.theme === 'dark'
-          ? '#25282f'
-          : '#fafffd'
-        : 'var(--color-background)'};
-
+     /* background-color: ${(props) =>
+       props.mounted
+         ? props.theme === 'dark'
+           ? '#25282f'
+           : '#fafffd'
+         : 'var(--color-background)'}; */
+         background-color: ${(props) =>
+           props.toggled
+             ? `var(--background-color-${props.theme})`
+             : `var(--background-color-dark)`};
 
     color: ${(props) =>
       props.mounted
