@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import MoonIcon from '../../../data/svg/moon.svg';
 import SunIcon from '../../../data/svg/sun.svg';
+import { useTheme } from '../../providers/ThemeProvider';
 
 const ToggleSwitchContainer = styled.div`
   display: flex;
@@ -14,7 +14,6 @@ const ToggleSwitchContainer = styled.div`
   width: 3.5rem;
   padding: 2px;
 
-  /* background: ${(props) => props.background && props.background}; */
   background-color: #fafffd;
   border: 0.5px solid #25282f;
   border-radius: 5rem;
@@ -54,50 +53,77 @@ const ToggleSwitchButton = styled.button`
   margin-left: -0.4rem;
   padding: 0;
 
-  /* border: 1px solid #dce1de; */
   border: 0.5px solid
-    ${(props) => (props.switch === 'dark' ? '#dce1de' : '#25282f')};
-  background-color: ${(props) => props.background && props.background};
+    ${(props) =>
+      props.toggled
+        ? `var(--toggle-border-color-${props.themePreference})`
+        : `var(--initial-toggle-border-color)`};
+  background-color: ${(props) =>
+    props.toggled
+      ? `var(--background-color-${props.themePreference})`
+      : `var(--initial-background-color)`};
   border-radius: 50%;
-  transform: translateX(${(props) => (props.switch === 'dark' ? '2rem' : '0')});
+  transform: translateX(
+    ${(props) =>
+      props.toggled
+        ? `var(--toggle-switch-transform-${props.themePreference})`
+        : `var(--initial-toggle-switch-transform)`}
+  );
 
   transition: all 0.5s ease-in-out;
 
   @media screen and (max-width: 815px) {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.7rem;
+    width: 1.7rem;
 
     transform: translateX(
-      ${(props) => (props.switch === 'dark' ? '2.2rem' : '0')}
+      ${(props) =>
+        props.toggled
+          ? `var(--toggle-switch-transform-${props.themePreference})`
+          : `var(--initial-toggle-switch-transform)`}
     );
   }
 `;
 
-function ToggleSwitch({ onClickHandler, themePreference }) {
+function ToggleSwitch() {
+  const { themeState, themeDispatch } = useTheme();
+  const [colorMode, setColorMode] = useState();
+
+  useEffect(() => {
+    if (!themeState.toggled) {
+      const mode = document.documentElement.style.getPropertyValue(
+        '--color-mode'
+      );
+      setColorMode(mode);
+    } else {
+      setColorMode(themeState.themePreference);
+    }
+  }, [themeState]);
+
+  const clickHandler = () => {
+    if (themeState.themePreference && themeState.themePreference === 'light')
+      themeDispatch({ type: 'toggle-dark-theme' });
+    else if (
+      themeState.themePreference &&
+      themeState.themePreference === 'dark'
+    )
+      themeDispatch({ type: 'toggle-light-theme' });
+    else if (colorMode === 'dark')
+      themeDispatch({ type: 'toggle-light-theme' });
+    else themeDispatch({ type: 'toggle-dark-theme' });
+  };
+
   return (
-    <ToggleSwitchContainer
-      background={themePreference === 'dark' ? '#fafffd' : '#25282f'}
-      type={themePreference}
-    >
-      {themePreference === 'dark' && <SunIcon />}
+    <ToggleSwitchContainer type={colorMode}>
+      {colorMode === 'dark' && <SunIcon />}
       <ToggleSwitchButton
-        onClick={onClickHandler}
-        background={themePreference === 'dark' ? '#25282f' : '#fafffd'}
-        switch={themePreference}
-        type="button"
+        onClick={clickHandler}
+        themePreference={themeState.themePreference}
+        toggled={themeState.toggled}
       />
-      {themePreference !== 'dark' && <MoonIcon />}
+      {colorMode !== 'dark' && <MoonIcon />}
     </ToggleSwitchContainer>
   );
 }
-
-ToggleSwitch.propTypes = {
-  onClickHandler: PropTypes.func.isRequired,
-  themePreference: PropTypes.string
-};
-
-ToggleSwitch.defaultProps = {
-  themePreference: ''
-};
 
 export default ToggleSwitch;

@@ -11,7 +11,15 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
-            author
+            image
+            siteUrl
+            twitter {
+              card
+              site
+              creator
+              description
+              image
+            }
           }
         }
       }
@@ -34,7 +42,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title
+          content: `${title} | ${site.siteMetadata.title}`
         },
         {
           property: `og:description`,
@@ -45,20 +53,36 @@ function SEO({ description, lang, meta, title }) {
           content: `website`
         },
         {
+          property: `og:image`,
+          content: `${site.siteMetadata.image}`
+        },
+        {
+          property: `og:url`,
+          content: `${site.siteMetadata.siteUrl}`
+        },
+        {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary_large_image`
+        },
+        {
+          name: `twitter:site`,
+          content: ``
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author
-        },
-        {
-          name: `twitter:title`,
-          content: title
+          content: `@manan30`
         },
         {
           name: `twitter:description`,
-          content: metaDescription
+          content: ``
+        },
+        {
+          name: `twitter:title`,
+          content: `${title} | ${site.siteMetadata.title}`
+        },
+        {
+          name: `twitter:image`,
+          content: `summary_large_image`
         }
       ].concat(meta)}
     />
