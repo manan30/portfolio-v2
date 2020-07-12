@@ -62,19 +62,19 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: `summary_large_image`
+          content: `${site.siteMetadata.twitter.card}`
         },
         {
           name: `twitter:site`,
-          content: ``
+          content: `${site.siteMetadata.twitter.site}`
         },
         {
           name: `twitter:creator`,
-          content: `@manan30`
+          content: `${site.siteMetadata.twitter.creator}`
         },
         {
           name: `twitter:description`,
-          content: ``
+          content: `${site.siteMetadata.twitter.description}`
         },
         {
           name: `twitter:title`,
@@ -82,7 +82,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: `summary_large_image`
+          content: `${site.siteMetadata.twitter.image}`
         }
       ].concat(meta)}
     />
