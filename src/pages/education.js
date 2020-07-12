@@ -60,7 +60,8 @@ function Education() {
                 animation={
                   i === 0 ? slideInAnimation('left') : slideInAnimation('right')
                 }
-                theme={themeState.themePreference}
+                themePreference={themeState.themePreference}
+                toggled={themeState.toggled}
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <PageText fontSize="1.2rem" fontWeight="bolder">

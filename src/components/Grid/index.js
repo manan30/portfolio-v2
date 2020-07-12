@@ -22,10 +22,10 @@ function Grid({ children, type }) {
   return type === 'masonary' ? (
     <MasonaryGridContainer>{children}</MasonaryGridContainer>
   ) : (
-    <>
+    <div style={{ width: '100%' }}>
       <GridContainer>{children}</GridContainer>
       <div style={{ paddingBottom: '1.5rem' }} />
-    </>
+    </div>
   );
 }
 
