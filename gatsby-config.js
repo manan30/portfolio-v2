@@ -3,11 +3,11 @@ module.exports = {
     title: `Manan Joshi`,
     type: `website`,
     description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He recently graduated with a Masters's Degree in Computer Science from Rochester Institute of Technology and currently lives in Rochester, New York.`,
-    siteUrl: `https://mananjoshi.me`,
+    siteUrl: `https://hardcore-payne-e855ba.netlify.app/`,
     image: `/profile-image.jpg`,
     twitter: {
       card: `summary_large_image`,
-      site: `https://mananjoshi.me`,
+      site: `https://hardcore-payne-e855ba.netlify.app/`,
       creator: `@manan30`,
       description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. Currently he is working with the JAM stack, React, Firebase and GraphQL.`,
       image: `/profile-image.jpg`
