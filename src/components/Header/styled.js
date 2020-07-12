@@ -32,20 +32,16 @@ const HeaderContainer = styled.header`
   padding: 1rem;
 
   background-color: ${(props) =>
-    props.mounted
-      ? props.theme === 'dark'
-        ? '#25282f'
-        : '#ffffff'
-      : 'var(--color-background)'};
+    props.toggled
+      ? `var(--background-color-${props.themePreference})`
+      : `var(--initial-background-color)`};
 
   box-shadow: ${(props) =>
     props.shadow
       ? `0 0 0.6rem ${
-          props.mounted
-            ? props.theme === 'dark'
-              ? '#0d1321'
-              : '#dce1de'
-            : 'var(--bg-shadow)'
+          props.toggled
+            ? `var(--shadow-${props.themePreference})`
+            : 'var(--initial-shadow)'
         }`
       : 'none'};
   transition: all 0.4s ease-in-out;
@@ -55,11 +51,9 @@ const HeaderText = styled.span`
   margin-left: 2rem;
 
   color: ${(props) =>
-    props.mounted
-      ? props.theme === 'dark'
-        ? '#f8f7ff'
-        : '#404e7c'
-      : 'var(--color-secondary)'};
+    props.toggled
+      ? `var(--color-secondary-${props.themePreference})`
+      : 'var(--initial-color-secondary)'};
   font-size: 1.6rem;
   font-weight: bolder;
   font-family: Nunito;
@@ -127,19 +121,15 @@ const NavigationContainerMobile = styled.div`
     padding: 1rem;
 
     background-color: ${(props) =>
-      props.mounted
-        ? props.theme === 'dark'
-          ? '#25282f'
-          : '#ffffff'
-        : 'var(--color-background)'};
+      props.toggled
+        ? `var(--background-color-${props.themePreference})`
+        : `var(--initial-background-color)`};
 
     box-shadow: 0 0 0.6rem
       ${(props) =>
-        props.mounted
-          ? props.theme === 'dark'
-            ? '#0d1321'
-            : '#dce1de'
-          : 'var(--bg-shadow)'};
+        props.toggled
+          ? `var(--shadow-${props.themePreference})`
+          : 'var(--initial-shadow)'};
 
     animation: ${(props) => {
         return props.isAnimating

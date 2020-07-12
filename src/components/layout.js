@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyles
         theme={themeState.themePreference}
-        mounted={themeState.mounted}
+        toggled={themeState.toggled}
       />
       <Header />
       <main>{children}</main>

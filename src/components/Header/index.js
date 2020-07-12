@@ -1,17 +1,17 @@
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '../../providers/ThemeProvider';
 import useIsMobile from '../../hooks/useIsMobile';
+import { useTheme } from '../../providers/ThemeProvider';
+import SVGIcon from '../SVGIcon';
+import ToggleSwitch from '../ToggleSwitch';
 import {
   HeaderContainer,
   HeaderText,
   NavigationContainer,
+  NavigationContainerMobile,
   NavigationItemContainer,
-  NavItem,
-  NavigationContainerMobile
+  NavItem
 } from './styled';
-import ToggleSwitch from '../ToggleSwitch';
-import SVGIcon from '../SVGIcon';
 
 function Header() {
   const {
@@ -64,13 +64,13 @@ function Header() {
     <>
       <HeaderContainer
         shadow={scrolled}
-        theme={themeState.themePreference}
-        mounted={themeState.mounted}
+        themePreference={themeState.themePreference}
+        toggled={themeState.toggled}
       >
         <Link to="/">
           <HeaderText
-            theme={themeState.themePreference}
-            mounted={themeState.mounted}
+            themePreference={themeState.themePreference}
+            toggled={themeState.toggled}
           >
             Manan
           </HeaderText>
@@ -90,13 +90,8 @@ function Header() {
               </NavigationItemContainer>
             </NavigationContainer>
             <ToggleSwitch
-              onClickHandler={() => {
-                if (themeState.themePreference === 'light')
-                  themeDispatch({ type: 'toggle-dark-theme' });
-                else themeDispatch({ type: 'toggle-light-theme' });
-              }}
               themePreference={themeState.themePreference}
-              mounted={themeState.mounted}
+              toggled={themeState.toggled}
             >
               Dark Mode
             </ToggleSwitch>
@@ -118,11 +113,9 @@ function Header() {
             <SVGIcon
               type="Menu"
               fill={
-                themeState.mounted
-                  ? themeState.themePreference === 'dark'
-                    ? '#f8f7ff'
-                    : '#404e7c'
-                  : 'var(--color-secondary)'
+                themeState.toggled
+                  ? `var(--background-color-${themeState.themePreference})`
+                  : 'var(--initial-color-secondary)'
               }
             />
           </div>
@@ -131,19 +124,14 @@ function Header() {
 
       {sidebarVisibility && (
         <NavigationContainerMobile
-          theme={themeState.themePreference}
-          mounted={themeState.mounted}
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
           isAnimating={animating}
         >
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <ToggleSwitch
-              onClickHandler={() => {
-                if (themeState.themePreference === 'light')
-                  themeDispatch({ type: 'toggle-dark-theme' });
-                else themeDispatch({ type: 'toggle-light-theme' });
-              }}
               themePreference={themeState.themePreference}
-              mounted={themeState.mounted}
+              toggled={themeState.toggled}
             >
               Dark Mode
             </ToggleSwitch>
@@ -160,11 +148,9 @@ function Header() {
               <SVGIcon
                 type="Close"
                 fill={
-                  themeState.mounted
-                    ? themeState.themePreference === 'dark'
-                      ? '#f8f7ff'
-                      : '#404e7c'
-                    : 'var(--color-secondary)'
+                  themeState.toggled
+                    ? `var(--background-color-${themeState.themePreference})`
+                    : 'var(--initial-color-secondary)'
                 }
               />
             </div>

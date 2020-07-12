@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import MoonIcon from '../../../data/svg/moon.svg';
 import SunIcon from '../../../data/svg/sun.svg';
+import { useTheme } from '../../providers/ThemeProvider';
 
 const ToggleSwitchContainer = styled.div`
   display: flex;
@@ -71,12 +72,20 @@ const ToggleSwitchButton = styled.button`
   }
 `;
 
-function ToggleSwitch({ onClickHandler, themePreference, mounted }) {
+function ToggleSwitch({ themePreference, toggled }) {
+  const { themeState, themeDispatch } = useTheme();
+
+  const clickHandler = () => {
+    if (themeState.themePreference === 'light')
+      themeDispatch({ type: 'toggle-dark-theme' });
+    else themeDispatch({ type: 'toggle-light-theme' });
+  };
+
   return (
-    <ToggleSwitchContainer theme={themePreference} mounted={mounted}>
+    <ToggleSwitchContainer theme={themePreference} toggled={toggled}>
       {themePreference === 'dark' && <SunIcon />}
       <ToggleSwitchButton
-        onClick={onClickHandler}
+        onClick={clickHandler}
         background={themePreference === 'dark' ? '#25282f' : '#fafffd'}
         switch={themePreference}
         type="button"
@@ -87,12 +96,13 @@ function ToggleSwitch({ onClickHandler, themePreference, mounted }) {
 }
 
 ToggleSwitch.propTypes = {
-  onClickHandler: PropTypes.func.isRequired,
-  themePreference: PropTypes.string
+  themePreference: PropTypes.string,
+  toggled: PropTypes.bool
 };
 
 ToggleSwitch.defaultProps = {
-  themePreference: ''
+  themePreference: '',
+  toggled: false
 };
 
 export default ToggleSwitch;
