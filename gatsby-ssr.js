@@ -26,15 +26,20 @@ const InjectScript = () => {
     const {themePreference} = getInitialColorMode();
     const root = document.documentElement;
 
-    root.style.setProperty('--color-background', themePreference === "dark" ? '#25282f':'#ffffff');
+    root.style.setProperty('--background-color-dark', "#25282f");
+    root.style.setProperty('--background-color-light', "#f4f4f8");
 
-    root.style.setProperty('--color-primary', themePreference === "dark" ? '#f8f7ff':'#2e4057');
+    root.style.property('--color-primary-dark', "#f8f7ff");
+    root.style.property('--color-primary-light', "#2e4057");
 
-    root.style.setProperty('--color-secondary', themePreference === "dark" ? '#f8f7ff':'#404E7C');
+    root.style.property('--color-secondary-dark', "#f8f7ff");
+    root.style.property('--color-secondary-light', "#404E7C");
 
-    root.style.setProperty('--card-background', themePreference === "dark" ? '#121212':'#fafffd');
+    root.style.setProperty('--card-background-dark', "#121212");
+    root.style.setProperty('--card-background-light', "#fafffd");
 
-    root.style.setProperty('--bg-shadow', themePreference === "dark" ? '#0d1321':'#dce1de');
+    root.style.setProperty('--shadow-dark', "#0d1321");
+    root.style.setProperty('--shadow-light', "#dce1de");
   })()`;
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />;
