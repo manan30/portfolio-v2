@@ -102,11 +102,13 @@ function SVGIcon({ type, fill }) {
 }
 
 SVGIcon.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  fill: PropTypes.string
 };
 
 SVGIcon.defaultProps = {
-  type: ''
+  type: '',
+  fill: ''
 };
 
 export default SVGIcon;

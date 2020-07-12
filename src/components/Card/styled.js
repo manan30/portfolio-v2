@@ -1,22 +1,15 @@
 import styled, { keyframes } from 'styled-components';
 
-const backgroundAnimation = (themePreference) => keyframes`
+const backgroundAnimation = keyframes`
   from {
     background-color: transparent;
   }
 
   to {
-    background-color: ${themePreference === 'dark' ? '#364156' : '#fbfbff'};
-  }
-`;
-
-const backgroundAnimationReverse = (themePreference) => keyframes`
-  from {
-    background-color: ${themePreference === 'dark' ? '#364156' : '#fbfbff'};
-  }
-
-  to {
-    background-color: transparent;
+    background-color: ${(props) =>
+      props.toggled
+        ? `var(--card-background-hovered-${props.themePreference})`
+        : 'var(--initial-card-background-hovered)'};
   }
 `;
 
@@ -51,9 +44,14 @@ const CardContainer = styled.div`
 
   border-radius: 0.5rem;
   background-color: ${(props) =>
-    props.theme === 'dark' ? '#121212' : '#fafffd'};
+    props.toggled
+      ? `var(--card-background-${props.themePreference})`
+      : `var(--initial-card-background)`};
   box-shadow: 0 0 0.6rem
-    ${(props) => (props.theme === 'dark' ? '#0d1321' : '#dce1de')};
+    ${(props) =>
+      props.toggled
+        ? `var(--shadow-${props.themePreference})`
+        : 'var(--initial-shadow)'};
 
   ${(props) => props.animation && props.animation};
   transition: all 0.5s ease-in-out;
@@ -87,13 +85,12 @@ const ProjectCardHovered = styled.div`
 
   border-radius: 0.5rem;
   background-color: ${(props) =>
-    props.themePreference === 'dark' ? '#364156' : '#fbfbff'};
+    props.toggled
+      ? `var(--card-background-hovered-${props.themePreference})`
+      : 'var(--initial-card-background-hovered)'};
 
-  animation: ${(props) =>
-      props.animating
-        ? backgroundAnimation(props.themePreference)
-        : backgroundAnimationReverse(props.themePreference)}
-    1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: ${backgroundAnimation} 1s cubic-bezier(0.39, 0.575, 0.565, 1)
+    ${(props) => !props.animating && 'reverse'};
 
   * {
     animation: ${(props) =>

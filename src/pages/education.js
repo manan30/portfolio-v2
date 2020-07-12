@@ -62,7 +62,8 @@ function Education() {
                 animation={
                   i === 0 ? slideInAnimation('left') : slideInAnimation('right')
                 }
-                theme={themeState.themePreference}
+                themePreference={themeState.themePreference}
+                toggled={themeState.toggled}
               >
                 <div
                   style={{

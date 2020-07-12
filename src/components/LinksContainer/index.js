@@ -1,11 +1,25 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BlogIcon from '../../../data/svg/blog.svg';
 import DemoIcon from '../../../data/svg/demo.svg';
 import GithubIcon from '../../../data/svg/github.svg';
+import { useTheme } from '../../providers/ThemeProvider';
 
-function LinksContainer({ links, themePreference }) {
-  const fillColor = themePreference === 'dark' ? '#121212' : '#627c85';
+function LinksContainer({ links }) {
+  const [fillColor, setFillColor] = useState();
+  const { themeState } = useTheme();
+
+  useEffect(() => {
+    if (!themeState.toggled) {
+      const mode = document.documentElement.style.getPropertyValue(
+        '--color-mode'
+      );
+      setFillColor(mode === 'dark' ? '#121212' : '#627c85');
+    } else
+      setFillColor(
+        themeState.themePreference === 'dark' ? '#121212' : '#627c85'
+      );
+  }, [themeState]);
 
   return (
     <div
@@ -40,13 +54,11 @@ function LinksContainer({ links, themePreference }) {
 }
 
 LinksContainer.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
-  themePreference: PropTypes.string
+  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
 };
 
 LinksContainer.defaultProps = {
-  links: [],
-  themePreference: ''
+  links: []
 };
 
 export default LinksContainer;

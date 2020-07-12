@@ -73,7 +73,8 @@ function Experience() {
             return (
               <Card
                 key={idx}
-                theme={themeState.themePreference}
+                themePreference={themeState.themePreference}
+                toggled={themeState.toggled}
                 animation={generateAnimation(2 + idx * 0.2)}
               >
                 <div
@@ -120,11 +121,14 @@ function Experience() {
                     minHeight: '6rem'
                   }}
                 >
-                  {exp.work.map((w) => (
-                    <li>
-                      <PageText fontSize="0.85rem">{w}</PageText>
-                    </li>
-                  ))}
+                  {exp.work.map((w, i) => {
+                    const idx = i;
+                    return (
+                      <li key={idx}>
+                        <PageText fontSize="0.85rem">{w}</PageText>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <SVGIconsContainer>
                   {exp.tech.map((tech, index) => {

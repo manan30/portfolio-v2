@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useEffect,
-  useState
-} from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 const ThemeContext = createContext();
 
@@ -16,13 +10,13 @@ const ThemeReducer = (state, action) => {
         'theme',
         JSON.stringify({ themePreference: 'dark' })
       );
-      return { ...state, themePreference: 'dark', mounted: true };
+      return { ...state, themePreference: 'dark', toggled: true };
     case 'toggle-light-theme':
       localStorage.setItem(
         'theme',
         JSON.stringify({ themePreference: 'light' })
       );
-      return { ...state, themePreference: 'light', mounted: true };
+      return { ...state, themePreference: 'light', toggled: true };
     case 'initial-theme':
       return { ...state, themePreference: action.payload };
     default:
@@ -32,25 +26,11 @@ const ThemeReducer = (state, action) => {
 
 function ThemeProvider({ children }) {
   const [themeState, themeDispatch] = useReducer(ThemeReducer, {});
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      const root = window.document.documentElement;
-      const initialColorValue = root.style.getPropertyValue(
-        '--initial-color-mode'
-      );
-      themeDispatch({ type: 'initial-theme', payload: initialColorValue });
-      setMounted(true);
-    });
-  }, []);
-
-  return mounted ? (
+  return (
     <ThemeContext.Provider value={{ themeState, themeDispatch }}>
       {children}
     </ThemeContext.Provider>
-  ) : (
-    <div />
   );
 }
 

@@ -45,8 +45,6 @@ function Projects() {
     }
   `);
 
-  const { themeState } = useTheme();
-
   return (
     <Layout>
       <SEO title="Projects" />
@@ -58,7 +56,6 @@ function Projects() {
               <ProjectCard
                 key={idx}
                 width={`${Math.floor(Math.random() * 50)}rem`}
-                theme={themeState.themePreference}
                 options={{ type: 'project', project }}
                 animationTime={2 + i * 0.3}
               />

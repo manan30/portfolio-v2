@@ -8,8 +8,14 @@ export default createGlobalStyle`
     padding: 0%;
 
     background-color: ${(props) =>
-      props.theme === 'dark' ? '#25282f' : '#fafffd'};
-    color: ${(props) => (props.theme === 'dark' ? '#f8f7ff' : '#2e4057')};
+      props.toggled
+        ? `var(--background-color-${props.themePreference})`
+        : `var(--initial-background-color)`};
+
+    color: ${(props) =>
+      props.toggled
+        ? `var(--color-primary-${props.themePreference})`
+        : 'var(--initial-color-primary)'};
 
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: normal;
@@ -19,7 +25,7 @@ export default createGlobalStyle`
 
     will-change: background-color;
     transition: ${(props) =>
-      props.mounted && 'background-color 0.4s ease-in-out'};
+      props.toggled && 'background-color 0.4s ease-in-out'};
 
     overflow: hidden;
     overflow-y: auto;
