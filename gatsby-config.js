@@ -9,7 +9,7 @@ module.exports = {
       card: `summary_large_image`,
       site: `https://hardcore-payne-e855ba.netlify.app`,
       creator: `@manan30`,
-      description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. Currently he is working with the JAM stack, React, Firebase and GraphQL.`,
+      description: `Manan is a passionate full-stack developer and loves working with web technologies. Currently, he is working with the JAM stack, React, Firebase, GraphQL, and Gatsby.`,
       image: `https://hardcore-payne-e855ba.netlify.app/profile-image.jpg`
     }
   },
