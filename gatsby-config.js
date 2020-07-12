@@ -4,13 +4,13 @@ module.exports = {
     type: `website`,
     description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He recently graduated with a Masters's Degree in Computer Science from Rochester Institute of Technology and currently lives in Rochester, New York.`,
     siteUrl: `https://mananjoshi.me`,
-    image: `images/profile-image.jpg`,
+    image: `https://mananjoshi.me/profile-image.jpg`,
     twitter: {
       card: `summary_large_image`,
       site: `https://mananjoshi.me`,
       creator: `@manan30`,
       description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. Currently he is working with the JAM stack, React, Firebase and GraphQL.`,
-      image: `images/profile-image.jpg`
+      image: `https://mananjoshi.me/profile-image.jpg`
     }
   },
   plugins: [
