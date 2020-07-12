@@ -51,18 +51,14 @@ const CardContainer = styled.div`
 
   border-radius: 0.5rem;
   background-color: ${(props) =>
-    props.mounted
-      ? props.theme === 'dark'
-        ? '#121212'
-        : '#fafffd'
-      : 'var(--card-background)'};
+    props.toggled
+      ? `var(--card-background-${props.themePreference})`
+      : `var(--initial-card-background)`};
   box-shadow: 0 0 0.6rem
     ${(props) =>
-      props.mounted
-        ? props.theme === 'dark'
-          ? '#0d1321'
-          : '#dce1de'
-        : 'var(--bg-shadow)'};
+      props.toggled
+        ? `var(--shadow-${props.themePreference})`
+        : 'var(--initial-shadow)'};
 
   ${(props) => props.animation && props.animation};
   transition: all 0.5s ease-in-out;

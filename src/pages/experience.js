@@ -71,8 +71,8 @@ function Experience() {
             return (
               <Card
                 key={idx}
-                theme={themeState.themePreference}
-                mounted={themeState.mounted}
+                themePreference={themeState.themePreference}
+                toggled={themeState.toggled}
                 animation={generateAnimation(2 + idx * 0.2)}
               >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
