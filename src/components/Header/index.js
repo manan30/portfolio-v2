@@ -114,7 +114,7 @@ function Header() {
               type="Menu"
               fill={
                 themeState.toggled
-                  ? `var(--background-color-${themeState.themePreference})`
+                  ? `var(--color-secondary-${themeState.themePreference})`
                   : 'var(--initial-color-secondary)'
               }
             />
@@ -149,7 +149,7 @@ function Header() {
                 type="Close"
                 fill={
                   themeState.toggled
-                    ? `var(--background-color-${themeState.themePreference})`
+                    ? `var(--color-secondary-${themeState.themePreference})`
                     : 'var(--initial-color-secondary)'
                 }
               />

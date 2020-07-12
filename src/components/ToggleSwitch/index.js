@@ -73,11 +73,14 @@ const ToggleSwitchButton = styled.button`
   transition: all 0.5s ease-in-out;
 
   @media screen and (max-width: 815px) {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.7rem;
+    width: 1.7rem;
 
     transform: translateX(
-      ${(props) => (props.switch === 'dark' ? '2.2rem' : '0')}
+      ${(props) =>
+        props.toggled
+          ? `var(--toggle-switch-transform-${props.themePreference})`
+          : `var(--initial-toggle-switch-transform)`}
     );
   }
 `;
