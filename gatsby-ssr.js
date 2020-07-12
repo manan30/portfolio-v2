@@ -42,6 +42,10 @@ const InjectScript = () => {
     root.style.setProperty('--card-background-dark', "#121212");
     root.style.setProperty('--card-background-light', "#fafffd");
 
+    root.style.setProperty('--initial-card-background-hovered', themePreference === "dark" ? '#364156':'#fbfbff');
+    root.style.setProperty('--card-background-hovered-dark', "#364156");
+    root.style.setProperty('--card-background-hovered-light', "#fbfbff");
+
     root.style.setProperty('--initial-shadow', themePreference === "dark" ? '#0d1321':'#dce1de');
     root.style.setProperty('--shadow-dark', "#0d1321");
     root.style.setProperty('--shadow-light', "#dce1de");

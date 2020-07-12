@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useTheme } from '../../providers/ThemeProvider';
 import LinksContainer from '../LinksContainer';
 import SVGIcon, { SVGIconsContainer } from '../SVGIcon';
 import PageText from '../Text';
 import { ProjectCardContainer, ProjectCardHovered } from './styled';
-import { useTheme } from '../../providers/ThemeProvider';
 
 function ProjectCard({ options, ...styles }) {
   const [hovered, setHovered] = useState(false);
@@ -25,6 +25,8 @@ function ProjectCard({ options, ...styles }) {
 
   return (
     <ProjectCardContainer
+      themePreference={themeState.themePreference}
+      toggled={themeState.toggled}
       onMouseEnter={() => handleAnimations()}
       onMouseLeave={() => handleAnimations('mouseout')}
       {...styles}
@@ -47,6 +49,7 @@ function ProjectCard({ options, ...styles }) {
         <ProjectCardHovered
           animating={animating}
           themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
         >
           <PageText
             fontSize="1.2rem"
@@ -84,10 +87,7 @@ function ProjectCard({ options, ...styles }) {
               width: '100%'
             }}
           />
-          <LinksContainer
-            links={options.project.links}
-            themePreference={themeState.themePreference}
-          />
+          <LinksContainer links={options.project.links} />
         </ProjectCardHovered>
       )}
     </ProjectCardContainer>
