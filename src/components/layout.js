@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles
-        theme={themeState.themePreference}
+        themePreference={themeState.themePreference}
         toggled={themeState.toggled}
       />
       <Header />

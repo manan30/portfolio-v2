@@ -31,10 +31,10 @@ const TitleTranslateAnimation = keyframes`
 const PageText = styled.div`
   margin-bottom: 1rem;
 
-  color: var(
-    ${(props) =>
-      props.type === 'title' ? '--color-secondary' : 'color-primary'}
-  );
+  color: ${(props) =>
+    props.toggled
+      ? `var(--color-primary-${props.themePreference})`
+      : 'var(--initial-color-primary)'};
 
   font-size: ${(props) => props.fontSize || '1rem'};
   font-weight: ${(props) => props.fontWeight && props.fontWeight};
@@ -46,6 +46,10 @@ const PageText = styled.div`
 `;
 
 const TitleText = styled(PageText)`
+  color: ${(props) =>
+    props.toggled
+      ? `var(--color-secondary-${props.themePreference})`
+      : 'var(--initial-color-secondary)'};
   font-size: 4rem;
 
   animation: ${TitleTranslateAnimation} 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -65,38 +69,69 @@ const IntroContainer = styled.div`
 `;
 
 function IndexPage() {
+  const { themeState } = useTheme();
+
   return (
     <Layout>
       <SEO title="Home" />
       <IntroContainer>
-        <TitleText type="title" fontWeight="bolder">
+        <TitleText
+          fontWeight="bolder"
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
           Hello, I&apos;m Manan
         </TitleText>
-        <PageText fontSize="1rem" timing="1s">
+        <PageText
+          fontSize="1rem"
+          timing="1s"
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
           Enthusiastic Full-Stack&nbsp;
           <span role="img" aria-label="programmer empji">
             👨‍💻
           </span>
         </PageText>
-        <PageText fontSize="1rem" timing="1.2s">
+        <PageText
+          fontSize="1rem"
+          timing="1.2s"
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
           JavaScript is&nbsp;
           <span role="img" aria-label="heart_emoji">
             ❤️
           </span>
         </PageText>
-        <PageText fontSize="1rem" timing="1.4s">
+        <PageText
+          fontSize="1rem"
+          timing="1.4s"
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
           Pragmatist&nbsp;
           <span role="img" aria-label="emoji">
             👂
           </span>
         </PageText>
-        <PageText fontSize="1rem" timing="1.6s">
+        <PageText
+          fontSize="1rem"
+          timing="1.6s"
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
           Aspiring&nbsp;
           <span role="img" aria-label="man_cook emoji">
             👨‍🍳
           </span>
         </PageText>
-        <PageText fontSize="1rem" timing="1.8s">
+        <PageText
+          fontSize="1rem"
+          timing="1.8s"
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
           Sometimes&nbsp;
           <span role="img" aria-label="thinking-emoji">
             🤔

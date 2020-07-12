@@ -32,7 +32,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
   const [animating, setAnimating] = useState(false);
-  const { themeState, themeDispatch } = useTheme();
+  const { themeState } = useTheme();
   const isMobile = useIsMobile();
 
   useEffect(() => {

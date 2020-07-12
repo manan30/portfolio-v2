@@ -16,12 +16,12 @@ export default createGlobalStyle`
 
     background-color: ${(props) =>
       props.toggled
-        ? `var(--background-color-${props.theme})`
+        ? `var(--background-color-${props.themePreference})`
         : `var(--initial-background-color)`};
 
     color: ${(props) =>
       props.toggled
-        ? `var(--background-color-${props.theme})`
+        ? `var(--background-color-${props.themePreference})`
         : 'var(--initial-color-primary)'};
 
     ${'' /* color: var(--color-primary); */}
