@@ -87,6 +87,9 @@ function Header() {
                     </Link>
                   );
                 })}
+                <a href="/resume.pdf">
+                  <NavItem>Resume</NavItem>
+                </a>
               </NavigationItemContainer>
             </NavigationContainer>
             <ToggleSwitch
@@ -166,6 +169,9 @@ function Header() {
                 </Link>
               );
             })}
+            <a href="/resume.pdf">
+              <NavItem>Resume</NavItem>
+            </a>
           </NavigationItemContainer>
         </NavigationContainerMobile>
       )}
