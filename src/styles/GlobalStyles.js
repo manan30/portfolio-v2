@@ -13,19 +13,18 @@ export default createGlobalStyle`
            ? '#25282f'
            : '#fafffd'
          : 'var(--color-background)'}; */
-         background-color: ${(props) =>
-           props.toggled
-             ? `var(--background-color-${props.theme})`
-             : `var(--background-color-dark)`};
+
+    background-color: ${(props) =>
+      props.toggled
+        ? `var(--background-color-${props.theme})`
+        : `var(--initial-background-color)`};
 
     color: ${(props) =>
-      props.mounted
-        ? props.theme === 'dark'
-          ? '#f8f7ff'
-          : '#2e4057'
-        : 'var(--color-primary)'};
+      props.toggled
+        ? `var(--background-color-${props.theme})`
+        : 'var(--initial-color-primary)'};
 
-    color: var(--color-primary);
+    ${'' /* color: var(--color-primary); */}
     font-family: 'Montserrat', 'Nunito', sans-serif;
     font-weight: normal;
     word-wrap: break-word;
@@ -34,7 +33,7 @@ export default createGlobalStyle`
 
     will-change: background-color;
     transition: ${(props) =>
-      props.mounted && 'background-color 0.4s ease-in-out'};
+      props.toggled && 'background-color 0.4s ease-in-out'};
 
     overflow: hidden;
     overflow-y: auto;
