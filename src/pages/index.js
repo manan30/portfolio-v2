@@ -155,7 +155,7 @@ function IndexPage() {
       </IntroContainer>
       <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
         <div style={{ maxWidth: '50rem', marginBottom: '2rem' }}>
-          <Card animation={`animation: css```}>
+          <Card>
             <PageText
               fontSize="1rem"
               themePreference={themeState.themePreference}
