@@ -1,5 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Card from '../components/Card';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
@@ -60,7 +63,7 @@ const TitleText = styled(PageText)`
 `;
 
 const IntroContainer = styled.div`
-  padding: 10rem 0 10rem 4rem;
+  padding: 10rem 0 5rem 4rem;
 
   @media screen and (max-width: 815px) {
     margin-top: 6rem;
@@ -69,6 +72,17 @@ const IntroContainer = styled.div`
 `;
 
 function IndexPage() {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholder: file(relativePath: { eq: "images/profile-image.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   const { themeState } = useTheme();
 
   return (
@@ -139,6 +153,43 @@ function IndexPage() {
           &nbsp;are we alone in the universe?
         </PageText>
       </IntroContainer>
+      <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
+        <div style={{ maxWidth: '50rem', marginBottom: '2rem' }}>
+          <Card animation={`animation: css```}>
+            <PageText
+              fontSize="1rem"
+              themePreference={themeState.themePreference}
+              toggled={themeState.toggled}
+            >
+              Thanks for stopping by. I am passionate about working with
+              frontend technologies and tools and always keep on learning new
+              things. I also like to read about the deepest mysteries of the
+              universe and try to ponder abstract things. I&apos;m also an
+              aspiring chef and love to cook soul-satisfying and delightful
+              recipes. I love contributing back to the open-source community.
+              Open to working on freelance projects, so please reach out to me
+              if you are interested in creating web apps of any kind. Currently
+              working with
+              {', '}
+              <strong>React</strong>
+              {', '}
+              <strong>Gatsby</strong>
+              {', '}
+              <strong>GraphQL</strong>
+              {', '}
+              <strong>Firebase</strong>
+              {', '}
+              <strong>Node</strong>
+              {', '}
+              <strong>JavaScript</strong>
+              {', '}
+              <strong>HTML5</strong>
+              {', '}
+              <strong>CSS3</strong>
+            </PageText>
+          </Card>
+        </div>
+      </div>
     </Layout>
   );
 }
