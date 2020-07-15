@@ -50,6 +50,11 @@ function ProjectCard({ options, ...styles }) {
           animating={animating}
           themePreference={themeState.themePreference}
           toggled={themeState.toggled}
+          style={{
+            color: themeState.toggled
+              ? `var(--color-secondary-${themeState.themePreference})`
+              : 'var(--initial-color-secondary)'
+          }}
         >
           <PageText
             fontSize="1.2rem"
@@ -72,7 +77,7 @@ function ProjectCard({ options, ...styles }) {
               const key = index;
               return (
                 <div key={key} style={{ marginRight: '0.8rem' }}>
-                  <SVGIcon type={tech} />
+                  <SVGIcon name={tech} />
                 </div>
               );
             })}

@@ -27,6 +27,13 @@ import TrelloIcon from '../../../data/svg/trello.svg';
 import TypeScriptIcon from '../../../data/svg/typescript.svg';
 import MenuIcon from '../../../data/svg/menu.svg';
 import CloseIcon from '../../../data/svg/close.svg';
+import DevIcon from '../../../data/svg/dev-dot-to.svg';
+import InstagramIcon from '../../../data/svg/instagram.svg';
+import GithubIcon from '../../../data/svg/github.svg';
+import LinkedInIcon from '../../../data/svg/linkedin.svg';
+import EmailIcon from '../../../data/svg/mail-dot-ru.svg';
+import MediumIcon from '../../../data/svg/medium.svg';
+import Twitter from '../../../data/svg/twitter.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -42,8 +49,8 @@ const SVGIconsContainer = styled.div`
   }
 `;
 
-function SVGIcon({ type, fill }) {
-  switch (type) {
+function SVGIcon({ name, fill }) {
+  switch (name) {
     case 'JavaScript':
       return <JavaScriptIcon fill="#f7df1e" />;
     case 'HTML5':
@@ -96,18 +103,32 @@ function SVGIcon({ type, fill }) {
       return <MenuIcon fill={fill} />;
     case 'Close':
       return <CloseIcon fill={fill} />;
+    case 'Dev':
+      return <DevIcon fill="#0f7173" />;
+    case 'Github':
+      return <GithubIcon fill="#627c85" />;
+    case 'Twitter':
+      return <Twitter fill="#48a1f1" />;
+    case 'Instagram':
+      return <InstagramIcon fill="#e5405f" />;
+    case 'LinkedIn':
+      return <LinkedInIcon fill="#3477b5" />;
+    case 'Email':
+      return <EmailIcon fill="#d14836" />;
+    case 'Medium':
+      return <MediumIcon fill="#85A3D6" />;
     default:
       return <div />;
   }
 }
 
 SVGIcon.propTypes = {
-  type: PropTypes.string,
+  name: PropTypes.string,
   fill: PropTypes.string
 };
 
 SVGIcon.defaultProps = {
-  type: '',
+  name: '',
   fill: ''
 };
 

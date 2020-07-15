@@ -13,8 +13,33 @@ const Layout = ({ children }) => {
         themePreference={themeState.themePreference}
         toggled={themeState.toggled}
       />
-      <Header />
-      <main>{children}</main>
+      <div
+        style={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
+      >
+        <Header />
+        <main>{children}</main>
+        <footer
+          style={{
+            margin: '0 1rem 0.5rem auto',
+            color: themeState.toggled
+              ? `var(--color-secondary-${themeState.themePreference})`
+              : 'var(--initial-color-secondary)'
+          }}
+        >
+          <span role="img" aria-label="copyright-symbol">
+            ©️
+          </span>
+          &nbsp;Manan Joshi. Made with&nbsp;
+          <span
+            role="img"
+            aria-label="beating-heart-emoji"
+            style={{ fontSize: '0.8rem' }}
+          >
+            💗
+          </span>
+          &nbsp;&nbsp;using Gatsby.
+        </footer>
+      </div>
     </>
   );
 };

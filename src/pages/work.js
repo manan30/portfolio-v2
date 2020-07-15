@@ -121,10 +121,17 @@ function Experience() {
                     minHeight: '6rem'
                   }}
                 >
-                  {exp.work.map((w, i) => {
-                    const idx = i;
+                  {exp.work.map((w, j) => {
+                    const jdx = j;
                     return (
-                      <li key={idx}>
+                      <li
+                        key={jdx}
+                        style={{
+                          color: themeState.toggled
+                            ? `var(--color-secondary-${themeState.themePreference})`
+                            : 'var(--initial-color-secondary)'
+                        }}
+                      >
                         <PageText fontSize="0.85rem">{w}</PageText>
                       </li>
                     );
@@ -141,7 +148,7 @@ function Experience() {
                           marginBottom: '0.5rem'
                         }}
                       >
-                        <SVGIcon type={tech} />
+                        <SVGIcon name={tech} />
                       </div>
                     );
                   })}
