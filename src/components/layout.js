@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
           >
             💗
           </span>
-          &nbsp;&nbsp;using Gatsby.
+          using Gatsby.
         </footer>
       </div>
     </>
