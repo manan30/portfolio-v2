@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
 import { useTheme } from '../providers/ThemeProvider';
+import SVGIcon, { SVGIconsContainer } from '../components/SVGIcon';
 
 const TextTranslateAnimation = (percent) => keyframes`
   from {
@@ -32,8 +33,10 @@ const TitleTranslateAnimation = keyframes`
 `;
 
 const TextPrimary = styled.div`
+  display: ${(props) => props.display && props.display};
+
   margin-left: ${(props) => props.marginLeft && props.marginLeft};
-  margin-bottom: 1rem;
+  margin-bottom: ${(props) => props.marginBottom || '1rem'};
 
   color: ${(props) =>
     props.toggled
@@ -89,6 +92,14 @@ function IndexPage() {
     'JavaScript',
     'HTML5',
     'CSS3'
+  ];
+  const socialIcons = [
+    { name: 'LinkedIn', link: 'https://www.linkedin.com/in/mananjoshi1741/' },
+    { name: 'Twitter', link: 'https://twitter.com/Manan_30' },
+    { name: 'Github', link: 'https://github.com/manan30' },
+    { name: 'Medium', link: 'https://medium.com/@Manan_30' },
+    { name: 'Dev', link: 'https://dev.to/manan30' },
+    { name: 'Email', link: 'mananjoshi1995@gmail.com' }
   ];
 
   return (
@@ -168,22 +179,54 @@ function IndexPage() {
               {tech.map((t, i) => {
                 const idx = i;
                 return (
-                  <TextPrimary key={idx}>
+                  <TextPrimary
+                    key={idx}
+                    display="inline-block"
+                    marginBottom="0"
+                    themePreference={themeState.themePreference}
+                    toggled={themeState.toggled}
+                  >
                     <strong>
                       {t}
-                      {i !== tech.length - 1 && ', '}
+                      {i !== tech.length - 1 && <>,&nbsp;</>}
                     </strong>
                   </TextPrimary>
                 );
               })}
             </TextSecondary>
-            <hr />
+            <hr
+              style={{
+                color: '#e5ecf4',
+                backgroundColor: '#e5ecf4',
+                height: '0.1rem',
+                border: 'none',
+                margin: '0.8rem 0',
+                width: '100%'
+              }}
+            />
             <TextPrimary
+              fontSize="1.2rem"
               themePreference={themeState.themePreference}
               toggled={themeState.toggled}
             >
               Find me on the Internet
             </TextPrimary>
+            <SVGIconsContainer>
+              {socialIcons.map((icon, i) => {
+                const idx = i;
+                return (
+                  <a
+                    key={idx}
+                    href={icon.link}
+                    style={{
+                      marginRight: '0.5rem'
+                    }}
+                  >
+                    <SVGIcon type={icon.name} />
+                  </a>
+                );
+              })}
+            </SVGIconsContainer>
           </Card>
         </div>
       </div>

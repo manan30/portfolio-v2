@@ -27,6 +27,13 @@ import TrelloIcon from '../../../data/svg/trello.svg';
 import TypeScriptIcon from '../../../data/svg/typescript.svg';
 import MenuIcon from '../../../data/svg/menu.svg';
 import CloseIcon from '../../../data/svg/close.svg';
+import DevIcon from '../../../data/svg/dev-dot-to.svg';
+import InstagramIcon from '../../../data/svg/instagram.svg';
+import GithubIcon from '../../../data/svg/github.svg';
+import LinkedInIcon from '../../../data/svg/linkedin.svg';
+import EmailIcon from '../../../data/svg/mail-dot-ru.svg';
+import MediumIcon from '../../../data/svg/medium.svg';
+import Twitter from '../../../data/svg/twitter.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -96,6 +103,20 @@ function SVGIcon({ type, fill }) {
       return <MenuIcon fill={fill} />;
     case 'Close':
       return <CloseIcon fill={fill} />;
+    case 'Dev':
+      return <DevIcon fill={fill} />;
+    case 'Github':
+      return <GithubIcon fill={fill} />;
+    case 'Twitter':
+      return <Twitter fill={fill} />;
+    case 'Instagram':
+      return <InstagramIcon fill={fill} />;
+    case 'LinkedIn':
+      return <LinkedInIcon fill={fill} />;
+    case 'Email':
+      return <EmailIcon fill={fill} />;
+    case 'Medium':
+      return <MediumIcon fill={fill} />;
     default:
       return <div />;
   }
