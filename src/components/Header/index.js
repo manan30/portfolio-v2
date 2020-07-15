@@ -170,7 +170,12 @@ function Header() {
               );
             })}
             <a href="/resume.pdf">
-              <NavItem>Resume</NavItem>
+              <NavItem
+                timing={1.2 + pagesData.length * 0.2}
+                isAnimating={animating}
+              >
+                Resume
+              </NavItem>
             </a>
           </NavigationItemContainer>
         </NavigationContainerMobile>

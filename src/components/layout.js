@@ -18,7 +18,14 @@ const Layout = ({ children }) => {
       >
         <Header />
         <main>{children}</main>
-        <footer style={{ margin: '0 1rem 0.5rem auto' }}>
+        <footer
+          style={{
+            margin: '0 1rem 0.5rem auto',
+            color: themeState.toggled
+              ? `var(--color-secondary-${themeState.themePreference})`
+              : 'var(--initial-color-secondary)'
+          }}
+        >
           <span role="img" aria-label="copyright-symbol">
             ©️
           </span>
