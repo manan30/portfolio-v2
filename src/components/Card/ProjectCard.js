@@ -72,7 +72,7 @@ function ProjectCard({ options, ...styles }) {
               const key = index;
               return (
                 <div key={key} style={{ marginRight: '0.8rem' }}>
-                  <SVGIcon type={tech} />
+                  <SVGIcon name={tech} />
                 </div>
               );
             })}

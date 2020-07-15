@@ -141,7 +141,7 @@ function Experience() {
                           marginBottom: '0.5rem'
                         }}
                       >
-                        <SVGIcon type={tech} />
+                        <SVGIcon name={tech} />
                       </div>
                     );
                   })}

@@ -49,8 +49,8 @@ const SVGIconsContainer = styled.div`
   }
 `;
 
-function SVGIcon({ type, fill }) {
-  switch (type) {
+function SVGIcon({ name, fill }) {
+  switch (name) {
     case 'JavaScript':
       return <JavaScriptIcon fill="#f7df1e" />;
     case 'HTML5':
@@ -104,31 +104,31 @@ function SVGIcon({ type, fill }) {
     case 'Close':
       return <CloseIcon fill={fill} />;
     case 'Dev':
-      return <DevIcon fill={fill} />;
+      return <DevIcon fill="#0f7173" />;
     case 'Github':
-      return <GithubIcon fill={fill} />;
+      return <GithubIcon fill="#627c85" />;
     case 'Twitter':
-      return <Twitter fill={fill} />;
+      return <Twitter fill="#48a1f1" />;
     case 'Instagram':
-      return <InstagramIcon fill={fill} />;
+      return <InstagramIcon fill="#e5405f" />;
     case 'LinkedIn':
-      return <LinkedInIcon fill={fill} />;
+      return <LinkedInIcon fill="#3477b5" />;
     case 'Email':
-      return <EmailIcon fill={fill} />;
+      return <EmailIcon fill="#d14836" />;
     case 'Medium':
-      return <MediumIcon fill={fill} />;
+      return <MediumIcon fill="#85A3D6" />;
     default:
       return <div />;
   }
 }
 
 SVGIcon.propTypes = {
-  type: PropTypes.string,
+  name: PropTypes.string,
   fill: PropTypes.string
 };
 
 SVGIcon.defaultProps = {
-  type: '',
+  name: '',
   fill: ''
 };
 

@@ -99,7 +99,7 @@ function IndexPage() {
     { name: 'Github', link: 'https://github.com/manan30' },
     { name: 'Medium', link: 'https://medium.com/@Manan_30' },
     { name: 'Dev', link: 'https://dev.to/manan30' },
-    { name: 'Email', link: 'mananjoshi1995@gmail.com' }
+    { name: 'Email', link: 'mailto:mananjoshi1995@gmail.com' }
   ];
 
   return (
@@ -218,11 +218,12 @@ function IndexPage() {
                   <a
                     key={idx}
                     href={icon.link}
+                    rel="noreferrer"
                     style={{
-                      marginRight: '0.5rem'
+                      marginRight: '1rem'
                     }}
                   >
-                    <SVGIcon type={icon.name} />
+                    <SVGIcon name={icon.name} />
                   </a>
                 );
               })}

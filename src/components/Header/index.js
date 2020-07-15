@@ -114,7 +114,7 @@ function Header() {
             onKeyDown={() => {}}
           >
             <SVGIcon
-              type="Menu"
+              name="Menu"
               fill={
                 themeState.toggled
                   ? `var(--color-secondary-${themeState.themePreference})`
@@ -149,7 +149,7 @@ function Header() {
               onKeyDown={() => {}}
             >
               <SVGIcon
-                type="Close"
+                name="Close"
                 fill={
                   themeState.toggled
                     ? `var(--color-secondary-${themeState.themePreference})`
