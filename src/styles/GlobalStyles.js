@@ -50,6 +50,7 @@ export default createGlobalStyle`
   }
 
   main {
+    flex-grow: 1;
     width: calc(100% - 10rem);
     padding: 0 5rem;
     margin-top: 4rem;

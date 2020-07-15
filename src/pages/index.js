@@ -182,15 +182,27 @@ function IndexPage() {
             toggled={themeState.toggled}
             style={{ textAlign: 'center' }}
           >
-            Thanks for stopping by. I am passionate about working with frontend
-            technologies and tools. I also like to read about the deepest
-            mysteries of the universe and try to ponder abstract things.
-            I&apos;m also an aspiring chef and love to cook soul-satisfying and
-            delightful recipes. I love contributing back to the open-source
-            community. I am looking for a full-time software engineering role.
-            Open to working on freelance projects, so please reach out to me if
-            you are interested in creating web apps of any kind. Currently
-            working with&nbsp;
+            Thanks for stopping by. I am passionate about working with
+            <strong> frontend technologies and tools</strong>
+            <>
+              <>
+                . I also like to read about the
+                <strong> deepest mysteries of the universe </strong>
+                and try to ponder about abstract things. I&apos;m also an
+                aspiring chef and love to cook soul-satisfying and delightful
+                recipes. I love contributing back to the open-source community.
+                I am looking for a
+              </>
+              <strong> full-time software engineering role</strong>
+              <>
+                . Open to working on
+                <strong> freelance projects</strong>
+                <>
+                  , so please reach out to me if you are interested in creating
+                  web apps of any kind. Currently working with the&nbsp;
+                </>
+              </>
+            </>
             {tech.map((t, i) => {
               const idx = i;
               return (
