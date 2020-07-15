@@ -32,6 +32,7 @@ const TitleTranslateAnimation = keyframes`
 `;
 
 const PageText = styled.div`
+  margin-left: ${(props) => props.marginLeft && props.marginLeft};
   margin-bottom: 1rem;
 
   color: ${(props) =>
@@ -94,60 +95,46 @@ function IndexPage() {
           themePreference={themeState.themePreference}
           toggled={themeState.toggled}
         >
-          Hello, I&apos;m Manan
+          Hello,
+          <span role="img" aria-label="wave emoji">
+            👋
+          </span>
+          <> </>
+          I&apos;m Manan
         </TitleText>
         <PageText
-          fontSize="1rem"
+          fontSize="1.5rem"
+          marginLeft="0.4rem"
           timing="1s"
           themePreference={themeState.themePreference}
           toggled={themeState.toggled}
         >
-          Enthusiastic Full-Stack&nbsp;
-          <span role="img" aria-label="programmer empji">
-            👨‍💻
-          </span>
+          Jack of all trades. Master of some.
         </PageText>
         <PageText
-          fontSize="1rem"
+          fontSize="1.2rem"
+          marginLeft="0.2rem"
           timing="1.2s"
           themePreference={themeState.themePreference}
           toggled={themeState.toggled}
         >
-          JavaScript is&nbsp;
-          <span role="img" aria-label="heart_emoji">
+          <span
+            role="img"
+            aria-label="heart_emoji"
+            style={{ fontSize: '1rem' }}
+          >
             ❤️
           </span>
-        </PageText>
-        <PageText
-          fontSize="1rem"
-          timing="1.4s"
-          themePreference={themeState.themePreference}
-          toggled={themeState.toggled}
-        >
-          Pragmatist&nbsp;
-          <span role="img" aria-label="emoji">
+          &nbsp;JavaScript |
+          <span role="img" aria-label="emoji" style={{ fontSize: '1rem' }}>
             👂
           </span>
-        </PageText>
-        <PageText
-          fontSize="1rem"
-          timing="1.6s"
-          themePreference={themeState.themePreference}
-          toggled={themeState.toggled}
-        >
-          Aspiring&nbsp;
-          <span role="img" aria-label="man_cook emoji">
-            👨‍🍳
-          </span>
-        </PageText>
-        <PageText
-          fontSize="1rem"
-          timing="1.8s"
-          themePreference={themeState.themePreference}
-          toggled={themeState.toggled}
-        >
-          Sometimes&nbsp;
-          <span role="img" aria-label="thinking-emoji">
+          &nbsp;Pragmatist |&nbsp;
+          <span
+            role="img"
+            aria-label="thinking-emoji"
+            style={{ fontSize: '1rem' }}
+          >
             🤔
           </span>
           &nbsp;are we alone in the universe?

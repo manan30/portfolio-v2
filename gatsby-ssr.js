@@ -30,8 +30,8 @@ const InjectScript = () => {
     root.style.setProperty('--background-color-dark', "#25282f");
     root.style.setProperty('--background-color-light', "#f4f4f8");
 
-    root.style.setProperty('--initial-color-primary', themePreference === "dark" ? '#83dec4':'#2e4057');
-    root.style.setProperty('--color-primary-dark', "#83dec4");
+    root.style.setProperty('--initial-color-primary', themePreference === "dark" ? '#91f291':'#2e4057');
+    root.style.setProperty('--color-primary-dark', "#91f291");
     root.style.setProperty('--color-primary-light', "#2e4057");
 
     root.style.setProperty('--initial-color-secondary', themePreference === "dark" ? '#4acfab':'#404E7C');
