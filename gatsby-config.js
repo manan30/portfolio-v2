@@ -3,14 +3,14 @@ module.exports = {
     title: `Manan Joshi`,
     type: `website`,
     description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He recently graduated with a Masters's Degree in Computer Science from Rochester Institute of Technology and currently lives in Rochester, New York.`,
-    siteUrl: `https://hardcore-payne-e855ba.netlify.app`,
-    image: `https://hardcore-payne-e855ba.netlify.app/profile-image.jpg`,
+    siteUrl: `https://mananjoshi.me`,
+    image: `https://mananjoshi.me/profile-image.jpg`,
     twitter: {
       card: `summary_large_image`,
-      site: `https://hardcore-payne-e855ba.netlify.app`,
+      site: `https://mananjoshi.me`,
       creator: `@manan30`,
       description: `Manan is a passionate full-stack developer and loves working with web technologies. Currently, he is working with the JAM stack, React, Firebase, GraphQL, and Gatsby.`,
-      image: `https://hardcore-payne-e855ba.netlify.app/profile-image.jpg`
+      image: `https://mananjoshi.me/profile-image.jpg`
     }
   },
   plugins: [
@@ -44,7 +44,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-        trackingId: 'UA-168037223-1'
+        trackingId: 'UA-168037223-2'
       }
     }
   ]
