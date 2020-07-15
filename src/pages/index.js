@@ -20,10 +20,10 @@ const TextTranslateAnimation = (percent) => keyframes`
   }
 `;
 
-const TitleTranslateAnimation = keyframes`
+const TitleTranslateAnimation = (percent) => keyframes`
   from {
     opacity: 0;
-    transform: translateX(-150%)
+    transform: translateX(${percent})
   }
 
   to {
@@ -62,7 +62,7 @@ const TextSecondary = styled(TextPrimary)`
   ${(props) =>
     props.hasAnimation &&
     css`
-      animation: ${TitleTranslateAnimation} 1.5s
+      animation: ${TitleTranslateAnimation('-150%')} 1.5s
         cubic-bezier(0.215, 0.61, 0.355, 1);
     `};
 
@@ -72,12 +72,26 @@ const TextSecondary = styled(TextPrimary)`
 `;
 
 const IntroContainer = styled.div`
-  padding: 10rem 0 5rem 4rem;
+  width: 50%;
+  padding: 10rem 0 5rem 0;
 
   @media screen and (max-width: 815px) {
-    margin-top: 6rem;
+    margin: 6rem 0;
     padding: 0;
+    width: 100%;
   }
+`;
+
+const CardContainer = styled.div`
+  width: 50%;
+  max-width: 50rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+
+  animation: ${TitleTranslateAnimation('150%')} 1.5s
+    cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  width: 100%;
 `;
 
 function IndexPage() {
@@ -157,80 +171,82 @@ function IndexPage() {
           &nbsp;are we alone in the universe?
         </TextSecondary>
       </IntroContainer>
-      <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-        <div style={{ maxWidth: '50rem', marginBottom: '2rem' }}>
-          <Card
+      <CardContainer>
+        <Card
+          themePreference={themeState.themePreference}
+          toggled={themeState.toggled}
+        >
+          <TextSecondary
+            fontSize="1rem"
             themePreference={themeState.themePreference}
             toggled={themeState.toggled}
+            style={{ textAlign: 'center' }}
           >
-            <TextSecondary
-              fontSize="1rem"
-              themePreference={themeState.themePreference}
-              toggled={themeState.toggled}
-            >
-              Thanks for stopping by. I am passionate about working with
-              frontend technologies and tools.I also like to read about the
-              deepest mysteries of the universe and try to ponder abstract
-              things. I&apos;m also an aspiring chef and love to cook
-              soul-satisfying and delightful recipes. I love contributing back
-              to the open-source community. Open to working on freelance
-              projects, so please reach out to me if you are interested in
-              creating web apps of any kind. Currently working with&nbsp;
-              {tech.map((t, i) => {
-                const idx = i;
-                return (
-                  <TextPrimary
-                    key={idx}
-                    display="inline-block"
-                    marginBottom="0"
-                    themePreference={themeState.themePreference}
-                    toggled={themeState.toggled}
-                  >
-                    <strong>
-                      {t}
-                      {i !== tech.length - 1 && <>,&nbsp;</>}
-                    </strong>
-                  </TextPrimary>
-                );
-              })}
-            </TextSecondary>
-            <hr
-              style={{
-                color: '#e5ecf4',
-                backgroundColor: '#e5ecf4',
-                height: '0.1rem',
-                border: 'none',
-                margin: '0.8rem 0',
-                width: '100%'
-              }}
-            />
-            <TextPrimary
-              fontSize="1.2rem"
-              themePreference={themeState.themePreference}
-              toggled={themeState.toggled}
-            >
-              Find me on the Internet
-            </TextPrimary>
-            <SVGIconsContainer>
-              {socialIcons.map((icon, i) => {
-                const idx = i;
-                return (
-                  <a
-                    key={idx}
-                    href={icon.link}
-                    rel="noreferrer"
-                    style={{
-                      marginRight: '1rem'
-                    }}
-                  >
-                    <SVGIcon name={icon.name} />
-                  </a>
-                );
-              })}
-            </SVGIconsContainer>
-          </Card>
-        </div>
-      </div>
+            Thanks for stopping by. I am passionate about working with frontend
+            technologies and tools. I also like to read about the deepest
+            mysteries of the universe and try to ponder abstract things.
+            I&apos;m also an aspiring chef and love to cook soul-satisfying and
+            delightful recipes. I love contributing back to the open-source
+            community. I am looking for a full-time software engineering role.
+            Open to working on freelance projects, so please reach out to me if
+            you are interested in creating web apps of any kind. Currently
+            working with&nbsp;
+            {tech.map((t, i) => {
+              const idx = i;
+              return (
+                <TextPrimary
+                  key={idx}
+                  display="inline-block"
+                  marginBottom="0"
+                  themePreference={themeState.themePreference}
+                  toggled={themeState.toggled}
+                >
+                  <strong>
+                    {t}
+                    {i !== tech.length - 1 && <>,&nbsp;</>}
+                  </strong>
+                </TextPrimary>
+              );
+            })}
+          </TextSecondary>
+          <hr
+            style={{
+              color: '#e5ecf4',
+              backgroundColor: '#e5ecf4',
+              height: '1px',
+              border: 'none',
+              margin: '0.8rem 0',
+              width: '100%'
+            }}
+          />
+          <TextPrimary
+            fontSize="1.2rem"
+            fontWeight="bold"
+            themePreference={themeState.themePreference}
+            toggled={themeState.toggled}
+            style={{ textAlign: 'center', marginBottom: '1.2rem' }}
+          >
+            Find me on the Internet
+          </TextPrimary>
+          <SVGIconsContainer style={{ justifyContent: 'space-evenly' }}>
+            {socialIcons.map((icon, i) => {
+              const idx = i;
+              return (
+                <a
+                  key={idx}
+                  href={icon.link}
+                  rel="noreferrer"
+                  style={{
+                    marginRight: '1rem'
+                  }}
+                >
+                  <SVGIcon name={icon.name} />
+                </a>
+              );
+            })}
+          </SVGIconsContainer>
+        </Card>
+      </CardContainer>
     </Layout>
   );
 }
