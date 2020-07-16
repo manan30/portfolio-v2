@@ -57,7 +57,7 @@ export default createGlobalStyle`
   }
 
   footer {
-    margin: 0 1rem 0.5rem auto,
+    margin: 0 1rem 0.5rem auto
   }
 
   @media screen and (max-width: 815px) {
