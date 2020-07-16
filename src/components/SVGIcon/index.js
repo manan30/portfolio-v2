@@ -33,7 +33,8 @@ import GithubIcon from '../../../data/svg/github.svg';
 import LinkedInIcon from '../../../data/svg/linkedin.svg';
 import EmailIcon from '../../../data/svg/mail-dot-ru.svg';
 import MediumIcon from '../../../data/svg/medium.svg';
-import Twitter from '../../../data/svg/twitter.svg';
+import TwitterIcon from '../../../data/svg/twitter.svg';
+import GatsbyIcon from '../../../data/svg/gatsby.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -108,7 +109,7 @@ function SVGIcon({ name, fill }) {
     case 'Github':
       return <GithubIcon fill="#627c85" />;
     case 'Twitter':
-      return <Twitter fill="#48a1f1" />;
+      return <TwitterIcon fill="#48a1f1" />;
     case 'Instagram':
       return <InstagramIcon fill="#e5405f" />;
     case 'LinkedIn':
@@ -117,6 +118,8 @@ function SVGIcon({ name, fill }) {
       return <EmailIcon fill="#d14836" />;
     case 'Medium':
       return <MediumIcon fill="#85A3D6" />;
+    case 'Gatsby':
+      return <GatsbyIcon fill="#663399" />;
     default:
       return <div />;
   }

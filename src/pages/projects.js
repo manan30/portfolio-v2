@@ -5,7 +5,6 @@ import ProjectCard from '../components/Card/ProjectCard';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import { useTheme } from '../providers/ThemeProvider';
 
 const MainContainer = styled.div`
   margin-top: 8rem;
