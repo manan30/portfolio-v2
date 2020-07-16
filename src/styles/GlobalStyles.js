@@ -74,7 +74,7 @@ export default createGlobalStyle`
   `;
 
 export const MainContainer = styled.div`
-  margin-top: 6rem;
+  margin-top: 4rem;
 
   @media screen and (max-width: 815px) {
     margin-top: 0;
