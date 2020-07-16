@@ -1,23 +1,15 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import Card from '../components/Card';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import { useTheme } from '../providers/ThemeProvider';
 import SVGIcon, { SVGIconsContainer } from '../components/SVGIcon';
 import PageText from '../components/Text';
 import useIsMobile from '../hooks/useIsMobile';
-
-const MainContainer = styled.div`
-  margin-top: 8rem;
-
-  @media screen and (max-width: 815px) {
-    margin-top: 4rem;
-    padding: 0;
-  }
-`;
+import { useTheme } from '../providers/ThemeProvider';
+import { MainContainer } from '../styles/GlobalStyles';
 
 const translateAnimation = keyframes`
   from {
@@ -40,11 +32,11 @@ const generateAnimation = (animationTime) => {
 
 function Experience() {
   const {
-    allExperiencesJson: { edges: experienceData }
+    allWorkJson: { edges: workData }
   } = useStaticQuery(
     graphql`
-      query ExperiencesQuery {
-        allExperiencesJson {
+      query WorkQuery {
+        allWorkJson {
           edges {
             node {
               position
@@ -68,7 +60,7 @@ function Experience() {
       <SEO title="Experience" />
       <MainContainer>
         <Grid>
-          {experienceData.map(({ node: exp }, i) => {
+          {workData.map(({ node: exp }, i) => {
             const idx = i;
             return (
               <Card

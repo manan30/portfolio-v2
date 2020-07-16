@@ -1,19 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
 import ProjectCard from '../components/Card/ProjectCard';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-
-const MainContainer = styled.div`
-  margin-top: 8rem;
-
-  @media screen and (max-width: 815px) {
-    margin-top: 4rem;
-    padding: 0;
-  }
-`;
+import { MainContainer } from '../styles/GlobalStyles';
 
 function Projects() {
   const {

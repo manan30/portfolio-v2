@@ -1,31 +1,14 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
 import Card from '../components/Card';
 import Grid from '../components/Grid';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import { slideInAnimation } from '../styles/animations';
-import { useTheme } from '../providers/ThemeProvider';
+import PageText from '../components/Text';
 import useIsMobile from '../hooks/useIsMobile';
-
-const PageText = styled.div`
-  margin-left: ${(props) => props.marginLeft && props.marginLeft};
-
-  font-size: ${(props) => props.fontSize || '1rem'};
-  font-weight: ${(props) => props.fontWeight && props.fontWeight};
-`;
-
-const MainContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 8rem;
-
-  @media screen and (max-width: 815px) {
-    margin-top: 6rem;
-  }
-`;
+import { useTheme } from '../providers/ThemeProvider';
+import { slideInAnimation } from '../styles/animations';
+import { MainContainer } from '../styles/GlobalStyles';
 
 function Education() {
   const {

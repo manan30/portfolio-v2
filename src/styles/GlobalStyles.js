@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   html,
@@ -56,11 +56,28 @@ export default createGlobalStyle`
     margin-top: 4rem;
   }
 
+  footer {
+    margin: 0 1rem 0.5rem auto
+  }
+
   @media screen and (max-width: 815px) {
     main {
       width: calc(100% - 3rem);
       padding: 1.5rem;
-      margin: 0;
+    }
+
+    footer {
+      margin: 0 0 1rem 0;
+      text-align: center;
     }
   }
   `;
+
+export const MainContainer = styled.div`
+  margin-top: 4rem;
+
+  @media screen and (max-width: 815px) {
+    margin-top: 0;
+    padding: 0;
+  }
+`;

@@ -35,6 +35,10 @@ import EmailIcon from '../../../data/svg/mail-dot-ru.svg';
 import MediumIcon from '../../../data/svg/medium.svg';
 import TwitterIcon from '../../../data/svg/twitter.svg';
 import GatsbyIcon from '../../../data/svg/gatsby.svg';
+import R3FIcon from '../../../data/svg/react-three-fiber.svg';
+import WebGLIcon from '../../../data/svg/webgl.svg';
+import ThreeJSIcon from '../../../data/svg/threejs.svg';
+import ExpressJSIcon from '../../../data/svg/expressjs.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -120,6 +124,14 @@ function SVGIcon({ name, fill }) {
       return <MediumIcon fill="#85A3D6" />;
     case 'Gatsby':
       return <GatsbyIcon fill="#663399" />;
+    case 'R3f':
+      return <R3FIcon />;
+    case 'WebGL':
+      return <WebGLIcon fill="#663399" />;
+    case 'Three':
+      return <ThreeJSIcon />;
+    case 'Express':
+      return <ExpressJSIcon />;
     default:
       return <div />;
   }

@@ -20,7 +20,6 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
-            margin: '0 1rem 0.5rem auto',
             color: themeState.toggled
               ? `var(--color-secondary-${themeState.themePreference})`
               : 'var(--initial-color-secondary)'

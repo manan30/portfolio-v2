@@ -20,8 +20,8 @@
     "imageAltText": "portfolio-v2-thumbnail",
     "description": "A rewrite of my personal portfolio using Gatsby, React and GraphQL",
     "links": [
-      { "type": "github", "to": "https://github.com/manan30/svelte-trivia" },
-      { "type": "demo", "to": "https://manan30.github.io/svelte-trivia/" }
+      { "type": "github", "to": "https://github.com/manan30/portfolio-v2" },
+      { "type": "demo", "to": "https://mananjoshi.me" }
     ],
     "technologies": ["Gatsby", "React", "GraphQL"]
   },
@@ -74,7 +74,16 @@
       { "type": "github", "to": "https://github.com/manan30/chandrayaan-2" },
       { "type": "demo", "to": "https://manan30.github.io/chandrayaan-2/" }
     ],
-    "technologies": ["React", "JavaScript", "HTML5", "CSS3", "Git"]
+    "technologies": [
+      "React",
+      "Three",
+      "R3f",
+      "WebGL",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Git"
+    ]
   },
   {
     "name": "Billiards",
@@ -85,13 +94,22 @@
       { "type": "github", "to": "https://github.com/manan30/billiards" },
       {
         "type": "demo",
-        "to": "https://mananjoshi.me/projects/billiards/index.html"
+        "to": "https://manan30.github.io/billiards/"
       },
       {
         "type": "blog",
         "to": "https://medium.com/javascript-in-plain-english/creating-a-rudimentary-pool-table-game-using-react-three-js-and-react-three-fiber-part-1-cbb1214bed82"
       }
     ],
-    "technologies": ["React", "JavaScript", "HTML5", "CSS3", "Git"]
+    "technologies": [
+      "React",
+      "Three",
+      "R3f",
+      "WebGL",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Git"
+    ]
   }
 ]
