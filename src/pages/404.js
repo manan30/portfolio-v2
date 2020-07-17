@@ -21,7 +21,7 @@ const NotFoundPage = () => {
       }
     `
   );
-  const { themeState } = useTheme();
+  const { themeState, hasMounted, isMobile } = useTheme();
 
   return (
     <Layout page="404">
@@ -31,23 +31,27 @@ const NotFoundPage = () => {
           display: 'flex',
           alignItems: 'center',
           width: '100%',
-          marginTop: '0'
+          marginTop: '0',
+          flexDirection: `${hasMounted && isMobile && 'column'}`
         }}
       >
         <Img
           fluid={placeholder.childImageSharp.fluid}
-          style={{ width: '50%', flex: '1 0 auto' }}
+          style={{
+            width: `${hasMounted && isMobile ? '100%' : '50%'}`,
+            flex: '1 0 auto'
+          }}
         />
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             flexDirection: 'column',
-            marginLeft: '5rem'
+            marginLeft: `${hasMounted && isMobile ? '0' : '5rem'}`
           }}
         >
           <PageText
-            fontSize="3rem"
+            fontSize={`${hasMounted && isMobile ? '1.8rem' : '3rem'}`}
             fontWeight="bolder"
             style={{
               color: `${

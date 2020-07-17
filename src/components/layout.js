@@ -22,7 +22,8 @@ const Layout = ({ children, page }) => {
             page === '404'
               ? {
                   display: 'flex',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }
               : {}
           }
