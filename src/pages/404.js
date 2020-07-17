@@ -26,7 +26,7 @@ const NotFoundPage = () => {
   return (
     <Layout page="404">
       <SEO title="Page Not found" />
-      {hasMounted && (
+      {hasMounted ? (
         <MainContainer
           style={{
             display: 'flex',
@@ -74,7 +74,7 @@ const NotFoundPage = () => {
                 }`
               }}
             >
-              The page you might be looking for might be removed or is temporary
+              The page you might be looking for has been removed or is temporary
               unavailable.
             </PageText>
             <Link to="/">
@@ -94,6 +94,8 @@ const NotFoundPage = () => {
             </Link>
           </div>
         </MainContainer>
+      ) : (
+        <></>
       )}
     </Layout>
   );
