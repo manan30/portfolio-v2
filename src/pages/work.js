@@ -52,8 +52,7 @@ function Experience() {
     `
   );
 
-  const { themeState } = useTheme();
-  const isMobile = useIsMobile();
+  const { themeState, isMobile } = useTheme();
 
   return (
     <Layout>

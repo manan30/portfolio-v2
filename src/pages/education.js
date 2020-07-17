@@ -29,8 +29,7 @@ function Education() {
     }
   `);
 
-  const { themeState } = useTheme();
-  const isMobile = useIsMobile();
+  const { themeState, isMobile } = useTheme();
 
   return (
     <Layout>

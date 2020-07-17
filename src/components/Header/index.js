@@ -1,6 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import useIsMobile from '../../hooks/useIsMobile';
 import { useTheme } from '../../providers/ThemeProvider';
 import SVGIcon from '../SVGIcon';
 import ToggleSwitch from '../ToggleSwitch';
@@ -32,8 +31,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
   const [animating, setAnimating] = useState(false);
-  const { themeState } = useTheme();
-  const isMobile = useIsMobile();
+  const { themeState, isMobile, hasMounted } = useTheme();
 
   useEffect(() => {
     if (typeof window === 'undefined') return () => {};
@@ -75,54 +73,53 @@ function Header() {
             Manan
           </HeaderText>
         </Link>
-        {!isMobile && (
-          <>
-            <NavigationContainer>
-              <NavigationItemContainer>
-                {pagesData.map(({ node: page }, i) => {
-                  const idx = i;
-                  return (
-                    <Link to={`/${page.linkTo}`} key={idx}>
-                      <NavItem>{page.linkText}</NavItem>
-                    </Link>
-                  );
-                })}
-                <a href="/resume.pdf">
-                  <NavItem>Resume</NavItem>
-                </a>
-              </NavigationItemContainer>
-            </NavigationContainer>
-            <ToggleSwitch
-              themePreference={themeState.themePreference}
-              toggled={themeState.toggled}
+        {hasMounted &&
+          (!isMobile ? (
+            <>
+              <NavigationContainer>
+                <NavigationItemContainer>
+                  {pagesData.map(({ node: page }, i) => {
+                    const idx = i;
+                    return (
+                      <Link to={`/${page.linkTo}`} key={idx}>
+                        <NavItem>{page.linkText}</NavItem>
+                      </Link>
+                    );
+                  })}
+                  <a href="/resume.pdf">
+                    <NavItem>Resume</NavItem>
+                  </a>
+                </NavigationItemContainer>
+              </NavigationContainer>
+              <ToggleSwitch
+                themePreference={themeState.themePreference}
+                toggled={themeState.toggled}
+              >
+                Dark Mode
+              </ToggleSwitch>
+            </>
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginLeft: 'auto'
+              }}
+              role="button"
+              tabIndex="-1"
+              onClick={handleAnimations}
+              onKeyDown={() => {}}
             >
-              Dark Mode
-            </ToggleSwitch>
-          </>
-        )}
-
-        {isMobile && (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginLeft: 'auto'
-            }}
-            role="button"
-            tabIndex="-1"
-            onClick={handleAnimations}
-            onKeyDown={() => {}}
-          >
-            <SVGIcon
-              name="Menu"
-              fill={
-                themeState.toggled
-                  ? `var(--color-secondary-${themeState.themePreference})`
-                  : 'var(--initial-color-secondary)'
-              }
-            />
-          </div>
-        )}
+              <SVGIcon
+                name="Menu"
+                fill={
+                  themeState.toggled
+                    ? `var(--color-secondary-${themeState.themePreference})`
+                    : 'var(--initial-color-secondary)'
+                }
+              />
+            </div>
+          ))}
       </HeaderContainer>
 
       {sidebarVisibility && (

@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { createContext, useContext, useReducer } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState
+} from 'react';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const ThemeContext = createContext();
 
@@ -26,9 +33,12 @@ const ThemeReducer = (state, action) => {
 
 function ThemeProvider({ children }) {
   const [themeState, themeDispatch] = useReducer(ThemeReducer, {});
+  const { isMobile, hasMounted } = useIsMobile();
 
   return (
-    <ThemeContext.Provider value={{ themeState, themeDispatch }}>
+    <ThemeContext.Provider
+      value={{ themeState, themeDispatch, isMobile, hasMounted }}
+    >
       {children}
     </ThemeContext.Provider>
   );
