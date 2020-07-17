@@ -26,9 +26,6 @@ const InjectScript = () => {
     const {themePreference} = getColorMode();
     const root = document.documentElement;
 
-    if (window.innerWidth < 815) root.style.setProperty("--is-mobile", true);
-    else root.style.setProperty("--is-mobile", false);
-
     root.style.setProperty('--initial-background-color', themePreference === "dark" ? '#25282f':'#ffffff');
     root.style.setProperty('--background-color-dark', "#25282f");
     root.style.setProperty('--background-color-light', "#f4f4f8");
