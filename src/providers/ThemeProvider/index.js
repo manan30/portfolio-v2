@@ -33,12 +33,12 @@ const ThemeReducer = (state, action) => {
 
 function ThemeProvider({ children }) {
   const [themeState, themeDispatch] = useReducer(ThemeReducer, {});
-  const [isMobile] = useState(
-    document.documentElement.style.getPropertyValue('--is-mobile') === 'true'
-  );
+  const { isMobile, hasMounted } = useIsMobile();
 
   return (
-    <ThemeContext.Provider value={{ themeState, themeDispatch, isMobile }}>
+    <ThemeContext.Provider
+      value={{ themeState, themeDispatch, isMobile, hasMounted }}
+    >
       {children}
     </ThemeContext.Provider>
   );
