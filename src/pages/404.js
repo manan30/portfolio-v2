@@ -54,6 +54,7 @@ const NotFoundPage = () => {
             fontSize={`${hasMounted && isMobile ? '1.8rem' : '3rem'}`}
             fontWeight="bolder"
             style={{
+              marginBottom: '1rem',
               color: `${
                 themeState.toggled
                   ? `var(--color-primary-${themeState.themePreference})`
@@ -63,7 +64,6 @@ const NotFoundPage = () => {
           >
             I have some bad news for you
           </PageText>
-          <br />
           <PageText
             style={{
               color: `${
