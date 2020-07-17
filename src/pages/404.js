@@ -1,11 +1,12 @@
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 import PageText from '../components/Text';
 import SEO from '../components/SEO';
 import { MainContainer } from '../styles/GlobalStyles';
 import { useTheme } from '../providers/ThemeProvider';
+import Spinner from '../components/Spinner';
 
 const NotFoundPage = () => {
   const { placeholder } = useStaticQuery(
@@ -95,7 +96,7 @@ const NotFoundPage = () => {
           </div>
         </MainContainer>
       ) : (
-        <></>
+        <Spinner />
       )}
     </Layout>
   );
