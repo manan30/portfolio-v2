@@ -1,12 +1,10 @@
 import React from 'react';
-import styled, { keyframes, css } from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import styled, { css, keyframes } from 'styled-components';
 import Card from '../components/Card';
 import Layout from '../components/layout';
 import SEO from '../components/SEO';
-import { useTheme } from '../providers/ThemeProvider';
 import SVGIcon, { SVGIconsContainer } from '../components/SVGIcon';
+import { useTheme } from '../providers/ThemeProvider';
 
 const TextTranslateAnimation = (percent) => keyframes`
   from {

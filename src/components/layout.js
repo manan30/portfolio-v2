@@ -4,7 +4,7 @@ import { useTheme } from '../providers/ThemeProvider';
 import GlobalStyles from '../styles/GlobalStyles';
 import Header from './Header';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
   const { themeState } = useTheme();
 
   return (
@@ -16,8 +16,19 @@ const Layout = ({ children }) => {
       <div
         style={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
       >
-        <Header />
-        <main>{children}</main>
+        {page !== '404' && <Header />}
+        <main
+          style={
+            page === '404'
+              ? {
+                  display: 'flex',
+                  alignItems: 'center'
+                }
+              : {}
+          }
+        >
+          {children}
+        </main>
         <footer
           style={{
             color: themeState.toggled
@@ -44,7 +55,12 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  page: PropTypes.string
+};
+
+Layout.defaultProps = {
+  page: ''
 };
 
 export default Layout;
