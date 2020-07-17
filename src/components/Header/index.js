@@ -1,6 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
-import useIsMobile from '../../hooks/useIsMobile';
 import { useTheme } from '../../providers/ThemeProvider';
 import SVGIcon from '../SVGIcon';
 import ToggleSwitch from '../ToggleSwitch';
@@ -33,7 +32,6 @@ function Header() {
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
   const [animating, setAnimating] = useState(false);
   const { themeState, isMobile } = useTheme();
-  // const isMobile = useIsMobile();
 
   useEffect(() => {
     if (typeof window === 'undefined') return () => {};
