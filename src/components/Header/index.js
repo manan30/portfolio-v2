@@ -31,7 +31,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [sidebarVisibility, setSidebarVisibility] = useState(false);
   const [animating, setAnimating] = useState(false);
-  const { themeState, isMobile, hasMounted } = useTheme();
+  const { themeState, isMobile, hasMounted, themeDispatch } = useTheme();
 
   useEffect(() => {
     if (typeof window === 'undefined') return () => {};
@@ -42,6 +42,10 @@ function Header() {
     };
 
     window.addEventListener('scroll', scrollHandler);
+
+    setTimeout(() => {
+      themeDispatch({ type: 'INITIAL_PAGE_TOGGLE' });
+    }, 2000);
 
     return () => window.removeEventListener('scroll', scrollHandler);
   }, []);
@@ -82,12 +86,22 @@ function Header() {
                     const idx = i;
                     return (
                       <Link to={`/${page.linkTo}`} key={idx}>
-                        <NavItem>{page.linkText}</NavItem>
+                        <NavItem
+                          timing={1.2 + i * 0.2}
+                          animate={themeState.initialPage}
+                        >
+                          {page.linkText}
+                        </NavItem>
                       </Link>
                     );
                   })}
                   <a href="/resume.pdf">
-                    <NavItem>Resume</NavItem>
+                    <NavItem
+                      timing={1.2 + pagesData.length * 0.2}
+                      animate={themeState.initialPage}
+                    >
+                      Resume
+                    </NavItem>
                   </a>
                 </NavigationItemContainer>
               </NavigationContainer>

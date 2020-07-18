@@ -30,7 +30,7 @@ const generateAnimation = (animationTime) => {
   `;
 };
 
-function Experience() {
+function Work() {
   const {
     allWorkJson: { edges: workData }
   } = useStaticQuery(
@@ -153,4 +153,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default Work;

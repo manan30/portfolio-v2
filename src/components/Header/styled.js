@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const sidebarTranslateAnimationEnter = keyframes`
   from {
@@ -17,6 +17,16 @@ const sidebarTranslateAnimationExit = keyframes`
 
   to {
     transform: translateX(200%);
+  }
+`;
+
+const showLinkAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 `;
 
@@ -96,6 +106,12 @@ const NavigationItemContainer = styled.ul`
 const NavItem = styled.li`
   margin: 0;
   padding: 0;
+
+  ${(props) =>
+    props.animate &&
+    css`
+      animation: ${showLinkAnimation} ${props.timing}s ease-in-out;
+    `};
 
   @media screen and (max-width: 815px) {
     margin-bottom: 1rem;
