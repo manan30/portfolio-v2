@@ -27,7 +27,7 @@ const NotFoundPage = () => {
   return (
     <Layout page="404">
       <SEO title="Page Not found" />
-      {/* {hasMounted ? (
+      {hasMounted ? (
         <MainContainer
           style={{
             display: 'flex',
@@ -57,6 +57,7 @@ const NotFoundPage = () => {
               fontWeight="bolder"
               style={{
                 marginBottom: '1rem',
+                textAlign: 'center',
                 color: `${
                   themeState.toggled
                     ? `var(--color-primary-${themeState.themePreference})`
@@ -68,6 +69,7 @@ const NotFoundPage = () => {
             </PageText>
             <PageText
               style={{
+                textAlign: 'center',
                 color: `${
                   themeState.toggled
                     ? `var(--color-secondary-${themeState.themePreference})`
@@ -87,7 +89,8 @@ const NotFoundPage = () => {
                   padding: '1rem',
                   border: 'none',
                   backgroundColor: '#eb6b5c',
-                  color: '#fff9ec'
+                  color: '#fff9ec',
+                  cursor: 'pointer'
                 }}
               >
                 <PageText fontWeight="bolder">BACK TO HOMEPAGE</PageText>
@@ -95,9 +98,9 @@ const NotFoundPage = () => {
             </Link>
           </div>
         </MainContainer>
-      ) : ( */}
-      <Spinner />
-      {/* )} */}
+      ) : (
+        <Spinner />
+      )}
     </Layout>
   );
 };
