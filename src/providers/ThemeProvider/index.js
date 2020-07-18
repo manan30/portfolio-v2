@@ -26,13 +26,17 @@ const ThemeReducer = (state, action) => {
       return { ...state, themePreference: 'light', toggled: true };
     case 'initial-theme':
       return { ...state, themePreference: action.payload };
+    case 'INITIAL_PAGE_TOGGLE':
+      return { ...state, initialPage: false };
     default:
       throw new Error('Bad Action');
   }
 };
 
 function ThemeProvider({ children }) {
-  const [themeState, themeDispatch] = useReducer(ThemeReducer, {});
+  const [themeState, themeDispatch] = useReducer(ThemeReducer, {
+    initialPage: true
+  });
   const { isMobile, hasMounted } = useIsMobile();
 
   return (

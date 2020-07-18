@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const sidebarTranslateAnimationEnter = keyframes`
   from {
@@ -107,8 +107,11 @@ const NavItem = styled.li`
   margin: 0;
   padding: 0;
 
-  animation: ${showLinkAnimation} ${(props) => props.timing && props.timing}s
-    ease-in-out;
+  ${(props) =>
+    props.animate &&
+    css`
+      animation: ${showLinkAnimation} ${props.timing}s ease-in-out;
+    `};
 
   @media screen and (max-width: 815px) {
     margin-bottom: 1rem;
