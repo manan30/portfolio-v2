@@ -20,6 +20,16 @@ const sidebarTranslateAnimationExit = keyframes`
   }
 `;
 
+const showLinkAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
@@ -96,6 +106,9 @@ const NavigationItemContainer = styled.ul`
 const NavItem = styled.li`
   margin: 0;
   padding: 0;
+
+  animation: ${showLinkAnimation} ${(props) => props.timing && props.timing}s
+    ease-in-out;
 
   @media screen and (max-width: 815px) {
     margin-bottom: 1rem;

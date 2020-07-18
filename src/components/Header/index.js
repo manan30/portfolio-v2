@@ -82,12 +82,16 @@ function Header() {
                     const idx = i;
                     return (
                       <Link to={`/${page.linkTo}`} key={idx}>
-                        <NavItem>{page.linkText}</NavItem>
+                        <NavItem timing={1.2 + i * 0.2}>
+                          {page.linkText}
+                        </NavItem>
                       </Link>
                     );
                   })}
                   <a href="/resume.pdf">
-                    <NavItem>Resume</NavItem>
+                    <NavItem timing={1.2 + pagesData.length * 0.2}>
+                      Resume
+                    </NavItem>
                   </a>
                 </NavigationItemContainer>
               </NavigationContainer>
