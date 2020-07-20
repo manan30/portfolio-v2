@@ -26,6 +26,17 @@
     "technologies": ["Gatsby", "React", "GraphQL"]
   },
   {
+    "name": "Frontend Mentor Challenges",
+    "image": "./images/frontend-mentor-challenges.jpg",
+    "imageAltText": "frontend-mentor-challenges-thumbnail",
+    "description": "Solutions for all frontendmentor.io challenges.",
+    "links": [
+      { "type": "github", "to": "https://github.com/manan30/frontend-mentor" },
+      { "type": "demo", "to": "https://frontend-mentor-solutions.netlify.app/" }
+    ],
+    "technologies": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
     "name": "Box Office",
     "image": "./images/box-office.jpg",
     "imageAltText": "box-office-thumbnail",
