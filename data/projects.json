@@ -28,7 +28,7 @@
   {
     "name": "Frontend Mentor Challenges",
     "image": "./images/frontend-mentor-challenges.jpg",
-    "imageAltText": "portfolio-v2-thumbnail",
+    "imageAltText": "frontend-mentor-challenges-thumbnail",
     "description": "Solutions for all frontendmentor.io challenges.",
     "links": [
       { "type": "github", "to": "https://github.com/manan30/frontend-mentor" },
