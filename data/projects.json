@@ -37,6 +37,17 @@
     "technologies": ["HTML5", "CSS3", "JavaScript"]
   },
   {
+    "name": "Dev Challenges Dot IO",
+    "image": "./images/dev-challenges.jpg",
+    "imageAltText": "dev-challenges-io-thumbnail",
+    "description": "Solutions for all devchallenges.io challenges.",
+    "links": [
+      { "type": "github", "to": "https://github.com/manan30/dev-challenges" },
+      { "type": "demo", "to": "https://dev-challenges.netlify.app/" }
+    ],
+    "technologies": ["HTML5", "CSS3", "JavaScript"]
+  },
+  {
     "name": "Box Office",
     "image": "./images/box-office.jpg",
     "imageAltText": "box-office-thumbnail",
