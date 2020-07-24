@@ -109,6 +109,10 @@ function IndexPage() {
     { name: 'LinkedIn', link: 'https://www.linkedin.com/in/mananjoshi1741/' },
     { name: 'Twitter', link: 'https://twitter.com/Manan_30' },
     { name: 'Github', link: 'https://github.com/manan30' },
+    {
+      name: 'Stack Overflow',
+      link: 'https://stackoverflow.com/users/5266912/manan-joshi'
+    },
     { name: 'Medium', link: 'https://medium.com/@Manan_30' },
     { name: 'Dev', link: 'https://dev.to/manan30' },
     { name: 'Email', link: 'mailto:mananjoshi1995@gmail.com' }

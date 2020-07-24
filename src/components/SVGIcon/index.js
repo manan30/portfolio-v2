@@ -39,6 +39,7 @@ import R3FIcon from '../../../data/svg/react-three-fiber.svg';
 import WebGLIcon from '../../../data/svg/webgl.svg';
 import ThreeJSIcon from '../../../data/svg/threejs.svg';
 import ExpressJSIcon from '../../../data/svg/expressjs.svg';
+import StackOverflowIcon from '../../../data/svg/stackoverflow.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -132,6 +133,8 @@ function SVGIcon({ name, fill }) {
       return <ThreeJSIcon />;
     case 'Express':
       return <ExpressJSIcon />;
+    case 'Stack Overflow':
+      return <StackOverflowIcon fill="#FE7A16" />;
     default:
       return <div />;
   }
