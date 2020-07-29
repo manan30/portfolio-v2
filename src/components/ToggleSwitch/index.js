@@ -60,8 +60,8 @@ const ToggleSwitchButton = styled.button`
         : `var(--initial-toggle-border-color)`};
   background-color: ${(props) =>
     props.toggled
-      ? `var(--background-color-${props.themePreference})`
-      : `var(--initial-background-color)`};
+      ? `rgb(var(--background-color-${props.themePreference}))`
+      : `rgb(var(--initial-background-color))`};
   border-radius: 50%;
   transform: translateX(
     ${(props) =>
