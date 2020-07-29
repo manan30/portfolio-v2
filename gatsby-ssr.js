@@ -26,9 +26,9 @@ const InjectScript = () => {
     const {themePreference} = getColorMode();
     const root = document.documentElement;
 
-    root.style.setProperty('--initial-background-color', themePreference === "dark" ? '#25282f':'#ffffff');
-    root.style.setProperty('--background-color-dark', "#25282f");
-    root.style.setProperty('--background-color-light', "#f4f4f8");
+    root.style.setProperty('--initial-background-color', themePreference === "dark" ? '37, 40, 47':'244, 244, 248');
+    root.style.setProperty('--background-color-dark', "37, 40, 47");
+    root.style.setProperty('--background-color-light', "244, 244, 248");
 
     root.style.setProperty('--initial-color-primary', themePreference === "dark" ? '#91f291':'#2e4057');
     root.style.setProperty('--color-primary-dark', "#91f291");

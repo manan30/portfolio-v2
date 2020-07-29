@@ -9,8 +9,8 @@ export default createGlobalStyle`
 
     background-color: ${(props) =>
       props.toggled
-        ? `var(--background-color-${props.themePreference})`
-        : `var(--initial-background-color)`};
+        ? `rgb(var(--background-color-${props.themePreference}))`
+        : `rgb(var(--initial-background-color))`};
 
     color: ${(props) =>
       props.toggled

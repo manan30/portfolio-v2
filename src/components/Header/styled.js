@@ -43,8 +43,8 @@ const HeaderContainer = styled.header`
 
   background-color: ${(props) =>
     props.toggled
-      ? `var(--background-color-${props.themePreference})`
-      : `var(--initial-background-color)`};
+      ? `rgba(var(--background-color-${props.themePreference}), 0.4)`
+      : `rgba(var(--initial-background-color), 0.4)`};
 
   box-shadow: ${(props) =>
     props.shadow
@@ -54,6 +54,8 @@ const HeaderContainer = styled.header`
             : 'var(--initial-shadow)'
         }`
       : 'none'};
+
+  backdrop-filter: blur(10px);
   transition: all 0.4s ease-in-out;
 `;
 
@@ -138,8 +140,8 @@ const NavigationContainerMobile = styled.div`
 
     background-color: ${(props) =>
       props.toggled
-        ? `var(--background-color-${props.themePreference})`
-        : `var(--initial-background-color)`};
+        ? `rgb(var(--background-color-${props.themePreference}))`
+        : `rgb(var(--initial-background-color))`};
 
     box-shadow: 0 0 0.6rem
       ${(props) =>
