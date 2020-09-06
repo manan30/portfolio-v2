@@ -107,7 +107,7 @@ function IndexPage() {
   ];
   const socialIcons = [
     { name: 'LinkedIn', link: 'https://www.linkedin.com/in/mananjoshi1741/' },
-    { name: 'Twitter', link: 'https://twitter.com/Manan_30' },
+    { name: 'Twitter', link: 'https://twitter.com/manan__joshi' },
     { name: 'Github', link: 'https://github.com/manan30' },
     {
       name: 'Stack Overflow',
