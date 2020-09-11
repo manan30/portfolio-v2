@@ -95,9 +95,17 @@ function Header() {
                       </Link>
                     );
                   })}
-                  <a href="/resume.pdf">
+                  <a href="https://blog.mananjoshi.me">
                     <NavItem
                       timing={1.2 + pagesData.length * 0.2}
+                      animate={themeState.initialPage}
+                    >
+                      Blog
+                    </NavItem>
+                  </a>
+                  <a href="/resume.pdf">
+                    <NavItem
+                      timing={1.2 + (pagesData.length + 1) * 0.2}
                       animate={themeState.initialPage}
                     >
                       Resume
@@ -180,9 +188,17 @@ function Header() {
                 </Link>
               );
             })}
-            <a href="/resume.pdf">
+            <a href="https://blog.mananjoshi.me">
               <NavItem
                 timing={1.2 + pagesData.length * 0.2}
+                isAnimating={animating}
+              >
+                Blog
+              </NavItem>
+            </a>
+            <a href="/resume.pdf">
+              <NavItem
+                timing={1.2 + (pagesData.length + 1) * 0.2}
                 isAnimating={animating}
               >
                 Resume
