@@ -40,6 +40,7 @@ import WebGLIcon from '../../../data/svg/webgl.svg';
 import ThreeJSIcon from '../../../data/svg/threejs.svg';
 import ExpressJSIcon from '../../../data/svg/expressjs.svg';
 import StackOverflowIcon from '../../../data/svg/stackoverflow.svg';
+import JQueryIcon from '../../../data/svg/jquery.svg';
 
 const SVGIconsContainer = styled.div`
   display: flex;
@@ -135,6 +136,8 @@ function SVGIcon({ name, fill }) {
       return <ExpressJSIcon />;
     case 'Stack Overflow':
       return <StackOverflowIcon fill="#FE7A16" />;
+    case 'JQuery':
+      return <JQueryIcon fill="#0d69ad" />;
     default:
       return <div />;
   }

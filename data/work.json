@@ -1,6 +1,56 @@
 [
   {
     "position": "Full-Stack Developer",
+    "company": "Egen Solutions",
+    "location": "Naperville, Illinois, USA",
+    "timeline": "September 2020 - Present",
+    "work": [
+      "Working on a project related to COVID-19 testing with Tempus - Data-Driven Precision Medicine.",
+      "Responsible for implementing new features on an application that processes almost 10K COVID-19 tests every day."
+    ],
+    "tech": [
+      "React",
+      "Redux",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "React-Router",
+      "Node",
+      "Express",
+      "MongoDB",
+      "Trello",
+      "Jira"
+    ],
+    "links": []
+  },
+  {
+    "position": "Learning Assistant",
+    "company": "Trilogy Education Services",
+    "location": "Remote",
+    "timeline": "October 2020 - Present",
+    "work": [
+      "Trilogy Education Services organizes bootcamps for Full-Stack Web Development and Data Science.",
+      "Responsible for helping and guiding these bootcamp students with their coding questions, assignments and projects."
+    ],
+    "tech": [
+      "React",
+      "Redux",
+      "JavaScript",
+      "JQuery",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "React-Router",
+      "Node",
+      "Express",
+      "MongoDB",
+      "PostgreSQL"
+    ],
+    "links": []
+  },
+  {
+    "position": "Full-Stack Developer",
     "company": "Department of Public Safety - RIT",
     "location": "Rochester, New York, USA",
     "timeline": "March 2018 - June 2020",
