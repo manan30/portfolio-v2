@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Manan Joshi`,
     type: `website`,
-    description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He is currently pursuing his Masters's Degree in Computer Science from Rochester Institute of Technology and lives in Rochester, New York.`,
+    description: `Manan Joshi is a passionate full-stack developer and loves working with web technologies. He is interested in building software that empowers the lives of people. He is currently working with Tempus Labs and lives in Naperville, Illinois.`,
     siteUrl: `https://mananjoshi.me`,
     image: `https://mananjoshi.me/profile-image.jpg`,
     twitter: {
